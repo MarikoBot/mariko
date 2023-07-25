@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6063390a-6b6a-4efb-8633-f5bd8b5b3724" name="Changes" comment="Database system" />
+    <list id="378001a8-85c5-4243-a249-6328f5a6c835" name="Don't touch" comment="Don't touch" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": -1
+}]]></component>
+  <component name="ProjectId" id="2QWftNyy6JZWpcW1IdBKQ1ze7kb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eloua/OneDrive/Bureau/Projets/Haganezuka/src/Root/Classes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\eloua\\OneDrive\\Bureau\\Projets\\Haganezuka\\node_modules\\prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\eloua\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\eloua\OneDrive\Bureau\Projets\Haganezuka\src\Root\Classes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\eloua\OneDrive\Bureau\Projets\Haganezuka\src\Models" />
+      <recent name="C:\Users\eloua\OneDrive\Bureau\Projets\Haganezuka\src\Server" />
+      <recent name="C:\Users\eloua\OneDrive\Bureau\Projets\Haganezuka\src\Server\Game" />
+      <recent name="C:\Users\eloua\OneDrive\Bureau\Projets\Haganezuka\src\Models\Game" />
+      <recent name="C:\Users\eloua\OneDrive\Bureau\Projets\Haganezuka\src\Services\Game" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.prod">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="prod" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="prod" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.prod" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6063390a-6b6a-4efb-8633-f5bd8b5b3724" name="Changes" comment="" />
+      <changelist id="378001a8-85c5-4243-a249-6328f5a6c835" name="Don't touch" comment="" />
+      <created>1685474476041</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685474476041</updated>
+      <workItem from="1685474477407" duration="174000" />
+      <workItem from="1685637531033" duration="8442000" />
+      <workItem from="1685651219438" duration="581000" />
+      <workItem from="1685724749591" duration="7959000" />
+      <workItem from="1685785836874" duration="6457000" />
+      <workItem from="1685807777538" duration="4333000" />
+      <workItem from="1685867526900" duration="298000" />
+      <workItem from="1686305958179" duration="2175000" />
+      <workItem from="1686326021423" duration="1801000" />
+      <workItem from="1686330020856" duration="592000" />
+      <workItem from="1686385920623" duration="143000" />
+      <workItem from="1686386118611" duration="5241000" />
+      <workItem from="1686407251340" duration="8046000" />
+      <workItem from="1686424399183" duration="1188000" />
+      <workItem from="1686478194158" duration="4308000" />
+      <workItem from="1686562254773" duration="3649000" />
+      <workItem from="1686579906592" duration="8957000" />
+      <workItem from="1686765967736" duration="1081000" />
+      <workItem from="1686855422424" duration="3815000" />
+      <workItem from="1686916938505" duration="7044000" />
+      <workItem from="1686931648441" duration="4830000" />
+      <workItem from="1687018542271" duration="9661000" />
+      <workItem from="1687080330204" duration="9692000" />
+      <workItem from="1687096323067" duration="8000" />
+      <workItem from="1687193052638" duration="11239000" />
+      <workItem from="1687288427764" duration="6349000" />
+      <workItem from="1687340645623" duration="379000" />
+      <workItem from="1687450969796" duration="7207000" />
+      <workItem from="1687466142044" duration="3200000" />
+      <workItem from="1687514742446" duration="6080000" />
+      <workItem from="1687594051739" duration="8242000" />
+      <workItem from="1687622608217" duration="9739000" />
+      <workItem from="1687684274602" duration="9315000" />
+      <workItem from="1687717765238" duration="6919000" />
+      <workItem from="1687774021826" duration="4332000" />
+      <workItem from="1687803693411" duration="2988000" />
+      <workItem from="1687972204493" duration="53000" />
+      <workItem from="1688289934455" duration="3729000" />
+      <workItem from="1688566507299" duration="757000" />
+      <workItem from="1689007882804" duration="1327000" />
+      <workItem from="1689021283558" duration="13000" />
+      <workItem from="1689102333507" duration="21000" />
+      <workItem from="1689102495982" duration="618000" />
+      <workItem from="1689106756209" duration="660000" />
+      <workItem from="1689172341699" duration="601000" />
+      <workItem from="1689267369691" duration="8326000" />
+      <workItem from="1689329925944" duration="2094000" />
+      <workItem from="1689346735030" duration="3885000" />
+      <workItem from="1689425380834" duration="1473000" />
+      <workItem from="1689427391897" duration="3822000" />
+      <workItem from="1689439002009" duration="1211000" />
+      <workItem from="1689458765702" duration="819000" />
+      <workItem from="1689499885207" duration="13248000" />
+      <workItem from="1689522701866" duration="5933000" />
+      <workItem from="1689535292713" duration="6133000" />
+      <workItem from="1689583591587" duration="4599000" />
+      <workItem from="1689590358928" duration="15107000" />
+      <workItem from="1689621811837" duration="2575000" />
+      <workItem from="1689628625486" duration="4521000" />
+      <workItem from="1689670717376" duration="3942000" />
+      <workItem from="1689689775807" duration="55000" />
+      <workItem from="1689691615568" duration="6516000" />
+      <workItem from="1689717103955" duration="210000" />
+      <workItem from="1689757824132" duration="7937000" />
+      <workItem from="1689855077173" duration="10898000" />
+      <workItem from="1689872504439" duration="781000" />
+      <workItem from="1689884340521" duration="125000" />
+      <workItem from="1689895516983" duration="162000" />
+      <workItem from="1690030158554" duration="10977000" />
+      <workItem from="1690199587066" duration="593000" />
+      <workItem from="1690215518111" duration="584000" />
+      <workItem from="1690282471726" duration="173000" />
+      <workItem from="1690289639263" duration="2048000" />
+      <workItem from="1690293134746" duration="870000" />
+      <workItem from="1690294218971" duration="164000" />
+      <workItem from="1690294586313" duration="1612000" />
+      <workItem from="1690297265053" duration="381000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1685734338969</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685734338969</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Database connection">
+      <created>1685794439595</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685794439595</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Database connection">
+      <created>1685794453705</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685794453705</updated>
+    </task>
+    <task id="LOCAL-00004" summary="The code hit the gym, it excuses the slow committing">
+      <created>1687027506185</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687027506185</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Test de commit">
+      <created>1687028185043</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687028185044</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Test de commit">
+      <created>1687028202122</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687028202122</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Written some game content for skills and ways.">
+      <created>1687197985047</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687197985047</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Ce nuage, on dirait une courgette énervée...">
+      <created>1687294811553</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687294811553</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Finished four first choices + patch bugs">
+      <created>1687459940162</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687459940163</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Finished four first choices + patch bugs">
+      <created>1687469290901</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1687469290901</updated>
+    </task>
+    <task id="LOCAL-00011" summary="What a work">
+      <created>1687723494938</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1687723494938</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Full fixed errors.">
+      <created>1687781248054</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1687781248054</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Full fixed errors.">
+      <option name="closed" value="true" />
+      <created>1689516568186</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1689516568186</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Rebuilt the whole structure">
+      <option name="closed" value="true" />
+      <created>1689545361479</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689545361479</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Translation ok MY HEAD IS DIZZY WHAT THE FUCK">
+      <option name="closed" value="true" />
+      <created>1689633826770</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689633826770</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Translation ok MY HEAD IS DIZZY WHAT THE FUCK">
+      <option name="closed" value="true" />
+      <created>1689633836757</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689633836757</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Authorization system">
+      <option name="closed" value="true" />
+      <created>1689762091399</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1689762091399</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Authorization system">
+      <option name="closed" value="true" />
+      <created>1689762442588</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1689762442588</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Authorization system">
+      <option name="closed" value="true" />
+      <created>1689768489766</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1689768489766</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Authorization system">
+      <option name="closed" value="true" />
+      <created>1689768627241</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1689768627241</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Database system">
+      <option name="closed" value="true" />
+      <created>1689884407387</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1689884407387</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Database system">
+      <option name="closed" value="true" />
+      <created>1689884417018</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1689884417018</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Database connection" />
+    <MESSAGE value="The code hit the gym, it excuses the slow committing" />
+    <MESSAGE value="Test de commit" />
+    <MESSAGE value="Written some game content for skills and ways." />
+    <MESSAGE value="Ce nuage, on dirait une courgette énervée..." />
+    <MESSAGE value="Finished four first choices + patch bugs" />
+    <MESSAGE value="What a work" />
+    <MESSAGE value="Full fixed errors." />
+    <MESSAGE value="Rebuilt the whole structure" />
+    <MESSAGE value="Translation ok MY HEAD IS DIZZY WHAT THE FUCK" />
+    <MESSAGE value="Authorization system" />
+    <MESSAGE value="Database system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database system" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
