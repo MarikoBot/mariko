@@ -8,8 +8,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6063390a-6b6a-4efb-8633-f5bd8b5b3724" name="Changes" comment="Database system" />
-    <list id="378001a8-85c5-4243-a249-6328f5a6c835" name="Don't touch" comment="Don't touch" />
+    <list default="true" id="6063390a-6b6a-4efb-8633-f5bd8b5b3724" name="Changes" comment="Created the repository">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/commands/Test.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/commands/Test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/strings/Fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/strings/Fr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/Test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/Test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/strings/Fr.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/strings/Fr.ts" afterDir="false" />
+    </list>
+    <list id="378001a8-85c5-4243-a249-6328f5a6c835" name="Don't touch" comment="Don't touch">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,36 +38,49 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": -1
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "elouann-h"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="7084cdef-9cd2-4068-ae73-36b5013b1e4f" />
+        <option name="url" value="https://github.com/HaganezukaBot/haganezuka.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2QWftNyy6JZWpcW1IdBKQ1ze7kb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eloua/OneDrive/Bureau/Projets/Haganezuka/src/Root/Classes&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\eloua\\OneDrive\\Bureau\\Projets\\Haganezuka\\node_modules\\prettier&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\eloua\\AppData\\Roaming\\npm\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/eloua/OneDrive/Bureau/Projets/Haganezuka/src/Root/Classes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\eloua\\OneDrive\\Bureau\\Projets\\Haganezuka\\node_modules\\prettier",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\eloua\OneDrive\Bureau\Projets\Haganezuka\src\Root\Classes" />
@@ -67,7 +93,7 @@
       <recent name="C:\Users\eloua\OneDrive\Bureau\Projets\Haganezuka\src\Services\Game" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.prod">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -90,8 +116,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.prod" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.prod" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +206,11 @@
       <workItem from="1690293134746" duration="870000" />
       <workItem from="1690294218971" duration="164000" />
       <workItem from="1690294586313" duration="1612000" />
-      <workItem from="1690297265053" duration="381000" />
+      <workItem from="1690297265053" duration="1198000" />
+      <workItem from="1690305445595" duration="44000" />
+      <workItem from="1690310191596" duration="2000" />
+      <workItem from="1690318112169" duration="5000" />
+      <workItem from="1690384074348" duration="2963000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1685734338969</created>
@@ -346,7 +376,23 @@
       <option name="project" value="LOCAL" />
       <updated>1689884417018</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Database system">
+      <option name="closed" value="true" />
+      <created>1690297687685</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1690297687685</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Created the repository">
+      <option name="closed" value="true" />
+      <created>1690297703430</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1690297703430</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,7 +426,8 @@
     <MESSAGE value="Translation ok MY HEAD IS DIZZY WHAT THE FUCK" />
     <MESSAGE value="Authorization system" />
     <MESSAGE value="Database system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database system" />
+    <MESSAGE value="Created the repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created the repository" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

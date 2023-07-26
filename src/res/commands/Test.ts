@@ -13,9 +13,8 @@ const data: CommandType = {
   interferingCommands: ['test'],
   coolDown: 5000,
   uniqueUsers: ['539842701592494111', '822895842964799499'],
-  forbiddenGuilds: ['922404341107798036'],
   execute: async (client: Client, interaction: ChatInputCommandInteraction, ctx: Context): Promise<void> => {
-    await ctx.reply('empty response').catch(caught);
+    await ctx.reply('667 Ekip Grr paw{{ephemeral:false}}').catch(caught);
     await timeout((): null => null, 10000);
     return ctx.command.end();
   },

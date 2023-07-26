@@ -68,7 +68,6 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
   if (interaction.isChatInputCommand()) {
     const command: Command | undefined = client.Commands.getCommand(interaction.commandName);
     if (!command) return;
-    await interaction.deferReply({ ephemeral: true }).catch(caught);
     const ctx: Context = new Context(interaction.channel, command, interaction, interaction.user);
     ctx.command = command;
     ctx.interaction = interaction;

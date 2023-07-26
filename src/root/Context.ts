@@ -157,18 +157,26 @@ export default class Context {
   public transformMessageData(data: BaseMessageOptions | string): BaseMessageOptions {
     if (typeof data !== 'string') return data;
     let color: (typeof Colors)[keyof typeof Colors] = Colors.WHITE;
-    if (data.includes('<:color:')) {
-      color = Colors[data.split('<:color:')[1].split('>')[0]];
-    }
+    let ephemeral: boolean = true;
+
+    if (data.includes('{{color:')) color = Colors[data.split('{{color:')[1].split('}}')[0]];
+    if (data.includes('{{ephemeral:')) ephemeral = eval(data.split('{{ephemeral:')[1].split('}}')[0]);
+
+    let finalStr: string = data.includes('{{color:') ? data.split('{{color:')[0] + data.split('}}')[1] : data;
+    finalStr = finalStr.includes('{{ephemeral:')
+      ? finalStr.split('{{ephemeral:')[0] + finalStr.split('}}')[1]
+      : finalStr;
+
     return Object.assign(
       {},
       {
         embeds: [
           new EmbedBuilder()
-            .setDescription(data.includes('<:color:') ? data.split('<:color:')[0] : data)
+            .setDescription(finalStr)
             .setColor(color)
             .setAuthor({ name: `@${this.users[0].username}`, iconURL: this.users[0].displayAvatarURL() }),
         ],
+        ephemeral,
       },
     );
   }
