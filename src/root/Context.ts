@@ -3,7 +3,6 @@ import {
   ActionRowBuilder,
   BaseGuildTextChannel,
   BaseGuildVoiceChannel,
-  BaseInteraction,
   BaseMessageOptions,
   ButtonBuilder,
   ButtonInteraction,
@@ -24,11 +23,11 @@ import {
 
 import { ButtonStyle, ComponentType, TextInputStyle } from 'discord-api-types/v10';
 
-import { caught, Colors, err, extractString, log, readEmbeds } from './Util';
+import { caught, Colors, extractString, readEmbeds } from './Util';
 import Command from './Command';
-import Client from './Client';
 import { LanguageContent } from './LanguageManager';
 import { Language } from '../service/game/Typings';
+import ClientConfig from '../res/ClientConfig';
 
 /**
  * Represents the type for a context possible channel type among Discord package.
@@ -157,28 +156,43 @@ export default class Context {
   public transformMessageData(data: BaseMessageOptions | string): BaseMessageOptions {
     if (typeof data !== 'string') return data;
     let color: (typeof Colors)[keyof typeof Colors] = Colors.WHITE;
-    let ephemeral: boolean = true;
+    let ephemeral: boolean = false;
 
-    if (data.includes('{{color:')) color = Colors[data.split('{{color:')[1].split('}}')[0]];
-    if (data.includes('{{ephemeral:')) ephemeral = eval(data.split('{{ephemeral:')[1].split('}}')[0]);
-
-    let finalStr: string = data.includes('{{color:') ? data.split('{{color:')[0] + data.split('}}')[1] : data;
-    finalStr = finalStr.includes('{{ephemeral:')
-      ? finalStr.split('{{ephemeral:')[0] + finalStr.split('}}')[1]
-      : finalStr;
+    const extracted: [{ [index: string]: string }, string] = Context.extractDataFromStr(data);
+    if ('color' in extracted[0]) color = Colors[extracted[0]['color']];
+    if ('ephemeral' in extracted[0]) ephemeral = eval(extracted[0]['ephemeral']);
 
     return Object.assign(
       {},
       {
         embeds: [
           new EmbedBuilder()
-            .setDescription(finalStr)
+            .setDescription(extracted[1])
             .setColor(color)
             .setAuthor({ name: `@${this.users[0].username}`, iconURL: this.users[0].displayAvatarURL() }),
         ],
         ephemeral,
       },
     );
+  }
+  public static extractDataFromStr(str: string): [{ [index: string]: string }, string] {
+    let data: { [index: string]: string } = {};
+    let finalStr: string = str;
+
+    for (let i: number = 0; i < str.split(ClientConfig.extBracketsOpen).length - 1; i++) {
+      const KV: string = finalStr.split(ClientConfig.extBracketsOpen)[1].split(ClientConfig.extBracketsClose)[0];
+      const key: string = KV.split(':')[0];
+      const value: string = KV.split(':')[1];
+
+      finalStr = finalStr.includes(ClientConfig.extBracketsOpen)
+        ? finalStr.split(ClientConfig.extBracketsOpen)[0] +
+          (finalStr.includes(ClientConfig.extBracketsClose) ? finalStr.split('}}')[1] : '')
+        : finalStr;
+
+      data[key] = value;
+    }
+
+    return [data, finalStr];
   }
 
   /**
@@ -630,19 +644,14 @@ export default class Context {
    * @returns The translated string.
    */
   public translate(key: keyof LanguageContent, ...vars: any[]): string {
-    const str: string = this.command.client.Languages.getStr(key, this.languageId) as string;
-    let finalStr: string = '';
+    const str: string[] = (this.command.client.Languages.getStr(key, this.languageId) as string).split(
+      ClientConfig.varBracketsOpen + ClientConfig.varBracketsClose,
+    );
+    let finalStr: string = str[0];
 
     if (vars.length > 0) {
-      for (let i = 0; i < str.split('{{').length - 1; i++) {
-        const piece: string = str.split('{{')[i];
-        const nextPiece: string = str.split('{{')[i + 1].split('}}')[1];
-        finalStr += `${piece}${vars.length < i - 1 ? '??' : vars[i]}${nextPiece}`;
-      }
-    } else {
-      finalStr = str;
-    }
-
-    return finalStr;
+      for (let i: number = 0; i < str.length - 1; i++) finalStr += vars[i] + str[i + 1];
+      return finalStr;
+    } else return str.join('??');
   }
 }

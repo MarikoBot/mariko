@@ -1,8 +1,8 @@
-import { Collection, BaseInteraction, GuildMemberRoleManager } from 'discord.js';
+import { Collection, BaseInteraction } from 'discord.js';
 
 import Command from './Command';
 import Client from './Client';
-import { caught, err, log } from './Util';
+import { caught, log } from './Util';
 import Context from './Context';
 import { CoolDownsQueueElement } from './CoolDownManager';
 import { InterferingQueueElement } from './InterferingManager';

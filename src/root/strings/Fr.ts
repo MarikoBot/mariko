@@ -5,9 +5,9 @@ import { LanguageContent } from '../LanguageManager';
  */
 const strings: LanguageContent = {
   activeInterfering:
-    "❌ Vous ne pouvez pas exécuter cette commande tant que les commandes {{}} sont en cours d'utilisation.{{color:YELLOW}}",
+    "❌ Vous ne pouvez pas exécuter cette commande tant que les commandes [[]] sont en cours d'utilisation.{{color:YELLOW}}",
   activeCoolDown:
-    "⏳ Doucement! La commande **/{{}}** ne peut pas être exécutée de nouveau, temps d'attente: <t:{{}}:R>{{color:YELLOW}}",
+    "⏳ Doucement ! La commande **/[[]]** ne peut pas être exécutée de nouveau, temps d'attente: <t:[[]]:R>{{color:YELLOW}}",
   forbiddenChannel: '❌ Cette commande est désactivée dans ce salon.{{color:RED}}',
   forbiddenUser: '❌ Cette commande est désactivée pour cet utilisateur.{{color:RED}}',
   forbiddenRole: '❌ Cette commande est désactivée pour ce rôle.{{color:RED}}',

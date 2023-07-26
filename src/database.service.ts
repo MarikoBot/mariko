@@ -1,6 +1,5 @@
 import { connect } from 'mongoose';
 import Client from './root/Client';
-import CoreServer from './server/CoreServer';
 
 /**
  * Connects to the database.

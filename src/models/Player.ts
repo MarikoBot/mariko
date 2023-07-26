@@ -1,5 +1,5 @@
 import { Schema, model, Types } from 'mongoose';
-import { BloodDemonArt, BreathingStyle, Food, Language, Race, Tool, Way, Weapon } from '../service/game/Typings';
+import { BloodDemonArt, BreathingStyle, Food, Race, Tool, Way, Weapon } from '../service/game/Typings';
 
 /**
  * The interface of a document.

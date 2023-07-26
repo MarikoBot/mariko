@@ -1,5 +1,4 @@
-import { Schema, model, Types } from 'mongoose';
-import { Snowflake } from 'discord.js';
+import { Schema, model } from 'mongoose';
 
 /**
  * The interface of a document.

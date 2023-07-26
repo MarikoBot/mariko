@@ -5,6 +5,22 @@ import { GatewayIntentBits, ActivityType, PresenceData } from 'discord.js';
  */
 const defaultData = {
   /**
+   * The brackets for variables in strings.
+   */
+  varBracketsOpen: '[[',
+  /**
+   * The brackets for variables in strings.
+   */
+  varBracketsClose: ']]',
+  /**
+   * The brackets for extracted data.
+   */
+  extBracketsOpen: '{{',
+  /**
+   * The brackets for extracted data.
+   */
+  extBracketsClose: '}}',
+  /**
    * The default client id.
    */
   defaultClientId: '1113174518744236034',

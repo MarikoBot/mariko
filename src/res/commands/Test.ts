@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { ChatInputCommandInteraction, InteractionResponse, Message } from 'discord.js';
+import { ChatInputCommandInteraction } from 'discord.js';
 
 import { CommandType } from '../../root/Command';
 import Client from '../../root/Client';
@@ -11,10 +11,11 @@ const data: CommandType = {
   name: 'test',
   description: 'Commande de testing générale.',
   interferingCommands: ['test'],
-  coolDown: 5000,
+  coolDown: 5,
   uniqueUsers: ['539842701592494111', '822895842964799499'],
   execute: async (client: Client, interaction: ChatInputCommandInteraction, ctx: Context): Promise<void> => {
-    await ctx.reply('667 Ekip Grr paw{{ephemeral:false}}').catch(caught);
+    await ctx.reply('667 Ekip Grr paw{{ephemeral:false}}{{color:GREEN}}').catch(caught);
+
     await timeout((): null => null, 10000);
     return ctx.command.end();
   },

@@ -1,4 +1,4 @@
-import { ApplicationCommandDataResolvable, Client, User } from 'discord.js';
+import { ApplicationCommandDataResolvable, Client } from 'discord.js';
 import * as fs from 'fs';
 
 import defaultData from '../res/ClientConfig';

@@ -4,7 +4,6 @@ import * as models from '../models';
 import BaseServer from './BaseServer';
 import Client from '../root/Client';
 import { HydratedDocument } from 'mongoose';
-import { Language } from '../service/game/Typings';
 
 /**
  * The guild server.
