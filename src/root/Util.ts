@@ -23,7 +23,8 @@ export function log(...args: any[]): void {
  */
 export function test(...args: any[]): void {
   args.forEach((arg: any): any => {
-    console.log(chalk.magenta('⟦HAGANEZUKA TEST⟧'), chalk.magenta(...args.map((arg: any): any => arg.message || arg)));
+    console.log(chalk.magenta('⟦HAGANEZUKA TEST⟧'));
+    console.log(...args.map((arg: any): any => arg.message || arg));
     if (arg.message) console.log(arg);
   });
 }
@@ -47,7 +48,8 @@ export function err(...args: any[]): void {
  */
 export function caught(...args: any[]): void {
   args.forEach((arg: any): any => {
-    console.log(chalk.magenta('⟦HAGANEZUKA ERROR⟧'), chalk.magenta(...args.map((arg: any): any => arg.message || arg)));
+    console.log(chalk.magenta('⟦HAGANEZUKA ERROR⟧'));
+    console.log(chalk.magenta(...args.map((arg: any): any => arg.message || arg)));
     if (arg.message) console.log(arg);
   });
 }

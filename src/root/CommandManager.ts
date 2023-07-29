@@ -1,4 +1,5 @@
-import { Collection } from 'discord.js';
+import { ChatInputCommandInteraction, Collection, CommandInteractionOption } from 'discord.js';
+import { ApplicationCommandOptionType } from 'discord-api-types/v10';
 
 import * as Command from './Command';
 import CoolDownManager from './CoolDownManager';
@@ -76,10 +77,21 @@ export default class CommandManager {
 
   /**
    * Get a command from the cache with the name.
-   * @param name The command name.
+   * @param interaction The interaction.
    * @returns The found command instance, or undefined.
    */
-  public getCommand(name: string): Command.default | undefined {
-    return this.commandsList.get(name);
+  public getCommand(interaction: ChatInputCommandInteraction): Command.default | undefined {
+    let commandToReturn: Command.default;
+    const command: Command.default = this.commandsList.get(interaction.commandName);
+
+    const thereIsOption = interaction.options.data;
+    const thereIsGroup: CommandInteractionOption[] = thereIsOption.filter(
+      (elt: CommandInteractionOption): boolean => elt.type === ApplicationCommandOptionType.SubcommandGroup,
+    );
+    const thereIsSub: CommandInteractionOption[] = thereIsOption.filter(
+      (elt: CommandInteractionOption): boolean => elt.type === ApplicationCommandOptionType.Subcommand,
+    );
+
+    return this.commandsList.get(interaction.commandName);
   }
 }

@@ -1,4 +1,9 @@
-import { ChatInputApplicationCommandData, ChatInputCommandInteraction, GuildMemberRoleManager } from 'discord.js';
+import {
+  ApplicationCommandDataResolvable,
+  ChatInputApplicationCommandData,
+  ChatInputCommandInteraction,
+  GuildMemberRoleManager,
+} from 'discord.js';
 
 import Client from './Client';
 import Context from './Context';

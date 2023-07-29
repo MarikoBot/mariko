@@ -2,7 +2,7 @@ import { Collection, BaseInteraction } from 'discord.js';
 
 import Command from './Command';
 import Client from './Client';
-import { caught, log } from './Util';
+import { caught, log, test } from './Util';
 import Context from './Context';
 import { CoolDownsQueueElement } from './CoolDownManager';
 import { InterferingQueueElement } from './InterferingManager';
@@ -66,7 +66,7 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
     }
   }
   if (interaction.isChatInputCommand()) {
-    const command: Command | undefined = client.Commands.getCommand(interaction.commandName);
+    const command: Command | undefined = client.Commands.getCommand(interaction);
     if (!command) return;
     const ctx: Context = new Context(interaction.channel, command, interaction, interaction.user);
     ctx.command = command;
@@ -91,7 +91,7 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
     }
     if (activeInterfering.length > 0) {
       const interferingList: string = activeInterfering
-        .map((i: InterferingQueueElement): string => `**/${i[0]}**`)
+        .map((i: InterferingQueueElement): string => `</${i[0]}:${i[1].commandId}>`)
         .join(', ');
       const translated: string = ctx.translate('activeInterfering', interferingList);
 
@@ -104,7 +104,7 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
     const authorizedAsUnique: boolean = await command.isAuthorizedAsUnique(interaction);
     if (!authorizedAsUnique) return;
 
-    client.Commands.Interfering.registerInterfering(interaction.user.id, command.data.name, interaction.id);
+    client.Commands.Interfering.registerInterfering(interaction.user.id, command.data.name, interaction);
     client.Commands.CoolDowns.registerCoolDown(interaction.user.id, command.data.name, command.data.coolDown || 0);
 
     await command.execute(client, interaction, ctx);

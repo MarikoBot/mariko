@@ -1,4 +1,4 @@
-import { Collection, Snowflake } from 'discord.js';
+import { ChatInputCommandInteraction, Collection, Snowflake } from 'discord.js';
 
 import Client from './Client';
 
@@ -14,7 +14,7 @@ export type InterferingQueueElement = [
   /**
    * The interaction id.
    */
-  Snowflake,
+  ChatInputCommandInteraction,
 ];
 
 /**
@@ -41,13 +41,13 @@ export default class InterferingManager {
    * Register an interfering command when this command is triggered.
    * @param userID The user ID of the command's author.
    * @param commandName The name of the command.
-   * @param interactionId The interaction id.
+   * @param interaction The interaction id.
    * @returns Void.
    */
-  public registerInterfering(userID: Snowflake, commandName: string, interactionId: Snowflake): void {
+  public registerInterfering(userID: Snowflake, commandName: string, interaction: ChatInputCommandInteraction): void {
     const currentCoolDowns: InterferingQueueElement[] = this.interfering(userID);
 
-    currentCoolDowns.push([commandName, interactionId]);
+    currentCoolDowns.push([commandName, interaction]);
 
     this.queue.set(userID, currentCoolDowns);
   }
@@ -85,7 +85,7 @@ export default class InterferingManager {
     this.queue.set(
       userID,
       currentInterfering.filter((queueElement: InterferingQueueElement): boolean => {
-        return queueElement[1] !== key;
+        return queueElement[1].id !== key;
       }),
     );
   }

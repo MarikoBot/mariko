@@ -1,4 +1,14 @@
-import { ApplicationCommandDataResolvable, Client } from 'discord.js';
+import {
+  ApplicationCommandData,
+  ApplicationCommandDataResolvable,
+  ApplicationCommandSubCommandData,
+  ApplicationCommandSubGroupData,
+  ChatInputApplicationCommandData,
+  Client,
+  SlashCommandBuilder,
+  SlashCommandSubcommandBuilder,
+  SlashCommandSubcommandGroupBuilder,
+} from 'discord.js';
 import * as fs from 'fs';
 
 import defaultData from '../res/ClientConfig';
@@ -12,6 +22,7 @@ import GuildServer from '../server/GuildServer';
 import CoreServer from '../server/CoreServer';
 import LanguageManager from './LanguageManager';
 import GameService from '../service/game/';
+import { test } from './Util';
 
 /**
  * The default structure of the game servers.
@@ -24,6 +35,14 @@ interface ServerInterface {
 }
 
 /**
+ * The type that includes the three builders.
+ */
+export type SlashOrganBuilder =
+  | SlashCommandBuilder
+  | SlashCommandSubcommandBuilder
+  | SlashCommandSubcommandGroupBuilder;
+
+/**
  * The default structure of service.
  */
 interface ServiceInterface {
@@ -33,7 +52,7 @@ interface ServiceInterface {
 /**
  * The pre-configured client class for the bot.
  */
-export default class extends Client {
+export default class SuperClient extends Client {
   /**
    * The directory to load the commands from.
    */
@@ -78,19 +97,118 @@ export default class extends Client {
   }
 
   /**
+   * Generates a slash command builder instance from a CommandType typed object.
+   * @param commandData The command data.
+   * @param builderType Specify if the builder to return concerns a command, sub command or sub command group.
+   * @returns The builder instance.
+   */
+  public static materializeBuilder(
+    commandData: ChatInputApplicationCommandData | ApplicationCommandSubCommandData | ApplicationCommandSubGroupData,
+    builderType: 'slash' | 'sub' | 'group',
+  ): SlashCommandBuilder | SlashCommandSubcommandBuilder | SlashCommandSubcommandGroupBuilder {
+    let builder: SlashOrganBuilder = {
+      slash: new SlashCommandBuilder(),
+      sub: new SlashCommandSubcommandBuilder(),
+      group: new SlashCommandSubcommandGroupBuilder(),
+    }[builderType];
+
+    builder
+      .setName(commandData.name)
+      .setNameLocalization('en-US', commandData.name)
+      .setNameLocalizations(Object.assign({ 'en-US': commandData.name }, commandData.nameLocalizations || {}))
+      .setDescription(commandData.description || 'No description yet.')
+      .setDescriptionLocalization('en-US', commandData.description || 'No description yet.')
+      .setDescriptionLocalizations(
+        Object.assign({ 'en-US': commandData.description }, commandData.descriptionLocalizations || {}),
+      );
+
+    if (builderType === 'slash') {
+      commandData = commandData as ChatInputApplicationCommandData;
+      builder = builder as SlashCommandBuilder;
+      builder
+        .setNSFW(commandData.nsfw || false)
+        .setDMPermission(commandData.dmPermission || false)
+        .setDefaultMemberPermissions(commandData.defaultMemberPermissions?.toString() || 0);
+    }
+
+    return builder;
+  }
+
+  /**
    * The function to load the commands.
    * @returns {Promise<void>}
    */
   public async loadCommands(): Promise<void> {
     const dir: string[] = fs.readdirSync(`./lib/${this.commandsDir}`);
-    const commandsList: ApplicationCommandDataResolvable[] = [];
+    const commandsList: SlashCommandBuilder[] = [];
 
-    for (const file of dir) {
-      const command: CommandType = require(`../${this.commandsDir}/${file}`).default as CommandType;
-      commandsList.push(command);
-      this.Commands.add(command);
+    for (const rootCommandsDir of dir) {
+      const commandDirElements: string[] = fs.readdirSync(`./lib/${this.commandsDir}/${rootCommandsDir}`);
+      if (commandDirElements.length === 1) {
+        const command: CommandType = require(`../${this.commandsDir}/${rootCommandsDir}/index`).default as CommandType;
+        const materialized: SlashCommandBuilder = SuperClient.materializeBuilder(
+          command,
+          'slash',
+        ) as SlashCommandBuilder;
+        commandsList.push(materialized);
+        continue;
+      }
+
+      const rootPath: string = `${this.commandsDir}/${rootCommandsDir}`;
+      let defaultCommandData: CommandType;
+      let builder: SlashCommandBuilder = new SlashCommandBuilder();
+      let subcommands: (SlashCommandSubcommandGroupBuilder | SlashCommandSubcommandBuilder)[] = [];
+
+      for (const commandDirElement of commandDirElements) {
+        const elementFileOrFolder: fs.Stats = fs.statSync(`./lib/${rootPath}/${commandDirElement}`);
+
+        if (elementFileOrFolder.isFile()) {
+          let commandData: CommandType = require(`../${rootPath}/${commandDirElement}`).default as CommandType;
+          if (commandDirElement === 'index.js') {
+            defaultCommandData = commandData;
+            builder = SuperClient.materializeBuilder(defaultCommandData, 'slash') as SlashCommandBuilder;
+          } else {
+            const materialized: SlashCommandSubcommandBuilder = SuperClient.materializeBuilder(
+              commandData,
+              'sub',
+            ) as SlashCommandSubcommandBuilder;
+            const assigned = Object.assign(materialized, commandData);
+            subcommands.push(assigned);
+          }
+        }
+        if (!elementFileOrFolder.isDirectory()) continue;
+
+        const subcommandGroupsList: string[] = fs.readdirSync(`./lib/${rootPath}/${commandDirElement}/`);
+        let subcommandGroup: SlashCommandSubcommandGroupBuilder = new SlashCommandSubcommandGroupBuilder();
+
+        for (const subcommandFile of subcommandGroupsList) {
+          let commandData: CommandType = require(`../${rootPath}/${commandDirElement}/${subcommandFile}`)
+            .default as CommandType;
+
+          if (subcommandFile === 'index.js') {
+            subcommandGroup = SuperClient.materializeBuilder(
+              commandData,
+              'group',
+            ) as SlashCommandSubcommandGroupBuilder;
+          } else {
+            const materialized = SuperClient.materializeBuilder(commandData, 'sub') as SlashCommandSubcommandBuilder;
+            subcommandGroup.addSubcommand(materialized);
+            subcommands.push(subcommandGroup);
+          }
+        }
+      }
+      if (subcommands.length > 0) {
+        if (subcommands[0] instanceof SlashCommandSubcommandBuilder)
+          for (const sub of subcommands) builder.addSubcommand(sub as SlashCommandSubcommandBuilder);
+        if (subcommands[0] instanceof SlashCommandSubcommandGroupBuilder)
+          for (const sub of subcommands) builder.addSubcommandGroup(sub as SlashCommandSubcommandGroupBuilder);
+      }
+      commandsList.push(builder);
     }
 
+    for (const command of commandsList) {
+      this.Commands.add(command as unknown as CommandType);
+    }
     if (defaultData.loadCommands) await this.application.commands.set(commandsList);
   }
 

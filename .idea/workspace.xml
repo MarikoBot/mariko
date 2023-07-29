@@ -9,7 +9,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6063390a-6b6a-4efb-8633-f5bd8b5b3724" name="Changes" comment="Patched the context and reply">
+      <change afterPath="$PROJECT_DIR$/src/res/commands/test/banana.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/commands/test/cherry.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/commands/test/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/commands/Test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Client.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/CommandManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/CommandManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/InterferingManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/InterferingManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Salesperson.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Salesperson.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/Test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Command.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/CommandManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/CommandManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/InterferingManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/InterferingManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
     </list>
     <list id="378001a8-85c5-4243-a249-6328f5a6c835" name="Don't touch" comment="Don't touch">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
@@ -69,7 +86,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\eloua\\OneDrive\\Bureau\\Projets\\Haganezuka\\node_modules\\prettier&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -205,7 +222,12 @@
       <workItem from="1690318112169" duration="5000" />
       <workItem from="1690384074348" duration="3281000" />
       <workItem from="1690405370003" duration="5337000" />
-      <workItem from="1690450265237" duration="430000" />
+      <workItem from="1690450265237" duration="4612000" />
+      <workItem from="1690545765608" duration="6000" />
+      <workItem from="1690574029508" duration="4000" />
+      <workItem from="1690625134282" duration="15527000" />
+      <workItem from="1690647666749" duration="28000" />
+      <workItem from="1690664422691" duration="1983000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1685734338969</created>
@@ -435,7 +457,23 @@
       <option name="project" value="LOCAL" />
       <updated>1690450399830</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Patched the context and reply">
+      <option name="closed" value="true" />
+      <created>1690450698809</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1690450698809</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Patched the context and reply">
+      <option name="closed" value="true" />
+      <created>1690450722265</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1690450722265</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
