@@ -8,26 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6063390a-6b6a-4efb-8633-f5bd8b5b3724" name="Changes" comment="Patched the context and reply">
-      <change afterPath="$PROJECT_DIR$/src/res/commands/test/banana.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/commands/test/cherry.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/commands/test/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/Test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Client.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/CommandManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/CommandManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/InterferingManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/InterferingManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Salesperson.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Salesperson.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/Test.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Command.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/CommandManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/CommandManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/InterferingManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/InterferingManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
-    </list>
+    <list default="true" id="6063390a-6b6a-4efb-8633-f5bd8b5b3724" name="Changes" comment="Patched the context and reply" />
     <list id="378001a8-85c5-4243-a249-6328f5a6c835" name="Don't touch" comment="Don't touch">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
@@ -227,7 +208,7 @@
       <workItem from="1690574029508" duration="4000" />
       <workItem from="1690625134282" duration="15527000" />
       <workItem from="1690647666749" duration="28000" />
-      <workItem from="1690664422691" duration="1983000" />
+      <workItem from="1690664422691" duration="2275000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1685734338969</created>
@@ -473,7 +454,23 @@
       <option name="project" value="LOCAL" />
       <updated>1690450722265</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Patched the context and reply">
+      <option name="closed" value="true" />
+      <created>1690666710095</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1690666710095</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Patched the context and reply">
+      <option name="closed" value="true" />
+      <created>1690666723120</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1690666723120</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
