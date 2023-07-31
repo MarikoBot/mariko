@@ -158,6 +158,7 @@ export const Colors = {
   YELLOW: 0xffec80,
   GREEN: 0x36ff6d,
   BLUE: 0x454bff,
+  PURPLE: 0xc167ff,
   WHITE: 0xebebeb,
 } as const;
 

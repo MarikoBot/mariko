@@ -2,7 +2,7 @@ import { Collection, BaseInteraction } from 'discord.js';
 
 import Command from './Command';
 import Client from './Client';
-import { caught, log, test } from './Util';
+import { caught, log } from './Util';
 import Context from './Context';
 import { CoolDownsQueueElement } from './CoolDownManager';
 import { InterferingQueueElement } from './InterferingManager';

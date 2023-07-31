@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import BreathingStyles from './BreathingStyles';
 import { Art } from '../Typings';
 

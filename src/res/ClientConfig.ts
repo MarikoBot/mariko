@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedReference
+
 import { GatewayIntentBits, ActivityType, PresenceData } from 'discord.js';
 
 /*

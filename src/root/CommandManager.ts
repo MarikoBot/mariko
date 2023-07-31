@@ -1,10 +1,18 @@
-import { ChatInputCommandInteraction, Collection, CommandInteractionOption } from 'discord.js';
+// noinspection JSUnresolvedReference
+
+import {
+  ApplicationCommandOptionData,
+  ChatInputCommandInteraction,
+  Collection,
+  CommandInteractionOption,
+} from 'discord.js';
 import { ApplicationCommandOptionType } from 'discord-api-types/v10';
 
 import * as Command from './Command';
 import CoolDownManager from './CoolDownManager';
 import InterferingManager from './InterferingManager';
 import Client from './Client';
+import { CommandType } from './Command';
 
 /**
  * Represents the command manager of the client.
@@ -81,17 +89,36 @@ export default class CommandManager {
    * @returns The found command instance, or undefined.
    */
   public getCommand(interaction: ChatInputCommandInteraction): Command.default | undefined {
-    let commandToReturn: Command.default;
-    const command: Command.default = this.commandsList.get(interaction.commandName);
+    let command: Command.default = this.commandsList.get(interaction.commandName);
+    const commandName: string = command.data.name;
+    let subName: string = '';
+    let groupName: string = '';
+    let optionsData: readonly CommandInteractionOption[] = interaction.options.data;
 
-    const thereIsOption = interaction.options.data;
-    const thereIsGroup: CommandInteractionOption[] = thereIsOption.filter(
+    const thereIsGroup: CommandInteractionOption[] = optionsData.filter(
       (elt: CommandInteractionOption): boolean => elt.type === ApplicationCommandOptionType.SubcommandGroup,
     );
-    const thereIsSub: CommandInteractionOption[] = thereIsOption.filter(
+
+    if (thereIsGroup.length > 0) {
+      const group: ApplicationCommandOptionData = command.data.options.filter(
+        (opt: ApplicationCommandOptionData): boolean => opt.name === thereIsGroup[0].name,
+      )[0];
+      groupName = group.name;
+      command = this.create(group as unknown as CommandType);
+      optionsData = thereIsGroup[0].options;
+    }
+    const thereIsSub: CommandInteractionOption[] = optionsData.filter(
       (elt: CommandInteractionOption): boolean => elt.type === ApplicationCommandOptionType.Subcommand,
     );
+    if (thereIsSub.length > 0) {
+      const sub: ApplicationCommandOptionData = command.data.options.filter(
+        (opt: ApplicationCommandOptionData): boolean => opt.name === thereIsSub[0].name,
+      )[0];
+      subName = sub.name;
+      command = this.create(sub as unknown as CommandType);
+    }
 
-    return this.commandsList.get(interaction.commandName);
+    command['full_name'] = `${commandName} ${groupName} ${subName}`;
+    return command;
   }
 }

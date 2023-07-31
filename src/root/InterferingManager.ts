@@ -1,3 +1,5 @@
+// noinspection JSUnusedLocalSymbols
+
 import { ChatInputCommandInteraction, Collection, Snowflake } from 'discord.js';
 
 import Client from './Client';

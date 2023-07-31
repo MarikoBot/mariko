@@ -1,6 +1,6 @@
-import { ApplicationCommandDataResolvable } from 'discord.js';
+import { ChatInputApplicationCommandData } from 'discord.js';
 
-const data: ApplicationCommandDataResolvable = {
+const data: ChatInputApplicationCommandData = {
   name: 'test',
   description: 'Commande de testing générale.',
 };
