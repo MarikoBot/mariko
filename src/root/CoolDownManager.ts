@@ -73,7 +73,7 @@ export default class CoolDownManager {
 
     if (commandName) {
       return currentCoolDowns.filter((queueElement: CoolDownsQueueElement): boolean => {
-        return queueElement[0] === commandName;
+        return queueElement[0].startsWith(commandName);
       });
     }
     return currentCoolDowns;

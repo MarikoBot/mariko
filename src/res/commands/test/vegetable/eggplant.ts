@@ -16,7 +16,7 @@ const data: CommandType = {
   execute: async (client: Client, interaction: ChatInputCommandInteraction, ctx: Context): Promise<void> => {
     await ctx.reply("🍆 I'm an eggplant !{{ephemeral:false}}{{color:PURPLE}}").catch(caught);
 
-    await timeout((): null => null, 10000);
+    await timeout((): null => null, 30000);
     return ctx.command.end();
   },
 };

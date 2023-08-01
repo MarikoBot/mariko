@@ -118,7 +118,7 @@ export default class CommandManager {
       command = this.create(sub as unknown as CommandType);
     }
 
-    command['full_name'] = `${commandName} ${groupName} ${subName}`;
+    command.data.fullName = `${commandName} ${groupName} ${subName}`;
     return command;
   }
 }

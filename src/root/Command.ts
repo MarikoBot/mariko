@@ -8,6 +8,10 @@ import Context from './Context';
  */
 export type CommandType = ChatInputApplicationCommandData & {
   /**
+   * The command full name defined by the subcommands and subcommand groups.
+   */
+  fullName?: string;
+  /**
    * The function that will be executed when the command is called.
    */
   execute: (client: Client, interaction: ChatInputCommandInteraction, ctx: Context) => Promise<void>;

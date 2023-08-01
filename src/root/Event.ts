@@ -76,7 +76,7 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
 
     const activeCoolDowns: CoolDownsQueueElement[] = client.Commands.CoolDowns.coolDowns(
       interaction.user.id,
-      command.data.name,
+      command.data.fullName,
     );
     const activeInterfering: InterferingQueueElement[] = client.Commands.Interfering.interfering(
       interaction.user.id,
@@ -85,7 +85,7 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
 
     if (activeCoolDowns.length > 0) {
       const finishTime: string = String(activeCoolDowns[0][1] / 1000).split('.')[0];
-      const translated: string = ctx.translate('activeCoolDown', command.data.name, finishTime);
+      const translated: string = ctx.translate('activeCoolDown', command.data.fullName, finishTime);
 
       return void (await ctx.reply(translated));
     }
@@ -104,8 +104,8 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
     const authorizedAsUnique: boolean = await command.isAuthorizedAsUnique(interaction);
     if (!authorizedAsUnique) return;
 
-    client.Commands.Interfering.registerInterfering(interaction.user.id, command.data.name, interaction);
-    client.Commands.CoolDowns.registerCoolDown(interaction.user.id, command.data.name, command.data.coolDown || 0);
+    client.Commands.Interfering.registerInterfering(interaction.user.id, command.data.fullName, interaction);
+    client.Commands.CoolDowns.registerCoolDown(interaction.user.id, command.data.fullName, command.data.coolDown || 0);
 
     await command.execute(client, interaction, ctx);
   } else if (interaction.isModalSubmit()) {

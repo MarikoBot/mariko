@@ -65,7 +65,7 @@ export default class InterferingManager {
 
     if (commands.length > 0) {
       return currentInterfering.filter((queueElement: InterferingQueueElement): boolean => {
-        return commands.includes(queueElement[0]);
+        return commands.some((cmd) => queueElement[0].startsWith(cmd));
       });
     }
     return currentInterfering;
@@ -80,9 +80,6 @@ export default class InterferingManager {
    */
   public removeInterfering(userID: Snowflake, key: string | Snowflake): void {
     const currentInterfering: InterferingQueueElement[] = this.interfering(userID);
-    const interferingNames: string[] = currentInterfering.map(
-      (queueElement: InterferingQueueElement): string => queueElement[0],
-    );
 
     this.queue.set(
       userID,
