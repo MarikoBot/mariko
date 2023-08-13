@@ -73,3 +73,15 @@ const schema = new Schema<Interface>({});
  * The generated model for the schema.
  */
 export const Model = model<Interface>('User', schema);
+
+/**
+ * The default data.
+ */
+export const { id, ...defaultData }: Interface = {
+  id: null,
+  discordId: '1140221636507869255',
+  guildId: '1140221636507869255',
+  cash: 0,
+  safe: 0,
+  contracts: {},
+};

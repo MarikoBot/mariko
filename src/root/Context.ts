@@ -5,6 +5,7 @@ import {
   ActionRowBuilder,
   BaseGuildTextChannel,
   BaseGuildVoiceChannel,
+  BaseInteraction,
   BaseMessageOptions,
   ButtonBuilder,
   ButtonInteraction,
@@ -178,7 +179,7 @@ export default class Context {
     );
   }
   public static extractDataFromStr(str: string): [{ [index: string]: string }, string] {
-    let data: { [index: string]: string } = {};
+    const data: { [index: string]: string } = {};
     let finalStr: string = str;
 
     for (let i: number = 0; i < str.split(ClientConfig.extBracketsOpen).length - 1; i++) {
@@ -286,7 +287,13 @@ export default class Context {
     const buttons: ButtonBuilder[] = this.generateValidOrCancelButtons(buttonsToSet);
     const row: ActionRowBuilder = new ActionRowBuilder().addComponents(buttons);
 
-    let [response, message] = await this.messageComponentInteraction(messageData, [row], timeout, reply, messageToEdit);
+    const [response, message] = await this.messageComponentInteraction(
+      messageData,
+      [row],
+      timeout,
+      reply,
+      messageToEdit,
+    );
     if (!response) return [null, message || null];
 
     // @ts-ignore
@@ -477,7 +484,7 @@ export default class Context {
     }
     if (!message) return [null, message || null];
 
-    const filter = (interaction): boolean => interaction.user.id === this.users[0].id;
+    const filter = (interaction: BaseInteraction): boolean => interaction.user.id === this.users[0].id;
     const response = await message.awaitMessageComponent({ filter, time: timeout }).catch(caught);
     if (!response) return [null, message || null];
 
@@ -636,7 +643,7 @@ export default class Context {
    * @returns Returns nothing.
    */
   public async loadLanguage(): Promise<void> {
-    if (this.users.length > 0) this.languageId = await this.command.client.Server.User.getLanguage(this.users[0]);
+    if (this.users.length > 0) this.languageId = await this.command.client.Server.User.getLanguage(this.users[0].id);
   }
 
   /**

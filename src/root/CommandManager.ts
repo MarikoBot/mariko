@@ -54,7 +54,9 @@ export default class CommandManager {
       data = {
         name: data,
         description: 'No description provided.',
-        execute: async (): Promise<void> => {},
+        execute: async (): Promise<void> => {
+          void setTimeout(() => null);
+        },
       };
     }
     if (!data.type) data.type = 1;

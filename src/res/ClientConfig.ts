@@ -71,6 +71,10 @@ const defaultData = {
    * The regular expression for weapon input.
    */
   weaponNameRegexp: /^[a-zA-Z0-9éèàçùòñõâêîôû'."]+(?:\s[a-zA-Z0-9]+)*$/gs,
+  /**
+   * The list of the three owners of the bot.
+   */
+  owners: ['539842701592494111', '822895842964799499', '583697022545297408'],
 };
 
 export default defaultData;

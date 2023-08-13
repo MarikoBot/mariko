@@ -2,6 +2,7 @@ import { ChatInputApplicationCommandData, ChatInputCommandInteraction, GuildMemb
 
 import Client from './Client';
 import Context from './Context';
+import { CommandPrivileges } from '../models/Core';
 
 /**
  * The type that represents a command with an additional function.
@@ -24,47 +25,6 @@ export type CommandType = ChatInputApplicationCommandData & {
    * The amount of time before running the command again. Must be between 0 and 300 seconds.
    */
   coolDown?: number;
-  /**
-   * Where the command should be executed.
-   */
-  guildOnly?: 'GUILD_ONLY' | 'GLOBAL' | 'BOTH';
-  /**
-   * If the previous field ('guildOnly') is set on GUILD_ONLY or BOTH.
-   * List the guilds where the command should be executed.
-   */
-  guilds?: string[];
-  /**
-   * If the command is forbidden in some specific channels.
-   */
-  forbiddenChannels?: string[];
-  /**
-   * If the command is forbidden for some specific users.
-   */
-  forbiddenUsers?: string[];
-  /**
-   * If the command is forbidden for some specific roles.
-   */
-  forbiddenRoles?: string[];
-  /**
-   * If the command is forbidden for some specific guilds.
-   */
-  forbiddenGuilds?: string[];
-  /**
-   * If the command is only allowed in some specific channels only.
-   */
-  uniqueChannels?: string[];
-  /**
-   * If the command is only allowed by some specific users only.
-   */
-  uniqueUsers?: string[];
-  /**
-   * If the command is only allowed by some specific roles only.
-   */
-  uniqueRoles?: string[];
-  /**
-   * If the command is only allowed in some specific guilds only.
-   */
-  uniqueGuilds?: string[];
 };
 
 /**
@@ -87,6 +47,10 @@ export default class Command {
    * The context of the command.
    */
   public ctx: Context | undefined;
+  /**
+   * The external data for the command.
+   */
+  public external?: CommandPrivileges;
 
   /**
    * The constructor of the command.
@@ -114,16 +78,17 @@ export default class Command {
    * @returns If the user can execute the command.
    */
   public async isAuthorized(interaction: ChatInputCommandInteraction): Promise<boolean> {
+    this.external = await this.client.Server.Core.getExternalPrivileges(this.data.name);
     if (interaction.inGuild()) {
       const forbiddenGuild: boolean =
-        this.data.forbiddenGuilds && this.data.forbiddenGuilds.includes(interaction.guildId);
+        this.external.forbiddenGuilds && this.external.forbiddenGuilds.includes(interaction.guildId);
       if (forbiddenGuild) {
         await this.ctx.reply(this.ctx.translate('forbiddenGuild'));
         return false;
       }
       if (interaction.channel.id) {
         const forbiddenChannel: boolean =
-          this.data.forbiddenChannels && this.data.forbiddenChannels.includes(interaction.channel.id);
+          this.external.forbiddenChannels && this.external.forbiddenChannels.includes(interaction.channel.id);
         if (forbiddenChannel) {
           await this.ctx.reply(this.ctx.translate('forbiddenChannel'));
           return false;
@@ -131,8 +96,8 @@ export default class Command {
       }
       if (interaction.member) {
         const forbiddenRoles: boolean =
-          this.data.forbiddenRoles &&
-          this.data.forbiddenRoles.some((role: string) =>
+          this.external.forbiddenRoles &&
+          this.external.forbiddenRoles.some((role: string) =>
             (interaction.member?.roles as GuildMemberRoleManager).cache.has(role),
           );
         if (forbiddenRoles) {
@@ -141,7 +106,8 @@ export default class Command {
         }
       }
     }
-    const forbiddenUser: boolean = this.data.forbiddenUsers && this.data.forbiddenUsers.includes(interaction.user.id);
+    const forbiddenUser: boolean =
+      this.external.forbiddenUsers && this.external.forbiddenUsers.includes(interaction.user.id);
     if (forbiddenUser) {
       await this.ctx.reply(this.ctx.translate('forbiddenUser'));
       return false;
@@ -155,15 +121,17 @@ export default class Command {
    * @returns If the user can execute the command.
    */
   public async isAuthorizedAsUnique(interaction: ChatInputCommandInteraction): Promise<boolean> {
+    this.external = await this.client.Server.Core.getExternalPrivileges(this.data.fullName);
     if (interaction.inGuild()) {
-      const uniqueGuild: boolean = this.data.uniqueGuilds && !this.data.uniqueGuilds.includes(interaction.guildId);
+      const uniqueGuild: boolean =
+        this.external.uniqueGuilds && !this.external.uniqueGuilds.includes(interaction.guildId);
       if (uniqueGuild) {
         await this.ctx.reply(this.ctx.translate('uniqueGuild'));
         return false;
       }
       if (interaction.channel.id) {
         const uniqueChannel: boolean =
-          this.data.uniqueChannels && !this.data.uniqueChannels.includes(interaction.channel.id);
+          this.external.uniqueChannels && !this.external.uniqueChannels.includes(interaction.channel.id);
         if (uniqueChannel) {
           await this.ctx.reply(this.ctx.translate('uniqueChannel'));
           return false;
@@ -171,8 +139,8 @@ export default class Command {
       }
       if (interaction.member) {
         const uniqueRoles: boolean =
-          this.data.uniqueRoles &&
-          this.data.uniqueRoles.every(
+          this.external.uniqueRoles &&
+          this.external.uniqueRoles.every(
             (role: string) => !(interaction.member?.roles as GuildMemberRoleManager).cache.has(role),
           );
         if (uniqueRoles) {
@@ -181,7 +149,7 @@ export default class Command {
         }
       }
     }
-    const uniqueUser: boolean = this.data.uniqueUsers && !this.data.uniqueUsers.includes(interaction.user.id);
+    const uniqueUser: boolean = this.external.uniqueUsers && !this.external.uniqueUsers.includes(interaction.user.id);
     if (uniqueUser) {
       await this.ctx.reply(this.ctx.translate('uniqueUser'));
       return false;

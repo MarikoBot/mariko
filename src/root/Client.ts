@@ -138,7 +138,7 @@ export default class SuperClient extends Client {
 
   /**
    * The function to load the commands.
-   * @returns {Promise<void>}
+   * @returns Nothing.
    */
   public async loadCommands(): Promise<void> {
     const dir: string[] = fs.readdirSync(`./lib/${this.commandsDir}`);
@@ -147,17 +147,18 @@ export default class SuperClient extends Client {
     for (const rootCommandsDir of dir) {
       const commandDirElements: string[] = fs.readdirSync(`./lib/${this.commandsDir}/${rootCommandsDir}`);
       if (commandDirElements.length === 1 && commandDirElements[0] === 'index.js') {
-        const command: CommandType = require(`../${this.commandsDir}/${rootCommandsDir}/index`).default as CommandType;
+        const commandType: CommandType = require(`../${this.commandsDir}/${rootCommandsDir}/index`)
+          .default as CommandType;
         const materialized: SlashCommandBuilder = SuperClient.materializeBuilder(
-          command,
+          commandType,
           'slash',
         ) as SlashCommandBuilder;
-        commandsList.push(Object.assign(materialized, command));
+        commandsList.push(Object.assign(materialized, commandType));
         continue;
       }
 
       const rootPath: string = `${this.commandsDir}/${rootCommandsDir}`;
-      let commandBaseData: ChatInputApplicationCommandData =
+      const commandBaseData: ChatInputApplicationCommandData =
         require(`../${this.commandsDir}/${rootCommandsDir}/index`).default;
       const command: SlashCommandBuilder = Object.assign(
         SuperClient.materializeBuilder(commandBaseData, 'slash') as SlashCommandBuilder,
@@ -172,19 +173,19 @@ export default class SuperClient extends Client {
         const elementFileOrFolder: fs.Stats = fs.statSync(`./lib/${rootPath}/${commandDirElement}`);
 
         if (elementFileOrFolder.isFile()) {
-          let commandData: CommandType = require(`../${rootPath}/${commandDirElement}`).default as CommandType;
+          const commandDataType: CommandType = require(`../${rootPath}/${commandDirElement}`).default as CommandType;
           if (commandDirElement === 'index.js') {
-            const materialized: SlashOrganBuilder = SuperClient.materializeBuilder(commandData, 'slash');
+            const materializedOrgan: SlashOrganBuilder = SuperClient.materializeBuilder(commandDataType, 'slash');
             cmdOrGroup = includesFolder
-              ? (materialized as SlashCommandSubcommandGroupBuilder)
-              : (materialized as SlashCommandBuilder);
+              ? (materializedOrgan as SlashCommandSubcommandGroupBuilder)
+              : (materializedOrgan as SlashCommandBuilder);
             continue;
           }
           const materialized: SlashCommandSubcommandBuilder = SuperClient.materializeBuilder(
-            commandData,
+            commandDataType,
             'sub',
           ) as SlashCommandSubcommandBuilder;
-          const assigned = Object.assign(materialized, commandData);
+          const assigned = Object.assign(materialized, commandDataType);
           cmdOrGroup.addSubcommand(assigned);
         }
         if (!elementFileOrFolder.isDirectory()) continue;

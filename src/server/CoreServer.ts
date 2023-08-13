@@ -1,10 +1,8 @@
-import { Snowflake } from 'discord.js';
-
 import * as models from '../models';
 import BaseServer from './BaseServer';
 import Client from '../root/Client';
-import { HydratedDocument } from 'mongoose';
 import ClientConfig from '../res/ClientConfig';
+import { CommandPrivileges } from '../models/Core';
 
 /**
  * The core server.
@@ -14,25 +12,43 @@ export default class CoreServer extends BaseServer {
    * @param client The client instance.
    */
   constructor(client: Client) {
-    super(client, models.Core.Model);
+    super(client, models.Core);
   }
 
   /**
-   * Get the core from the database.
-   * @param clientId The player id.
-   * @returns The player.
+   * Get the command privileges for a specified command in an external loading purpose.
+   * @param commandName The command name.
+   * @returns The external data.
    */
-  public async find(clientId: Snowflake = ClientConfig.defaultClientId): Promise<{}> {
-    return await this.mongooseModel.findOne({ clientId }).exec();
+  public async getExternalPrivileges(commandName: string): Promise<CommandPrivileges> {
+    const data: this['collectionData']['Interface'] = (await this.find({
+      clientId: ClientConfig.defaultClientId,
+    })) as this['collectionData']['Interface'];
+    return data.commandPrivileges?.[commandName] || {};
   }
 
   /**
-   * Create a new core instance.
-   * @param clientId The player id.
-   * @returns The created player.
+   * Create a new core.
+   * @returns Nothing.
    */
-  public async create(clientId: Snowflake = ClientConfig.defaultClientId): Promise<void> {
-    const entry: HydratedDocument<models.Core.Interface> = new this.mongooseModel({ clientId });
-    await entry.save();
+  public async createCore(): Promise<any> {
+    return await this.create({ clientId: ClientConfig.defaultClientId });
+  }
+
+  /**
+   * Get the core data.
+   * @returns The core data.
+   */
+  public async getCore(): Promise<any> {
+    return await this.find({ clientId: ClientConfig.defaultClientId });
+  }
+
+  /**
+   * Update the core.
+   * @param data The data to update.
+   * @returns The core data.
+   */
+  public async updateCore(data: object): Promise<any> {
+    return await this.update({ clientId: ClientConfig.defaultClientId }, data);
   }
 }

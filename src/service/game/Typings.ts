@@ -104,4 +104,4 @@ export type Tool = 'pickaxe';
 /**
  * The ID of a language.
  */
-export type Language = 'fr';
+export type Language = 'fr' | 'en';

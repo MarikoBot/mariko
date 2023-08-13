@@ -1,5 +1,6 @@
 import { Schema, model, Types } from 'mongoose';
 import { BloodDemonArt, BreathingStyle, Food, Race, Tool, Way, Weapon } from '../service/game/Typings';
+import { weaponNames } from '../service/game/fr/Resources';
 
 /**
  * The interface of a document.
@@ -107,15 +108,36 @@ export interface Interface {
   /**
    * If the user is a human, it cans have some food.
    */
-  food: Record<Food, number> | 'notHuman';
+  food: Record<Food, number> | {} | 'notHuman';
   /**
    * Tools of the player.
    */
-  tools: Record<Tool, number>;
+  tools: Record<Tool, number> | {};
   /**
    * The stock of weapons of the player.
    */
-  weapons: Record<Weapon, number>;
+  weapons: Record<Weapon, number> | {};
+  /**
+   * The location of the user.
+   */
+  location: {
+    /**
+     * The region where the user is.
+     */
+    region: string;
+    /**
+     * The region where the user left.
+     */
+    traveledFrom: string;
+    /**
+     * The user destination.
+     */
+    traveledTo: string;
+    /**
+     * The date when the user traveled.
+     */
+    traveledAt: number;
+  };
   /**
    * The list of cool downs and activities.
    */
@@ -173,6 +195,12 @@ const schema = new Schema<Interface>({
   food: { type: Object, required: true },
   tools: { type: Object, required: true },
   weapons: { type: Object, required: true },
+  location: {
+    region: { type: String, required: true },
+    traveledFrom: { type: String, required: true },
+    traveledTo: { type: String, required: true },
+    traveledAt: { type: Number, required: true },
+  },
   activities: {
     forgedAt: { type: Number, required: true },
     forgedTime: { type: Number, required: true },
@@ -185,3 +213,51 @@ const schema = new Schema<Interface>({
  * The generated model for the schema.
  */
 export const Model = model<Interface>('Player', schema);
+
+/**
+ * The default data.
+ */
+export const { id, ...defaultData }: Interface = {
+  id: null,
+  discordId: '1113174518744236034',
+  username: 'Tanaka Ken',
+  experience: 0,
+  race: 'human',
+  art: 'water',
+  way: 'warrior',
+  wallet: 0,
+  pv: {
+    current: 100,
+    lastGain: 0,
+  },
+  power: {
+    current: 100,
+    lastGain: 0,
+  },
+  techniqueCategoryLevels: {
+    basic: 1,
+    fineness: 1,
+    heavy: 1,
+    ultimate: 1,
+  },
+  weapon: {
+    id: 'katana',
+    name: weaponNames.katana,
+    durability: 100,
+  },
+  food: {},
+  tools: {},
+  weapons: {},
+  location: {
+    region: 'mount_sagiri',
+    traveledFrom: null,
+    traveledTo: 'mount_sagiri',
+    traveledAt: 0,
+  },
+  activities: {
+    forgedAt: 0,
+    forgedTime: 0,
+    fishedAt: 0,
+    dugAt: 0,
+  },
+};

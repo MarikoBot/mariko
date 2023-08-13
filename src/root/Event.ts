@@ -19,7 +19,7 @@ export type EventCallback = (...args: any[]) => void;
  * @returns Void.
  */
 export async function callbackDefault(...args: any[]): Promise<void> {
-  return void args;
+  return void setTimeout(() => null);
 }
 
 /**
@@ -109,5 +109,6 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
 
     await command.execute(client, interaction, ctx);
   } else if (interaction.isModalSubmit()) {
+    // Code will be here.
   }
 });

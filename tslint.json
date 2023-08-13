@@ -6,6 +6,8 @@
   "rules": {
     "no-console": false,
     "max-classes-per-file": [true, 1],
-    "no-redundant-jsdoc": true
+    "no-redundant-jsdoc": true,
+    "no-eval": false,
+    "no-string-literal": false
   }
 }

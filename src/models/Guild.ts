@@ -37,3 +37,13 @@ const schema = new Schema<Interface>({
  * The generated model for the schema.
  */
 export const Model = model<Interface>('Guild', schema);
+
+/**
+ * The default data.
+ */
+export const { id, ...defaultData }: Interface = {
+  id: null,
+  discordId: '1140221636507869255',
+  subscriptions: {},
+  guildPremium: false,
+};

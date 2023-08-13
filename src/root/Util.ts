@@ -11,7 +11,7 @@ import * as chalk from 'chalk';
  */
 export function log(...args: any[]): void {
   args.forEach((arg: any): any => {
-    console.log(chalk.blue('⟦HAGANEZUKA LOG⟧'), chalk.blue(...args.map((arg: any): any => arg.message || arg)));
+    console.log(chalk.blue('⟦HAGANEZUKA LOG⟧'), chalk.blue(arg.message || arg));
     if (arg.message) console.log(arg);
   });
 }
@@ -24,7 +24,7 @@ export function log(...args: any[]): void {
 export function test(...args: any[]): void {
   args.forEach((arg: any): any => {
     console.log(chalk.magenta('⟦HAGANEZUKA TEST⟧'));
-    console.log(...args.map((arg: any): any => arg.message || arg));
+    console.log(arg.message || arg);
     if (arg.message) console.log(arg);
   });
 }
@@ -36,7 +36,7 @@ export function test(...args: any[]): void {
  */
 export function err(...args: any[]): void {
   args.forEach((arg: any): any => {
-    console.log(chalk.red('⟦HAGANEZUKA ERROR⟧'), chalk.red(...args.map((arg: any): any => arg.message || arg)));
+    console.log(chalk.red('⟦HAGANEZUKA ERROR⟧'), chalk.red(arg.message || arg));
     if (arg.message) console.log(arg);
   });
 }
@@ -49,7 +49,7 @@ export function err(...args: any[]): void {
 export function caught(...args: any[]): void {
   args.forEach((arg: any): any => {
     console.log(chalk.magenta('⟦HAGANEZUKA ERROR⟧'));
-    console.log(chalk.magenta(...args.map((arg: any): any => arg.message || arg)));
+    console.log(chalk.magenta(arg.message || arg));
     if (arg.message) console.log(arg);
   });
 }
