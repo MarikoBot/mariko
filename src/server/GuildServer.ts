@@ -11,7 +11,7 @@ export default class GuildServer extends BaseServer {
    * @param client The client instance.
    */
   constructor(client: Client) {
-    super(client, models.User);
+    super(client, models.Guild as any);
   }
 
   /**

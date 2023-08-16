@@ -23,7 +23,12 @@ export default async function (client: Client): Promise<void> {
   if (currentData.__empty) await client.Server.Core.createCore();
   currentData = (await client.Server.Core.getCore()) as models.Core.Interface;
 
-  const commandsPrivileges: Record<string, CommandPrivileges> = {};
+  const commandsPrivileges: Record<string, CommandPrivileges> = {
+    'test fruit banana': { uniqueChannels: ['1139207781900099594', '1139214709061591201'] },
+    'test fruit cherry': { uniqueChannels: ['1139207781900099594', '1139214709061591201'] },
+    'test vegetable eggplant': { uniqueChannels: ['1139207781900099594', '1139214709061591201'] },
+    'test vegetable carrot': { uniqueChannels: ['1139207781900099594', '1139214709061591201'] },
+  };
 
   const cmdPrivs: Record<string, CommandPrivileges> = currentData.commandPrivileges || {};
   for (const commandName of Object.keys(commandsPrivileges)) {

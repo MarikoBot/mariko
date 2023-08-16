@@ -126,7 +126,7 @@ export default class Command {
       const uniqueGuild: boolean =
         this.external.uniqueGuilds && !this.external.uniqueGuilds.includes(interaction.guildId);
       if (uniqueGuild) {
-        await this.ctx.reply(this.ctx.translate('uniqueGuild'));
+        this.ctx.reply(this.ctx.translate('uniqueGuild'));
         return false;
       }
       if (interaction.channel.id) {

@@ -57,7 +57,7 @@ export interface Interface {
 /**
  * The mongo schema for the interface.
  */
-const schema = new Schema<Interface>({
+export const schema = new Schema<Interface>({
   id: { type: Schema.Types.ObjectId, ref: 'id' },
   discordId: { type: String, required: true },
   language: { type: String, required: true },

@@ -12,7 +12,7 @@ export default class SalespersonServer extends BaseServer {
    * @param client The client instance.
    */
   constructor(client: Client) {
-    super(client, models.Salesperson);
+    super(client, models.Salesperson as any);
   }
 
   /**

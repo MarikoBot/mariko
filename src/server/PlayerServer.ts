@@ -12,7 +12,7 @@ export default class PlayerServer extends BaseServer {
    * @param client The client instance.
    */
   constructor(client: Client) {
-    super(client, models.Player);
+    super(client, models.Player as any);
   }
 
   /**

@@ -1,5 +1,6 @@
 import Client from './Client';
 import fr from './strings/Fr';
+import en from './strings/En';
 import { Language } from '../service/game/Typings';
 
 /**
@@ -12,6 +13,7 @@ export type LanguageContent = Record<string, (string | RegExp)[] | string>;
  */
 export const Languages = {
   fr,
+  en,
 } as const;
 
 /**

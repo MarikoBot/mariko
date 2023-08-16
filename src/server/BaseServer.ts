@@ -13,27 +13,53 @@ export default class BaseServer {
    */
   public readonly client: Client;
   /**
-   * The mongoose collection data, model, schema, interface.
+   * The file for the collection data.
    */
-  public readonly collectionData: MongooseCollectionData;
-
+  public readonly collectionData: {
+    Model: MongooseCollectionData['Model'];
+    schema: MongooseCollectionData['schema'];
+    defaultData: MongooseCollectionData['defaultData'];
+  };
   /**
    * The base server constructor.
    * @param client The client instance.
-   * @param data The data for the schema, interface, etc.
+   * @param file The file name for the data.
    */
-  constructor(client: Client, data: any) {
+  constructor(client: Client, fileData: MongooseCollectionData) {
     this.client = client;
-    this.collectionData = data as MongooseCollectionData;
+    this.collectionData = fileData;
   }
 
   /**
    * Refresh the data in the database if the structure is detected to be different.
    * @param key The key to look apply changes on.
-   * @returns Nothing. Only updates.
+   * @returns The player data.
    */
-  protected async refresh(key: { [p: string]: any }): Promise<void> {
-    // Code will be added here later.
+  protected async refresh(key: { [p: string]: any }): Promise<{ [p: string]: any }> {
+    const data = await this.collectionData.Model.findOne(key).exec();
+    if (!data) return data;
+
+    const structure: this['collectionData']['defaultData'] = this.collectionData.defaultData;
+    let finalStructure: { [p: string]: any } = {};
+
+    const compareObj = (source: object, target: object, finalObj: object): object => {
+      for (const K of Object.keys(source)) {
+        if (['commandPrivileges', '__id'].includes(K)) {
+          finalObj[K] = target[K];
+          continue;
+        }
+        if (typeof source[K] !== 'object') {
+          finalObj[K] = typeof source[K] !== typeof target[K] ? source[K] : target[K];
+        } else {
+          if (K in target) finalObj[K] = compareObj(source[K], target[K], {});
+          else finalObj = source[K];
+        }
+      }
+      return finalObj;
+    };
+
+    finalStructure = compareObj(structure, data, {});
+    return finalStructure;
   }
 
   /**
@@ -41,9 +67,8 @@ export default class BaseServer {
    * @param key The key to look.
    * @returns The found data.
    */
-  public async find(key: { [p: string]: any }): Promise<{}> {
-    await this.refresh(key);
-    return await this.collectionData.model.findOne(key).exec();
+  public async find(key: { [p: string]: any }): Promise<{ [p: string]: any }> {
+    return await this.refresh(key);
   }
 
   /**
@@ -52,7 +77,7 @@ export default class BaseServer {
    * @returns The created model.
    */
   public async create(additionalData: { [p: string]: any }): Promise<void> {
-    const entry: HydratedDocument<models.Core.Interface> = new this.collectionData.model({
+    const entry: HydratedDocument<models.Core.Interface> = new this.collectionData.Model({
       ...this.collectionData.defaultData,
       additionalData,
     });
@@ -65,7 +90,7 @@ export default class BaseServer {
    * @param data The full data.
    * @returns Nothing.
    */
-  public async update(key: { [p: string]: any }, data: MongooseCollectionData['Interface']): Promise<void> {
-    await this.collectionData.model.updateOne(key, data).exec();
+  public async update(key: { [p: string]: any }, data: object): Promise<void> {
+    await this.collectionData.Model.updateOne(key, data).exec();
   }
 }

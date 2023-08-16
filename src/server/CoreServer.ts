@@ -12,7 +12,7 @@ export default class CoreServer extends BaseServer {
    * @param client The client instance.
    */
   constructor(client: Client) {
-    super(client, models.Core);
+    super(client, models.Core as any);
   }
 
   /**
@@ -21,9 +21,9 @@ export default class CoreServer extends BaseServer {
    * @returns The external data.
    */
   public async getExternalPrivileges(commandName: string): Promise<CommandPrivileges> {
-    const data: this['collectionData']['Interface'] = (await this.find({
+    const data: models.Core.Interface = (await this.find({
       clientId: ClientConfig.defaultClientId,
-    })) as this['collectionData']['Interface'];
+    })) as models.Core.Interface;
     return data.commandPrivileges?.[commandName] || {};
   }
 

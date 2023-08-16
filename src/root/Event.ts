@@ -99,9 +99,11 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
     }
 
     const authorized: boolean = await command.isAuthorized(interaction);
+    console.log(authorized);
     if (!authorized) return;
 
     const authorizedAsUnique: boolean = await command.isAuthorizedAsUnique(interaction);
+    console.log(authorizedAsUnique);
     if (!authorizedAsUnique) return;
 
     client.Commands.Interfering.registerInterfering(interaction.user.id, command.data.fullName, interaction);
