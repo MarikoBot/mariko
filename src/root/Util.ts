@@ -78,9 +78,9 @@ export async function SFToMember(client: Client, guildID: Snowflake, member: str
   if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
 
   const guild: Guild = await client.guilds.fetch(guildID);
-  let memberInstance: GuildMember = await guild.members.resolve(member);
+  let memberInstance: GuildMember = guild.members.resolve(member);
   if (!memberInstance) {
-    memberInstance = await guild.members.cache.find((m: GuildMember): boolean => m.user.tag.startsWith(member));
+    memberInstance = guild.members.cache.find((m: GuildMember): boolean => m.user.tag.startsWith(member));
   }
   return memberInstance;
 }
@@ -94,9 +94,9 @@ export async function SFToMember(client: Client, guildID: Snowflake, member: str
 export async function SFToUser(client: Client, user: string): Promise<User> {
   if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
 
-  let userInstance: User = await client.users.resolve(user);
+  let userInstance: User = client.users.resolve(user);
   if (!userInstance) {
-    userInstance = await client.users.cache.find((u: User): boolean => u.tag.startsWith(user));
+    userInstance = client.users.cache.find((u: User): boolean => u.tag.startsWith(user));
   }
   return userInstance;
 }
@@ -108,7 +108,7 @@ export async function SFToUser(client: Client, user: string): Promise<User> {
  * @param channel The channel ID or name.
  * @returns The Channel instance.
  */
-export async function SFToCtxChannel(client: Client, guildID: Snowflake, channel: string): Promise<ContextChannel> {
+export async function SFToCtxChannel(client: Client, guildID: Snowflake, channel: Snowflake): Promise<ContextChannel> {
   if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
 
   const guild: Guild = await client.guilds.fetch(guildID);

@@ -23,6 +23,7 @@ import GuildServer from '../server/GuildServer';
 import CoreServer from '../server/CoreServer';
 import LanguageManager from './LanguageManager';
 import GameService from '../service/game/';
+import AdminPanelService from '../service/adminpanel';
 
 /**
  * The default structure of the game servers.
@@ -47,6 +48,7 @@ export type SlashOrganBuilder =
  */
 interface ServiceInterface {
   Game: typeof GameService;
+  AdminPanel: typeof AdminPanelService;
 }
 
 /**
@@ -79,6 +81,7 @@ export default class SuperClient extends Client {
    */
   public readonly Service: ServiceInterface = {
     Game: GameService,
+    AdminPanel: AdminPanelService,
   };
   /**
    * The language manager for accessing strings.

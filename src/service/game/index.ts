@@ -1,6 +1,6 @@
 /**
  * The default class of the file.
- * Includes useful methods for getting assets from the game.
+ * Includes useful methods for getting assets.
  */
 export class Index {}
 

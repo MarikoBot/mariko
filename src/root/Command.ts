@@ -78,20 +78,40 @@ export default class Command {
    * @returns If the user can execute the command.
    */
   public async isAuthorized(interaction: ChatInputCommandInteraction): Promise<boolean> {
-    this.external = await this.client.Server.Core.getExternalPrivileges(this.data.name);
+    this.external = await this.client.Server.Core.getExternalPrivileges(this.data.fullName);
+    const missing: string[] = [];
+    let privileges: string = '0b0';
+    const bitsRecord: Record<keyof CommandPrivileges, string> = {
+      forbiddenUsers: '0b10000000',
+      uniqueUsers: '0b1000000',
+      forbiddenGuilds: '0b100000',
+      uniqueGuilds: '0b10000',
+      forbiddenRoles: '0b1000',
+      uniqueRoles: '0b100',
+      forbiddenChannels: '0b10',
+      uniqueChannels: '0b1',
+    };
+
     if (interaction.inGuild()) {
       const forbiddenGuild: boolean =
         this.external.forbiddenGuilds && this.external.forbiddenGuilds.includes(interaction.guildId);
-      if (forbiddenGuild) {
-        await this.ctx.reply(this.ctx.translate('forbiddenGuild'));
-        return false;
+      if (forbiddenGuild) missing.push('forbiddenGuilds');
+
+      if (this.external.uniqueGuilds) {
+        if (this.external.uniqueGuilds.includes(interaction.guildId)) privileges = bitsRecord['uniqueUsers'];
+        else missing.push('uniqueUsers');
       }
+
       if (interaction.channel.id) {
         const forbiddenChannel: boolean =
           this.external.forbiddenChannels && this.external.forbiddenChannels.includes(interaction.channel.id);
-        if (forbiddenChannel) {
-          await this.ctx.reply(this.ctx.translate('forbiddenChannel'));
-          return false;
+        if (forbiddenChannel) missing.push('forbiddenChannels');
+
+        if (this.external.uniqueChannels) {
+          if (this.external.uniqueChannels.includes(interaction.channel.id))
+            privileges =
+              Number(privileges) > Number(bitsRecord['uniqueChannels']) ? privileges : bitsRecord['uniqueChannels'];
+          else missing.push('uniqueChannels');
         }
       }
       if (interaction.member) {
@@ -100,60 +120,45 @@ export default class Command {
           this.external.forbiddenRoles.some((role: string) =>
             (interaction.member?.roles as GuildMemberRoleManager).cache.has(role),
           );
-        if (forbiddenRoles) {
-          await this.ctx.reply(this.ctx.translate('forbiddenRole'));
-          return false;
+        if (forbiddenRoles) missing.push('forbiddenRoles');
+
+        if (this.external.uniqueRoles) {
+          if (
+            this.external.uniqueRoles.every((role: string) =>
+              (interaction.member?.roles as GuildMemberRoleManager).cache.has(role),
+            )
+          )
+            privileges =
+              Number(privileges) > Number(bitsRecord['uniqueRoles']) ? privileges : bitsRecord['uniqueRoles'];
+          else missing.push('uniqueRoles');
         }
       }
     }
     const forbiddenUser: boolean =
       this.external.forbiddenUsers && this.external.forbiddenUsers.includes(interaction.user.id);
-    if (forbiddenUser) {
-      await this.ctx.reply(this.ctx.translate('forbiddenUser'));
-      return false;
-    }
-    return true;
-  }
+    if (forbiddenUser) missing.push('forbiddenUsers');
 
-  /**
-   * Returns if the user is authorized in case of unique concept to execute the command.
-   * @param interaction The interaction of the command.
-   * @returns If the user can execute the command.
-   */
-  public async isAuthorizedAsUnique(interaction: ChatInputCommandInteraction): Promise<boolean> {
-    this.external = await this.client.Server.Core.getExternalPrivileges(this.data.fullName);
-    if (interaction.inGuild()) {
-      const uniqueGuild: boolean =
-        this.external.uniqueGuilds && !this.external.uniqueGuilds.includes(interaction.guildId);
-      if (uniqueGuild) {
-        this.ctx.reply(this.ctx.translate('uniqueGuild'));
-        return false;
-      }
-      if (interaction.channel.id) {
-        const uniqueChannel: boolean =
-          this.external.uniqueChannels && !this.external.uniqueChannels.includes(interaction.channel.id);
-        if (uniqueChannel) {
-          await this.ctx.reply(this.ctx.translate('uniqueChannel'));
-          return false;
-        }
-      }
-      if (interaction.member) {
-        const uniqueRoles: boolean =
-          this.external.uniqueRoles &&
-          this.external.uniqueRoles.every(
-            (role: string) => !(interaction.member?.roles as GuildMemberRoleManager).cache.has(role),
-          );
-        if (uniqueRoles) {
-          await this.ctx.reply(this.ctx.translate('uniqueRole'));
-          return false;
-        }
-      }
+    if (this.external.uniqueUsers) {
+      if (this.external.uniqueUsers.includes(interaction.user.id))
+        privileges = Number(privileges) > Number(bitsRecord['uniqueUsers']) ? privileges : bitsRecord['uniqueUsers'];
+      else missing.push('uniqueUsers');
     }
-    const uniqueUser: boolean = this.external.uniqueUsers && !this.external.uniqueUsers.includes(interaction.user.id);
-    if (uniqueUser) {
-      await this.ctx.reply(this.ctx.translate('uniqueUser'));
-      return false;
+
+    const highestMissing: string = missing.sort(
+      (a: keyof CommandPrivileges, b: keyof CommandPrivileges) => Number(bitsRecord[b]) - Number(bitsRecord[a]),
+    )[0];
+    const isAuth: boolean = missing.length > 0 ? Number(highestMissing) < Number(privileges) : true;
+    if (!isAuth) {
+      await this.ctx.reply(
+        this.ctx.translate(
+          'privilegesLocked',
+          `${missing.length}${missing
+            .map((e: keyof CommandPrivileges) => Number(bitsRecord[e]))
+            .reduce((acc: number, val: number) => acc + val, 0)}`,
+        ),
+      );
     }
-    return true;
+
+    return isAuth;
   }
 }

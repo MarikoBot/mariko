@@ -52,9 +52,9 @@ export interface Interface {
    */
   clientId: Snowflake;
   /**
-   * The list of blacklisted users. Prevent them from using any command.
+   * The list of blacklisted users/guilds. Prevent them from using any command.
    */
-  blacklist: Record<Snowflake, { userId: Snowflake; info: string; commands: 'all' | string[] }>;
+  blacklist: Record<Snowflake, { id: Snowflake; info: string; commands: 'all' | string[] }>;
   /**
    * The list of restrictions and privileges for specified commands.
    */
@@ -84,7 +84,7 @@ export const { id, ...defaultData }: Interface = {
   clientId: '1113174518744236034',
   blacklist: {
     '751206188791627877': {
-      userId: '751206188791627877',
+      id: '751206188791627877',
       info: 'total',
       commands: 'all',
     },

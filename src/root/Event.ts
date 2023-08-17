@@ -1,4 +1,4 @@
-import { Collection, BaseInteraction } from 'discord.js';
+import { Collection, BaseInteraction, TextBasedChannel } from 'discord.js';
 
 import Command from './Command';
 import Client from './Client';
@@ -55,8 +55,10 @@ export default class Event {
  */
 export const defaultEventsCb: Collection<string, EventCallback> = new Collection();
 
-defaultEventsCb.set('ready', (client: Client): void => {
+defaultEventsCb.set('ready', async (client: Client): Promise<void> => {
   log(`Logged in as ${client.user.tag}.`);
+
+  await (await client.Service.AdminPanel(client, '1139950254322626751', '1113177643710423060')).refreshChannel();
 });
 
 defaultEventsCb.set('interactionCreate', async (client: Client, interaction: BaseInteraction): Promise<void> => {
@@ -99,12 +101,7 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
     }
 
     const authorized: boolean = await command.isAuthorized(interaction);
-    console.log(authorized);
     if (!authorized) return;
-
-    const authorizedAsUnique: boolean = await command.isAuthorizedAsUnique(interaction);
-    console.log(authorizedAsUnique);
-    if (!authorizedAsUnique) return;
 
     client.Commands.Interfering.registerInterfering(interaction.user.id, command.data.fullName, interaction);
     client.Commands.CoolDowns.registerCoolDown(interaction.user.id, command.data.fullName, command.data.coolDown || 0);

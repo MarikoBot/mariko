@@ -288,7 +288,7 @@ export default class Context {
     const row: ActionRowBuilder = new ActionRowBuilder().addComponents(buttons);
 
     const [response, message] = await this.messageComponentInteraction(
-      messageData,
+      this.transformMessageData(messageData),
       [row],
       timeout,
       reply,
@@ -554,6 +554,9 @@ export default class Context {
     }
     if ('files' in messageData && messageData.files.length > 0 && !ignorePresentFields) {
       await message.removeAttachments().catch(caught);
+    }
+    if (!('content' in messageData) && !ignorePresentFields) {
+      delete messageData.content;
     }
 
     if (!message) return null;

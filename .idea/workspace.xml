@@ -9,39 +9,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc9ec7f5-847c-4c76-8255-6b34fd610675" name="Changes" comment="Ready for coding the services.">
+      <change afterPath="$PROJECT_DIR$/src/service/adminpanel/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/database.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/database.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/models/Core.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Guild.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Guild.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Salesperson.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Salesperson.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Client.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Client.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/root/Command.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Command.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Context.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/LanguageManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/LanguageManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/strings/En.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/strings/En.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/root/strings/Fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/strings/Fr.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/server/BaseServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/BaseServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/GuildServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/GuildServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/UserServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/UserServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Core.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Core.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Guild.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Guild.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Player.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Salesperson.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Salesperson.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Client.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/Command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Command.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/LanguageManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/LanguageManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/strings/En.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/strings/En.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/strings/Fr.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/strings/Fr.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/BaseServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/BaseServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/CoreServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/CoreServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/GuildServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/GuildServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/PlayerServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/PlayerServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/SalespersonServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SalespersonServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/UserServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/UserServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/index.ts" afterDir="false" />
     </list>
     <list id="48cf63b9-21e1-40da-9df7-89888eeb6fb2" name="Don't touch" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
@@ -98,6 +87,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "18.13.0",
     "javascript.nodejs.core.library.typings.version": "18.13.0",
+    "last_opened_file_path": "C:/Users/eloua/OneDrive/Bureau/Projets/mariko/src/service/adminpanel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -106,11 +96,16 @@
     "prettier.import.notification.dismissed": "true",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\eloua\\OneDrive\\Bureau\\Projets\\mariko\\node_modules\\prettier",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "reference.settings.project.statistic.project.settings",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\eloua\OneDrive\Bureau\Projets\mariko\src\service\adminpanel" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.prod">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -180,7 +175,8 @@
       <workItem from="1692125839346" duration="1858000" />
       <workItem from="1692173837033" duration="71000" />
       <workItem from="1692180811088" duration="44000" />
-      <workItem from="1692216216489" duration="423000" />
+      <workItem from="1692216216489" duration="821000" />
+      <workItem from="1692258555690" duration="32529000" />
     </task>
     <task id="LOCAL-00001" summary="Reinit repo">
       <option name="closed" value="true" />
@@ -222,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691958614808</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ready for coding the services.">
+      <option name="closed" value="true" />
+      <created>1692216694172</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1692216694172</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

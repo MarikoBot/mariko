@@ -44,7 +44,7 @@ export default class BaseServer {
 
     const compareObj = (source: object, target: object, finalObj: object): object => {
       for (const K of Object.keys(source)) {
-        if (['commandPrivileges', '__id'].includes(K)) {
+        if (['commandPrivileges', '__id', 'blacklist'].includes(K)) {
           finalObj[K] = target[K];
           continue;
         }
@@ -59,6 +59,7 @@ export default class BaseServer {
     };
 
     finalStructure = compareObj(structure, data, {});
+    await this.update(key, finalStructure);
     return finalStructure;
   }
 
