@@ -9,32 +9,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc9ec7f5-847c-4c76-8255-6b34fd610675" name="Changes" comment="Ready for coding the services.">
-      <change afterPath="$PROJECT_DIR$/src/service/adminpanel/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Core.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Client.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Command.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Command.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Context.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/strings/En.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/strings/En.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/strings/Fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/strings/Fr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/BaseServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/BaseServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Core.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Core.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Command.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/strings/En.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/strings/En.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/strings/Fr.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/strings/Fr.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/BaseServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/BaseServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/game/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/mariko/FileContentIndex/153ef360-0d6b-4901-9a69-e58c2e821b39.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/mariko/FileContentIndex/267522dd-3136-4482-ace5-4ec17e5ee545.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/mariko/FileContentIndex/a939a0aa-3b01-4a96-ba64-cd7f4a2198ed.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/mariko/FileContentIndex/d5a4f21e-b951-4fdc-a06b-569ecac3ec51.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/mariko/v17/.wsuo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" />
     </list>
-    <list id="48cf63b9-21e1-40da-9df7-89888eeb6fb2" name="Don't touch" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-    </list>
+    <list id="48cf63b9-21e1-40da-9df7-89888eeb6fb2" name="Don't touch" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,8 +72,8 @@
     "git-widget-placeholder": "main",
     "idea.background.editor": "C:\\Users\\eloua\\OneDrive\\Images\\Wallpapers\\4z5rk6mgmfq61.jpg,0,scale,bottom_center",
     "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "18.13.0",
-    "javascript.nodejs.core.library.typings.version": "18.13.0",
+    "javascript.nodejs.core.library.configured.version": "20.5.1",
+    "javascript.nodejs.core.library.typings.version": "20.5.1",
     "last_opened_file_path": "C:/Users/eloua/OneDrive/Bureau/Projets/mariko/src/service/adminpanel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -94,9 +81,9 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettier.import.notification.dismissed": "true",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\eloua\\OneDrive\\Bureau\\Projets\\mariko\\node_modules\\prettier",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\panda\\OneDrive\\Documents\\Projects\\mariko\\node_modules\\prettier",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.project.statistic.project.settings",
+    "settings.editor.selected.configurable": "preferences.sourceCode.JSON",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -177,6 +164,7 @@
       <workItem from="1692180811088" duration="44000" />
       <workItem from="1692216216489" duration="821000" />
       <workItem from="1692258555690" duration="32529000" />
+      <workItem from="1692641483839" duration="102000" />
     </task>
     <task id="LOCAL-00001" summary="Reinit repo">
       <option name="closed" value="true" />
