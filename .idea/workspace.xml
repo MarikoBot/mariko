@@ -8,20 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc9ec7f5-847c-4c76-8255-6b34fd610675" name="Changes" comment="Ready for coding the services.">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/mariko/FileContentIndex/153ef360-0d6b-4901-9a69-e58c2e821b39.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/mariko/FileContentIndex/267522dd-3136-4482-ace5-4ec17e5ee545.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/mariko/FileContentIndex/a939a0aa-3b01-4a96-ba64-cd7f4a2198ed.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/mariko/FileContentIndex/d5a4f21e-b951-4fdc-a06b-569ecac3ec51.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/mariko/v17/.wsuo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" />
+    <list default="true" id="dc9ec7f5-847c-4c76-8255-6b34fd610675" name="Changes" comment="Ready for coding the services." />
+    <list id="48cf63b9-21e1-40da-9df7-89888eeb6fb2" name="Don't touch" comment="">
+      <change afterPath="$PROJECT_DIR$/env" afterDir="false" />
     </list>
-    <list id="48cf63b9-21e1-40da-9df7-89888eeb6fb2" name="Don't touch" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,7 +154,7 @@
       <workItem from="1692180811088" duration="44000" />
       <workItem from="1692216216489" duration="821000" />
       <workItem from="1692258555690" duration="32529000" />
-      <workItem from="1692641483839" duration="102000" />
+      <workItem from="1692641483839" duration="407000" />
     </task>
     <task id="LOCAL-00001" summary="Reinit repo">
       <option name="closed" value="true" />
@@ -214,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692216694172</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Ready for coding the services.">
+      <option name="closed" value="true" />
+      <created>1692641854822</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1692641854822</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
