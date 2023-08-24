@@ -38,11 +38,11 @@ const defaultData = {
    * Presence data to use upon login.
    */
   presence: {
-    status: 'online',
+    status: 'dnd',
     activities: [
       {
-        name: 'with TypeScript',
-        type: ActivityType.Playing,
+        name: "Nathan's ass",
+        type: ActivityType.Watching,
       },
     ],
   } as PresenceData,

@@ -11,7 +11,7 @@ import * as chalk from 'chalk';
  */
 export function log(...args: any[]): void {
   args.forEach((arg: any): any => {
-    console.log(chalk.blue('⟦HAGANEZUKA LOG⟧'), chalk.blue(arg.message || arg));
+    console.log(chalk.blue('⟦MARIKO LOG⟧'), chalk.blue(arg.message || arg));
     if (arg.message) console.log(arg);
   });
 }
@@ -23,7 +23,7 @@ export function log(...args: any[]): void {
  */
 export function test(...args: any[]): void {
   args.forEach((arg: any): any => {
-    console.log(chalk.magenta('⟦HAGANEZUKA TEST⟧'));
+    console.log(chalk.magenta('⟦MARIKO TEST⟧'));
     console.log(arg.message || arg);
     if (arg.message) console.log(arg);
   });
@@ -36,7 +36,7 @@ export function test(...args: any[]): void {
  */
 export function err(...args: any[]): void {
   args.forEach((arg: any): any => {
-    console.log(chalk.red('⟦HAGANEZUKA ERROR⟧'), chalk.red(arg.message || arg));
+    console.log(chalk.red('⟦MARIKO ERROR⟧'), chalk.red(arg.message || arg));
     if (arg.message) console.log(arg);
   });
 }
@@ -48,7 +48,7 @@ export function err(...args: any[]): void {
  */
 export function caught(...args: any[]): void {
   args.forEach((arg: any): any => {
-    console.log(chalk.magenta('⟦HAGANEZUKA ERROR⟧'));
+    console.log(chalk.magenta('⟦MARIKO ERROR⟧'));
     console.log(chalk.magenta(arg.message || arg));
     if (arg.message) console.log(arg);
   });
@@ -160,6 +160,7 @@ export const Colors = {
   BLUE: 0x454bff,
   PURPLE: 0xc167ff,
   WHITE: 0xebebeb,
+  DARK: 0x2c2d31,
 } as const;
 
 /**
@@ -169,4 +170,13 @@ export const Colors = {
  */
 export function cap(str: string): string {
   return str.split('')[0].toUpperCase() + str.split('').slice(1);
+}
+
+/**
+ * Returns the current date for a Discord timestamp.
+ * @param date The date number.
+ * @returns The string.
+ */
+export function discordDate(date: number = Date.now()): string {
+  return (date / 1000).toFixed(0);
 }

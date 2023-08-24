@@ -9,5 +9,6 @@ export * as Salesperson from './Salesperson';
 export type MongooseCollectionData = {
   schema: Schema;
   Model: ModelClass<any>;
-  defaultData: object;
+  defaultData: { [p: string]: any };
+  PRIMARY_KEY: string;
 };

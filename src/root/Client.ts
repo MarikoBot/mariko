@@ -79,7 +79,7 @@ export default class SuperClient extends Client {
   /**
    * The service handler interface.
    */
-  public readonly Service: ServiceInterface = {
+  public readonly Services: ServiceInterface = {
     Game: GameService,
     AdminPanel: AdminPanelService,
   };

@@ -1,109 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="ANALYZE_INJECTED_CODE" value="false" />
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc9ec7f5-847c-4c76-8255-6b34fd610675" name="Changes" comment="Ready for coding the services." />
-    <list id="48cf63b9-21e1-40da-9df7-89888eeb6fb2" name="Don't touch" comment="">
-      <change afterPath="$PROJECT_DIR$/env" afterDir="false" />
+    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/database.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/database.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Core.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Guild.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Guild.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Salesperson.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Salesperson.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/ClientConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/ClientConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Client.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/BaseServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/BaseServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/CoreServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/CoreServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/UserServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/UserServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminpanel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Core.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Core.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Guild.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Guild.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Player.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Salesperson.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Salesperson.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/ClientConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/ClientConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/BaseServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/BaseServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/CoreServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/CoreServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/UserServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/UserServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/adminpanel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminpanel/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="TypeScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;elouann-h&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="7084cdef-9cd2-4068-ae73-36b5013b1e4f" />
-        <option name="url" value="https://github.com/MarikoBot/mariko.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: -1
 }</component>
-  <component name="ProjectId" id="2TcrOhvrUfjupFsUg2tSx3bd6FN" />
+  <component name="ProjectId" id="2UJ6J6gTxjzrV25AAQl5cvIdcRM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "idea.background.editor": "C:\\Users\\eloua\\OneDrive\\Images\\Wallpapers\\4z5rk6mgmfq61.jpg,0,scale,bottom_center",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "20.5.1",
-    "javascript.nodejs.core.library.typings.version": "20.5.1",
-    "last_opened_file_path": "C:/Users/eloua/OneDrive/Bureau/Projets/mariko/src/service/adminpanel",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettier.import.notification.dismissed": "true",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\panda\\OneDrive\\Documents\\Projects\\mariko\\node_modules\\prettier",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.sourceCode.JSON",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.5.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.5.1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\panda\\OneDrive\\Documents\\Projects\\mariko\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\eloua\OneDrive\Bureau\Projets\mariko\src\service\adminpanel" />
-    </key>
-  </component>
-  <component name="RunManager" selected="npm.prod">
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="clean" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="clean" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
+}</component>
+  <component name="RunManager">
     <configuration name="prod" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -117,111 +96,35 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.prod" />
-        <item itemvalue="npm.clean" />
-        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dc9ec7f5-847c-4c76-8255-6b34fd610675" name="Changes" comment="" />
-      <changelist id="48cf63b9-21e1-40da-9df7-89888eeb6fb2" name="Don't touch" comment="" />
-      <created>1691353184642</created>
+      <changelist id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="" />
+      <created>1692645261169</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1691353184642</updated>
-      <workItem from="1691353194175" duration="536000" />
-      <workItem from="1691397090242" duration="618000" />
-      <workItem from="1691424674625" duration="2690000" />
-      <workItem from="1691673281776" duration="2000" />
-      <workItem from="1691673677026" duration="2000" />
-      <workItem from="1691687104768" duration="2696000" />
-      <workItem from="1691741486738" duration="1503000" />
-      <workItem from="1691770158570" duration="596000" />
-      <workItem from="1691779392541" duration="3355000" />
-      <workItem from="1691847072205" duration="7323000" />
-      <workItem from="1691916611478" duration="4285000" />
-      <workItem from="1691922765215" duration="3805000" />
-      <workItem from="1691945063912" duration="8414000" />
-      <workItem from="1691999276200" duration="351000" />
-      <workItem from="1692001088226" duration="7258000" />
-      <workItem from="1692023698473" duration="9000" />
-      <workItem from="1692028196046" duration="441000" />
-      <workItem from="1692103158570" duration="589000" />
-      <workItem from="1692125839346" duration="1858000" />
-      <workItem from="1692173837033" duration="71000" />
-      <workItem from="1692180811088" duration="44000" />
-      <workItem from="1692216216489" duration="821000" />
-      <workItem from="1692258555690" duration="32529000" />
-      <workItem from="1692641483839" duration="407000" />
+      <updated>1692645261169</updated>
+      <workItem from="1692645262795" duration="684000" />
+      <workItem from="1692697514422" duration="693000" />
+      <workItem from="1692705186147" duration="890000" />
+      <workItem from="1692706369115" duration="36000" />
+      <workItem from="1692706566483" duration="183000" />
+      <workItem from="1692706760053" duration="805000" />
+      <workItem from="1692722310239" duration="883000" />
+      <workItem from="1692782871059" duration="6637000" />
+      <workItem from="1692797054634" duration="2654000" />
+      <workItem from="1692871308827" duration="4119000" />
+      <workItem from="1692883707681" duration="3382000" />
+      <workItem from="1692889121002" duration="3833000" />
+      <workItem from="1692895656870" duration="7124000" />
     </task>
-    <task id="LOCAL-00001" summary="Reinit repo">
-      <option name="closed" value="true" />
-      <created>1691353359367</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1691353359367</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Reinit repo">
-      <option name="closed" value="true" />
-      <created>1691353370267</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1691353370267</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Reinit repo">
-      <option name="closed" value="true" />
-      <created>1691353638120</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1691353638120</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Reinit repo">
-      <option name="closed" value="true" />
-      <created>1691353708011</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1691353708011</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Ready for coding the services.">
-      <option name="closed" value="true" />
-      <created>1691958614808</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1691958614808</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Ready for coding the services.">
-      <option name="closed" value="true" />
-      <created>1692216694172</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1692216694172</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Ready for coding the services.">
-      <option name="closed" value="true" />
-      <created>1692641854822</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1692641854822</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reinit repo" />
-    <MESSAGE value="Ready for coding the services." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ready for coding the services." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

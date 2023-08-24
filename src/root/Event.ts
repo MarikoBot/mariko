@@ -6,6 +6,7 @@ import { caught, log } from './Util';
 import Context from './Context';
 import { CoolDownsQueueElement } from './CoolDownManager';
 import { InterferingQueueElement } from './InterferingManager';
+import { Index as APIndex } from '../service/adminpanel';
 
 /**
  * The model of a callback function for an event.
@@ -58,13 +59,29 @@ export const defaultEventsCb: Collection<string, EventCallback> = new Collection
 defaultEventsCb.set('ready', async (client: Client): Promise<void> => {
   log(`Logged in as ${client.user.tag}.`);
 
-  await (await client.Service.AdminPanel(client, '1139950254322626751', '1113177643710423060')).refreshChannel();
+  await (await client.Services.AdminPanel(client, '1139950254322626751', '1113177643710423060')).refreshChannel();
 });
 
 defaultEventsCb.set('interactionCreate', async (client: Client, interaction: BaseInteraction): Promise<void> => {
   if (interaction.isButton() || interaction.isAnySelectMenu()) {
     if ((interaction.customId as string).startsWith('autodefer')) {
       await interaction.deferUpdate().catch(caught);
+    }
+    if (interaction.isButton() && (interaction.customId as string).includes('adminpanel')) {
+      const id: string = interaction.customId as string;
+      const panel: APIndex = await client.Services.AdminPanel(client, interaction.channel.id, interaction.guild.id);
+      const task: string = id.split('_')[id.split('_').length - 1];
+
+      switch (task) {
+        case 'refresh':
+          await panel.refresh(interaction);
+          break;
+        case 'ping':
+          await panel.ping(interaction);
+          break;
+        default:
+          break;
+      }
     }
   }
   if (interaction.isChatInputCommand()) {

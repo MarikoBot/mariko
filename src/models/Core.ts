@@ -2,6 +2,24 @@ import { Schema, model, Types } from 'mongoose';
 import { Snowflake } from 'discord.js';
 
 /**
+ * Represents a blacklisted user/guild.
+ */
+export interface BlacklistData {
+  /**
+   * The ID of the guild or the user.
+   */
+  id: Snowflake;
+  /**
+   * The info of the blacklist. Additional information.
+   */
+  info: string;
+  /**
+   *
+   */
+  commands: 'all' | string[];
+}
+
+/**
  * List of privileges for a command.
  */
 export interface CommandPrivileges {
@@ -54,7 +72,7 @@ export interface Interface {
   /**
    * The list of blacklisted users/guilds. Prevent them from using any command.
    */
-  blacklist: Record<Snowflake, { id: Snowflake; info: string; commands: 'all' | string[] }>;
+  blacklist: Record<Snowflake, BlacklistData>;
   /**
    * The list of restrictions and privileges for specified commands.
    */
@@ -91,3 +109,8 @@ export const { id, ...defaultData }: Interface = {
   },
   commandPrivileges: {},
 };
+
+/**
+ * The primary key of the table.
+ */
+export const PRIMARY_KEY: string = 'clientId' as const;

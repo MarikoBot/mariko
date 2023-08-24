@@ -11,6 +11,10 @@ export interface Interface {
    */
   id: Types.ObjectId;
   /**
+   * The date of beginning.
+   */
+  date: number;
+  /**
    * The Discord ID of the user.
    */
   discordId: string;
@@ -166,6 +170,7 @@ export interface Interface {
  */
 export const schema = new Schema<Interface>({
   id: { type: Schema.Types.ObjectId, ref: 'id' },
+  date: { type: Number, required: true },
   discordId: { type: String, required: true },
   username: { type: String, required: true },
   experience: { type: Number, required: true },
@@ -219,7 +224,8 @@ export const Model = model<Interface>('Player', schema);
  */
 export const { id, ...defaultData }: Interface = {
   id: null,
-  discordId: '1113174518744236034',
+  date: Date.now(),
+  discordId: '539842701592494111',
   username: 'Tanaka Ken',
   experience: 0,
   race: 'human',
@@ -261,3 +267,8 @@ export const { id, ...defaultData }: Interface = {
     dugAt: 0,
   },
 };
+
+/**
+ * The primary key of the table.
+ */
+export const PRIMARY_KEY: string = 'discordId' as const;

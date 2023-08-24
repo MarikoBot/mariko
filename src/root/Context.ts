@@ -556,7 +556,7 @@ export default class Context {
       await message.removeAttachments().catch(caught);
     }
     if (!('content' in messageData) && !ignorePresentFields) {
-      delete messageData.content;
+      messageData.content = '';
     }
 
     if (!message) return null;

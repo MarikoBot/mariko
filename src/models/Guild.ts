@@ -14,10 +14,6 @@ export interface Interface {
    */
   discordId: string;
   /**
-   * List of subscriptions linked to the guild.
-   */
-  subscriptions: Record<string, Subscription>;
-  /**
    * If the guild is premium on the guild service.
    */
   guildPremium: boolean;
@@ -29,7 +25,6 @@ export interface Interface {
 export const schema = new Schema<Interface>({
   id: { type: Schema.Types.ObjectId, ref: 'id' },
   discordId: { type: String, required: true },
-  subscriptions: { type: Object, required: true },
   guildPremium: { type: Boolean, required: true },
 });
 
@@ -43,7 +38,11 @@ export const Model = model<Interface>('Guild', schema);
  */
 export const { id, ...defaultData }: Interface = {
   id: null,
-  discordId: '1140221636507869255',
-  subscriptions: {},
+  discordId: '539842701592494111',
   guildPremium: false,
 };
+
+/**
+ * The primary key of the table.
+ */
+export const PRIMARY_KEY: string = 'discordId' as const;

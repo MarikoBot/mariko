@@ -19,11 +19,12 @@ export default class BaseServer {
     Model: MongooseCollectionData['Model'];
     schema: MongooseCollectionData['schema'];
     defaultData: MongooseCollectionData['defaultData'];
+    PRIMARY_KEY: MongooseCollectionData['PRIMARY_KEY'];
   };
   /**
    * The base server constructor.
    * @param client The client instance.
-   * @param file The file name for the data.
+   * @param fileData The file name for the data.
    */
   constructor(client: Client, fileData: MongooseCollectionData) {
     this.client = client;
@@ -40,7 +41,8 @@ export default class BaseServer {
     if (!data) return data;
 
     const structure: this['collectionData']['defaultData'] = this.collectionData.defaultData;
-    let finalStructure: { [p: string]: any } = {};
+    let finalStructure: { [p: string]: any };
+    let refreshIsRequired: boolean = false;
 
     const compareObj = (source: object, target: object, finalObj: object): object => {
       for (const K of Object.keys(source)) {
@@ -52,14 +54,17 @@ export default class BaseServer {
           finalObj[K] = typeof source[K] !== typeof target[K] ? source[K] : target[K];
         } else {
           if (K in target) finalObj[K] = compareObj(source[K], target[K], {});
-          else finalObj = source[K];
+          else {
+            if (typeof finalObj[K] !== 'object') refreshIsRequired = true;
+            finalObj = source[K];
+          }
         }
       }
       return finalObj;
     };
 
     finalStructure = compareObj(structure, data, {});
-    await this.update(key, finalStructure);
+    if (refreshIsRequired) await this.update(key, finalStructure);
     return finalStructure;
   }
 
@@ -78,10 +83,22 @@ export default class BaseServer {
    * @returns The created model.
    */
   public async create(additionalData: { [p: string]: any }): Promise<void> {
-    const entry: HydratedDocument<models.Core.Interface> = new this.collectionData.Model({
+    const doc: { additionalData: { [p: string]: any } } = {
       ...this.collectionData.defaultData,
       additionalData,
-    });
+    };
+    let alreadyExists: boolean = false;
+
+    const primaryKeys: string[] = this.collectionData.PRIMARY_KEY.split('+');
+    const primaryValuesEngine: { [p: (typeof primaryKeys)[number]]: any } = {};
+    for (const primaryKey of primaryKeys) {
+      primaryValuesEngine[primaryKey] = doc[primaryKey];
+    }
+
+    if (await this.find(primaryValuesEngine)) alreadyExists = true;
+    if (alreadyExists) return;
+
+    const entry: HydratedDocument<models.Core.Interface> = new this.collectionData.Model(doc);
     await entry.save();
   }
 

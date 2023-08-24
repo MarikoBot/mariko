@@ -3,6 +3,9 @@ import Client from './root/Client';
 import * as models from './models/index';
 import { CommandPrivileges } from './models/Core';
 
+/**
+ * An interface that includes an added value.
+ */
 interface TransformedData extends models.Core.Interface {
   __empty?: boolean;
 }
@@ -37,6 +40,8 @@ export default async function (client: Client): Promise<void> {
       cmdPrivs[commandName] = commandsPrivileges[commandName];
     }
   }
+
+  await client.Server.User.createUser('539842701592494111', 'en');
 
   delete currentData.__empty;
   currentData.commandPrivileges = cmdPrivs;

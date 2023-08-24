@@ -51,4 +51,16 @@ export default class CoreServer extends BaseServer {
   public async updateCore(data: object): Promise<any> {
     return await this.update({ clientId: ClientConfig.defaultClientId }, data);
   }
+
+  /**
+   * Get the blacklist.
+   * @returns The blacklist.
+   */
+  public async getBlacklist(): Promise<models.Core.BlacklistData[]> {
+    const data: models.Core.Interface = (await this.find({
+      clientId: ClientConfig.defaultClientId,
+    })) as models.Core.Interface;
+
+    return Object.values(data.blacklist);
+  }
 }

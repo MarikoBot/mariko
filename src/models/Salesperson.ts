@@ -79,9 +79,14 @@ export const Model = model<Interface>('Salesperson', schema);
  */
 export const { id, ...defaultData }: Interface = {
   id: null,
-  discordId: '1140221636507869255',
+  discordId: '539842701592494111',
   guildId: '1140221636507869255',
   cash: 0,
   safe: 0,
   contracts: {},
 };
+
+/**
+ * The primary key of the table.
+ */
+export const PRIMARY_KEY: string = 'discordId+guildId' as const;

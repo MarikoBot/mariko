@@ -7,7 +7,7 @@ import { Snowflake } from 'discord.js';
  */
 export interface Subscription {
   /**
-   * The price in euros.
+   * The price paid in dollars.
    */
   price: number;
   /**
@@ -22,6 +22,18 @@ export interface Subscription {
    * Information about the subscription.
    */
   id: string;
+  /**
+   * The servers boosted with premium.
+   */
+  servers: [];
+  /**
+   * If the user gets premium on the RPG.
+   */
+  rpg: boolean;
+  /**
+   * If the user gets premium on the utils.
+   */
+  global: boolean;
 }
 
 /**
@@ -44,14 +56,6 @@ export interface Interface {
    * List of subscriptions linked to the user.
    */
   subscriptions: Record<string, Subscription>;
-  /**
-   * If the user is premium on the RPG.
-   */
-  rpgPremium: boolean;
-  /**
-   * If the user is premium on the other service.
-   */
-  globalPremium: boolean;
 }
 
 /**
@@ -62,8 +66,6 @@ export const schema = new Schema<Interface>({
   discordId: { type: String, required: true },
   language: { type: String, required: true },
   subscriptions: { type: Object, required: true },
-  rpgPremium: { type: Boolean, required: true },
-  globalPremium: { type: Boolean, required: true },
 });
 
 /**
@@ -76,9 +78,12 @@ export const Model = model<Interface>('User', schema);
  */
 export const { id, ...defaultData }: Interface = {
   id: null,
-  discordId: '1140221636507869255',
+  discordId: '539842701592494111',
   language: 'fr',
   subscriptions: {},
-  rpgPremium: false,
-  globalPremium: false,
 };
+
+/**
+ * The primary key of the table.
+ */
+export const PRIMARY_KEY: string = 'discordId' as const;
