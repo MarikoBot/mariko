@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="Two first buttons of the admin panel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminpanel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/adminpanel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminpanel/index.ts" afterDir="false" />
+    </list>
+    <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +21,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;elouannh&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f14269eb-7f39-428b-b311-4a6b57c97374" />
+        <option name="url" value="https://github.com/MarikoBot/mariko.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -65,6 +86,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="" />
+      <changelist id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="" />
       <created>1692645261169</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -81,7 +103,8 @@
       <workItem from="1692871308827" duration="4119000" />
       <workItem from="1692883707681" duration="3382000" />
       <workItem from="1692889121002" duration="3833000" />
-      <workItem from="1692895656870" duration="7757000" />
+      <workItem from="1692895656870" duration="8047000" />
+      <workItem from="1692948849525" duration="2829000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -99,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692905822006</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Two first buttons of the admin panel">
+      <option name="closed" value="true" />
+      <created>1692906510714</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1692906510714</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

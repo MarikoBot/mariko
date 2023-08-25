@@ -167,6 +167,27 @@ export class Index {
   }
 
   /**
+   * Handle the admin panel interactions.
+   * @param inter The interaction associated.
+   * @returns Nothing.
+   */
+  public async handle(inter: ButtonInteraction): Promise<void> {
+    const id: string = inter.customId as string;
+    const task: string = id.split('_')[id.split('_').length - 1];
+
+    switch (task) {
+      case 'refresh':
+        await this.refresh(inter);
+        break;
+      case 'ping':
+        await this.ping(inter);
+        break;
+      default:
+        break;
+    }
+  }
+
+  /**
    * Resend/edit the panel to update information.
    * @returns Nothing.
    */

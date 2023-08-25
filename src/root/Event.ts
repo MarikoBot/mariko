@@ -68,20 +68,8 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
       await interaction.deferUpdate().catch(caught);
     }
     if (interaction.isButton() && (interaction.customId as string).includes('adminpanel')) {
-      const id: string = interaction.customId as string;
       const panel: APIndex = await client.Services.AdminPanel(client, interaction.channel.id, interaction.guild.id);
-      const task: string = id.split('_')[id.split('_').length - 1];
-
-      switch (task) {
-        case 'refresh':
-          await panel.refresh(interaction);
-          break;
-        case 'ping':
-          await panel.ping(interaction);
-          break;
-        default:
-          break;
-      }
+      await panel.handle(interaction);
     }
   }
   if (interaction.isChatInputCommand()) {
