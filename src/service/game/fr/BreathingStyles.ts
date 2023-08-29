@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import { Art } from '../Typings';
 
 /**

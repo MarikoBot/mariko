@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="Two first buttons of the admin panel">
+      <change afterPath="$PROJECT_DIR$/src/service/adminpanel/panels/blacklist.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminpanel/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/game/Data.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/Data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/game/fr/BreathingStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/fr/BreathingStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/game/fr/Resources.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/fr/Resources.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/adminpanel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminpanel/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/Typings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Typings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/fr/BreathingStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/fr/BreathingStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/fr/Resources.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/fr/Resources.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/index.ts" afterDir="false" />
     </list>
     <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
@@ -18,6 +27,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -104,7 +120,13 @@
       <workItem from="1692883707681" duration="3382000" />
       <workItem from="1692889121002" duration="3833000" />
       <workItem from="1692895656870" duration="8047000" />
-      <workItem from="1692948849525" duration="2829000" />
+      <workItem from="1692948849525" duration="4089000" />
+      <workItem from="1692970513910" duration="1641000" />
+      <workItem from="1692984747396" duration="517000" />
+      <workItem from="1692988685228" duration="593000" />
+      <workItem from="1693061799847" duration="352000" />
+      <workItem from="1693065203782" duration="3772000" />
+      <workItem from="1693181042868" duration="92000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -130,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692906510714</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Two first buttons of the admin panel">
+      <option name="closed" value="true" />
+      <created>1692956231743</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692956231743</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

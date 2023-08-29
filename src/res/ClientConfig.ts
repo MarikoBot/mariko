@@ -25,7 +25,7 @@ const defaultData = {
   /**
    * The default client id.
    */
-  defaultClientId: '1113174518744236034',
+  defaultClientId: '1146155436496670820',
   /**
    * Intents to enable for this connection.
    */

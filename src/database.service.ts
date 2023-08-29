@@ -7,6 +7,9 @@ import { CommandPrivileges } from './models/Core';
  * An interface that includes an added value.
  */
 interface TransformedData extends models.Core.Interface {
+  /**
+   * If the data of the core were empty.
+   */
   __empty?: boolean;
 }
 

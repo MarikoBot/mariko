@@ -61,16 +61,43 @@ export type Skill =
  * The representation of an art.
  */
 export type Art = {
+  /**
+   * The id of the art.
+   */
   id: string;
+  /**
+   * The name of the art.
+   */
   name: string;
+  /**
+   * The moves of the art.
+   */
   moves: string[];
+  /**
+   * The different moves sorted in each category.
+   */
   movesCategories: {
+    /**
+     * Basic attacks.
+     */
     basic: number[];
+    /**
+     * Attacks in fineness.
+     */
     fineness: number[];
+    /**
+     * Heavy attacks.
+     */
     heavy: number[];
+    /**
+     * Ultimate attacks.
+     */
     ultimate: number[];
   };
-  custom?: true;
+  /**
+   * If it's a custom art.
+   */
+  custom?: boolean;
 };
 
 /**

@@ -99,7 +99,7 @@ export const Model = model<Interface>('Core', schema);
  */
 export const { id, ...defaultData }: Interface = {
   id: null,
-  clientId: '1113174518744236034',
+  clientId: '1146155436496670820',
   blacklist: {
     '751206188791627877': {
       id: '751206188791627877',

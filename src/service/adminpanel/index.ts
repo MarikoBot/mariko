@@ -77,10 +77,6 @@ export const mainEmbed = async (client: Client, color?: keyof typeof Colors): Pr
 };
 
 /**
- * Display blacklist
- */
-
-/**
  * An empty button for the panel.
  * @param id The id of the empty button to avoid duplicate custom id issues.
  * @returns A empty button.
@@ -208,6 +204,20 @@ export class Index {
    * Replies to the refresh button.
    * @returns Nothing.
    */
+  public async refresh(inter: ButtonInteraction): Promise<void> {
+    await this.refreshChannel();
+    await inter
+      .reply({
+        content: `<t:${discordDate()}:T> | <:refreshc:1144631931271659592> | \`Refresh done.\``,
+        ephemeral: true,
+      })
+      .catch(caught);
+  }
+
+  /**
+   * Replies to the refresh button.
+   * @returns Nothing.
+   */
   public async ping(inter: ButtonInteraction): Promise<void> {
     const latency: number = Math.sqrt((Date.now() - inter.createdTimestamp) ** 2);
     const apiLatency: number = this.client.ws.ping;
@@ -231,21 +241,10 @@ export class Index {
     await inter
       .reply({
         content:
-          `<t:${discordDate()}:T> | <:ping:1141781630709665962> | Ping calculated.\n` +
-          `${stylizePing(latency, 'Latency: {ping}')}${stylizePing(apiLatency, 'API Latency: {ping}')}`,
+          `<t:${discordDate()}:T> | <:pingc:1144631924598526032> | \`Ping calculated.\`\n` +
+          `${stylizePing(latency, 'Latency: {ping} ms')}${stylizePing(apiLatency, 'API Latency: {ping} ms')}`,
         ephemeral: true,
       })
-      .catch(caught);
-  }
-
-  /**
-   * Replies to the refresh button.
-   * @returns Nothing.
-   */
-  public async refresh(inter: ButtonInteraction): Promise<void> {
-    await this.refreshChannel();
-    await inter
-      .reply({ content: `<t:${discordDate()}:T> | <:refresh:1141781454511149196> | Refresh done.`, ephemeral: true })
       .catch(caught);
   }
 }
