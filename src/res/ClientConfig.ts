@@ -41,7 +41,7 @@ const defaultData = {
     status: 'dnd',
     activities: [
       {
-        name: "Nathan's ass",
+        name: '& Monitoring',
         type: ActivityType.Watching,
       },
     ],
