@@ -17,7 +17,7 @@ export default class GuildServer extends BaseServer {
   /**
    * Create a new guild.
    * @param discordId The guild id.
-   * @returns The created guild.
+   * @returns Nothing.
    */
   public async createPlayer(discordId: Snowflake): Promise<void> {
     await this.create({

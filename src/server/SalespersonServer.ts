@@ -19,7 +19,7 @@ export default class SalespersonServer extends BaseServer {
    * Create a new player.
    * @param discordId The player id.
    * @param guildId The guild id.
-   * @returns The created salesperson.
+   * @returns Nothing.
    */
   public async createSalesperson(discordId: Snowflake, guildId: Snowflake): Promise<void> {
     await this.create({

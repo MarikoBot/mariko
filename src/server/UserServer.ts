@@ -39,7 +39,7 @@ export default class UserServer extends BaseServer {
    * Create a new user.
    * @param discordId The discord id.
    * @param language The language id.
-   * @returns The created user.
+   * @returns Nothing.
    */
   public async createUser(discordId: Snowflake, language: Language): Promise<void> {
     await this.create({
@@ -52,7 +52,7 @@ export default class UserServer extends BaseServer {
   /**
    * Extract the language id from a user.
    * @param discordId The user ID.
-   * @returns The user id. Returns 'fr' if not found.
+   * @returns The user id. Returns "en" if not found.
    */
   public async getLanguage(discordId: Snowflake): Promise<Language> {
     const data: {} = await this.find({ discordId });
@@ -63,7 +63,7 @@ export default class UserServer extends BaseServer {
 
   /**
    * Get the list of all subscriptions from the server.
-   * @returns The list.
+   * @returns The subscriptions data.
    */
   public async getSubsData(): Promise<SubscriptionsData> {
     const data: this['collectionData']['defaultData'][] = await this.collectionData.Model.find().exec();

@@ -17,22 +17,39 @@ import { CommandType } from './Command';
 import CommandManager from './CommandManager';
 import EventManager from './EventManager';
 import * as Event from './Event';
+import LanguageManager from './LanguageManager';
+import GameService from '../service/game/';
+import AdminPanelService from '../service/adminpanel';
 import PlayerServer from '../server/PlayerServer';
 import UserServer from '../server/UserServer';
 import GuildServer from '../server/GuildServer';
 import CoreServer from '../server/CoreServer';
-import LanguageManager from './LanguageManager';
-import GameService from '../service/game/';
-import AdminPanelService from '../service/adminpanel';
+import SalespersonServer from '../server/SalespersonServer';
 
 /**
  * The default structure of the game servers.
  */
 interface ServerInterface {
+  /**
+   * The player collection on mongo db.
+   */
   Player: PlayerServer;
+  /**
+   * The guild collection on mongo db.
+   */
   Guild: GuildServer;
+  /**
+   * The user collection on mongo db.
+   */
   User: UserServer;
+  /**
+   * The core collection on mongo db.
+   */
   Core: CoreServer;
+  /**
+   * The salesperson collection on mongo db.
+   */
+  Salesperson: SalespersonServer;
 }
 
 /**
@@ -47,7 +64,13 @@ export type SlashOrganBuilder =
  * The default structure of service.
  */
 interface ServiceInterface {
+  /**
+   * The game service.
+   */
   Game: typeof GameService;
+  /**
+   * The admin panel service.
+   */
   AdminPanel: typeof AdminPanelService;
 }
 
@@ -75,6 +98,7 @@ export default class SuperClient extends Client {
     Guild: new GuildServer(this),
     User: new UserServer(this),
     Core: new CoreServer(this),
+    Salesperson: new SalespersonServer(this),
   };
   /**
    * The service handler interface.

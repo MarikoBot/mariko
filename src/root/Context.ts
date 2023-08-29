@@ -1,5 +1,3 @@
-// noinspection JSUnresolvedReference,JSUnusedGlobalSymbols
-
 import {
   ActionRow,
   ActionRowBuilder,
@@ -178,6 +176,12 @@ export default class Context {
       },
     );
   }
+
+  /**
+   * Extract data from a string. Extract especially tags to apply properties.
+   * @param str The string to extract from.
+   * @returns An object with the data extracted and the string without the tags.
+   */
   public static extractDataFromStr(str: string): [{ [index: string]: string }, string] {
     const data: { [index: string]: string } = {};
     let finalStr: string = str;
@@ -308,6 +312,7 @@ export default class Context {
    * @param customId The custom id if defined for the modal to show.
    * @param reply Whether to reply to the interaction or not.
    * @param messageToEdit The message to reply to if there is one.
+   * @returns The choice of the user, or null if not sent.
    */
   public async modalDialog(
     contentToShow: [string, RegExp],
@@ -390,6 +395,7 @@ export default class Context {
    * @param timeout The time before the choice expires.
    * @param reply Whether to reply to the interaction or not.
    * @param messageToEdit The message to reply to if there is one.
+   * @returns The choice of the user, or null if not sent.
    */
   public async panelDialog(
     messageData: BaseMessageOptions | string,
@@ -461,7 +467,12 @@ export default class Context {
 
   /**
    * Send/reply to a message and wait for a response.
-   *
+   * @param messageData The message data to send (Discord.<BaseMessageOptions>).
+   * @param rows The rows to add to the message.
+   * @param timeout The time before the choice expires.
+   * @param reply Whether to reply to the interaction or not.
+   * @param messageToEdit The message to reply to if there is one.
+   * @returns The response of the user, or null if not sent.
    */
   public async messageComponentInteraction(
     messageData: BaseMessageOptions | string,

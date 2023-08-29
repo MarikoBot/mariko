@@ -1,6 +1,6 @@
 // noinspection JSUnresolvedReference
 
-import { GatewayIntentBits, ActivityType, PresenceData } from 'discord.js';
+import { ActivityType, PresenceData } from 'discord.js';
 
 /*
   The default data for the client.
@@ -41,7 +41,7 @@ const defaultData = {
     status: 'dnd',
     activities: [
       {
-        name: "Nathan's ass",
+        name: '& Monitoring',
         type: ActivityType.Watching,
       },
     ],
@@ -67,10 +67,6 @@ const defaultData = {
    * The regular expression for username input.
    */
   usernameRegexp: /^[a-zA-Z0-9éèàçùòñõâêîôû'."]+(?:\s[a-zA-Z0-9]+)*$/gs,
-  /**
-   * The regular expression for weapon input.
-   */
-  weaponNameRegexp: /^[a-zA-Z0-9éèàçùòñõâêîôû'."]+(?:\s[a-zA-Z0-9]+)*$/gs,
   /**
    * The list of the three owners of the bot.
    */

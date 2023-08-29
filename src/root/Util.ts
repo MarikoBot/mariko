@@ -59,8 +59,6 @@ export function caught(...args: any[]): void {
  * @param fn The function to call.
  * @param ms The time to wait before calling the function.
  * @returns Void.
- * @example
- * await timeout(() => "empty", 1000);
  */
 export async function timeout(fn: (...args: any[]) => any, ms: number): Promise<any> {
   await new Promise((resolve) => setTimeout(resolve, ms));

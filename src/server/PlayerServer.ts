@@ -22,7 +22,7 @@ export default class PlayerServer extends BaseServer {
    * @param race The player race.
    * @param art The player art.
    * @param way The player way.
-   * @returns The created player.
+   * @returns Nothing.
    */
   public async createPlayer(
     discordId: Snowflake,

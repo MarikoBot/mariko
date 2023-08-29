@@ -120,6 +120,7 @@ export const panelButtons: ButtonBuilder[] = [
 
 /**
  * Generate the rows from the panel buttons list.
+ * @returns The buttons list.
  */
 export function generatePanelRows(): ActionRowBuilder<ButtonBuilder>[] {
   const actionsRows: ActionRowBuilder<ButtonBuilder>[] = [];
@@ -202,6 +203,7 @@ export class Index {
 
   /**
    * Replies to the refresh button.
+   * @param inter The interaction associated.
    * @returns Nothing.
    */
   public async refresh(inter: ButtonInteraction): Promise<void> {
@@ -216,6 +218,7 @@ export class Index {
 
   /**
    * Replies to the refresh button.
+   * @param inter The interaction associated.
    * @returns Nothing.
    */
   public async ping(inter: ButtonInteraction): Promise<void> {
@@ -254,7 +257,7 @@ export class Index {
  * @param client The client.
  * @param channel The channel of the context.
  * @param guild The guild of the context.
- * @returns Nothing.
+ * @returns An index instance.
  */
 export default async function index(client: Client, channel: Snowflake, guild: Snowflake): Promise<Index> {
   const indexInstance: Index = new Index(client);

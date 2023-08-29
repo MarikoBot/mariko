@@ -80,7 +80,7 @@ export default class BaseServer {
   /**
    * Create a new model instance.
    * @param additionalData The additional data.
-   * @returns The created model.
+   * @returns Nothing.
    */
   public async create(additionalData: { [p: string]: any }): Promise<void> {
     const doc: { additionalData: { [p: string]: any } } = {
