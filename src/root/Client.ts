@@ -1,5 +1,3 @@
-// noinspection JSUnresolvedReference,JSUnusedGlobalSymbols
-
 import {
   ApplicationCommandSubCommandData,
   ApplicationCommandSubGroupData,

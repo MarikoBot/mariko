@@ -1,5 +1,3 @@
-// noinspection JSUnresolvedReference
-
 import {
   ApplicationCommandOptionData,
   ChatInputCommandInteraction,

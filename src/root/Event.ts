@@ -1,4 +1,4 @@
-import { Collection, BaseInteraction, TextBasedChannel } from 'discord.js';
+import { Collection, BaseInteraction } from 'discord.js';
 
 import Command from './Command';
 import Client from './Client';

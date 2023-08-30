@@ -1,5 +1,3 @@
-// noinspection JSUnresolvedReference,JSUnusedGlobalSymbols
-
 import { ApplicationCommandSubGroupData } from 'discord.js';
 import { ApplicationCommandOptionType } from 'discord-api-types/v10';
 

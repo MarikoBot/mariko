@@ -1,5 +1,4 @@
 import { Schema, model, Types } from 'mongoose';
-import { Subscription } from './User';
 
 /**
  * The interface of a document.

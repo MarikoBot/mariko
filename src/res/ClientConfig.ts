@@ -1,5 +1,3 @@
-// noinspection JSUnresolvedReference
-
 import { ActivityType, PresenceData } from 'discord.js';
 
 /*
