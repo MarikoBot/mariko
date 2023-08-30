@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="Continued panel">
+    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="Two first buttons of the admin panel">
+      <change afterPath="$PROJECT_DIR$/src/service/adminpanel/panels/blacklist.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/ClientConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/ClientConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/InterferingManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/InterferingManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/BaseServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/BaseServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/GuildServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/GuildServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/PlayerServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/PlayerServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/SalespersonServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SalespersonServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/UserServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/UserServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminpanel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/game/Data.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/Data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/game/fr/BreathingStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/fr/BreathingStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/game/fr/Resources.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/fr/Resources.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/adminpanel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminpanel/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/Typings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Typings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/fr/BreathingStyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/fr/BreathingStyles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/fr/Resources.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/fr/Resources.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/index.ts" afterDir="false" />
     </list>
     <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
@@ -79,37 +81,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="npm.build">
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="lint" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="prettier" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="prettier" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="prod" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -122,9 +94,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build" />
-        <item itemvalue="npm.prettier" />
-        <item itemvalue="npm.lint" />
         <item itemvalue="npm.prod" />
       </list>
     </recent_temporary>
@@ -158,9 +127,6 @@
       <workItem from="1693061799847" duration="352000" />
       <workItem from="1693065203782" duration="3772000" />
       <workItem from="1693181042868" duration="92000" />
-      <workItem from="1693335278452" duration="789000" />
-      <workItem from="1693385443985" duration="2708000" />
-      <workItem from="1693399339197" duration="3820000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -194,23 +160,7 @@
       <option name="project" value="LOCAL" />
       <updated>1692956231743</updated>
     </task>
-    <task id="LOCAL-00005" summary="Continued panel">
-      <option name="closed" value="true" />
-      <created>1693335546937</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1693335546937</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Continued panel">
-      <option name="closed" value="true" />
-      <created>1693335996657</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1693335996657</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,8 +168,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Two first buttons of the admin panel" />
-    <MESSAGE value="Continued panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Continued panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Two first buttons of the admin panel" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
