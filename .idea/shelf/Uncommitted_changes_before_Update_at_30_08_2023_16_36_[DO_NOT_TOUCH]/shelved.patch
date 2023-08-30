@@ -1,0 +1,13 @@
+Index: .env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.env b/.env
+new file mode 100644
+--- /dev/null	(date 1693335545867)
++++ b/.env	(date 1693335545867)
+@@ -0,0 +1,2 @@
++TOKEN=MTE0NjE1NTQzNjQ5NjY3MDgyMA.Gfa-_0.YgFvuyBK-1El1wRLmwbNTa6O6_Dpf15olJovmg
++DB_CONN_STRING=mongodb+srv://marikouser:uhGpmwqqnHo08Lyx@clusteralpha.49wtz9z.mongodb.net/?retryWrites=true&w=majority
+\ No newline at end of file
