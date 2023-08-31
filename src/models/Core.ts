@@ -14,9 +14,17 @@ export interface BlacklistData {
    */
   info: string;
   /**
-   *
+   * Type, if it's a user or a guild.
+   */
+  type: 'guild' | 'user';
+  /**
+   * Commands that are blacklisted.
    */
   commands: 'all' | string[];
+  /**
+   * The date when the element got blacklisted.
+   */
+  date: number;
 }
 
 /**
@@ -103,8 +111,10 @@ export const { id, ...defaultData }: Interface = {
   blacklist: {
     '751206188791627877': {
       id: '751206188791627877',
-      info: 'total',
+      info: 'blacklist zen permanent',
+      type: 'user',
       commands: 'all',
+      date: Date.now(),
     },
   },
   commandPrivileges: {},

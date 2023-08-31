@@ -20,6 +20,7 @@ import { caught, Colors, discordDate, SFToCtxChannel } from '../../root/Util';
 import Context from '../../root/Context';
 import { SubscriptionsData } from '../../server/UserServer';
 import { BlacklistData } from '../../models/Core';
+import Blacklist from './panels/blacklist';
 
 /**
  * Get the current panel embed.
@@ -102,7 +103,7 @@ export const panelButtons: ButtonBuilder[] = [
     .setStyle(ButtonStyle.Primary),
   new ButtonBuilder()
     .setEmoji('<:blacklist:1141782168910180362>')
-    .setCustomId('autodefer_adminpanel_blacklist')
+    .setCustomId('adminpanel_blacklist_create')
     .setStyle(ButtonStyle.Danger),
   new ButtonBuilder()
     .setEmoji('<:settings:1141782142339260416>')
@@ -120,13 +121,14 @@ export const panelButtons: ButtonBuilder[] = [
 
 /**
  * Generate the rows from the panel buttons list.
+ * @param buttons The buttons to display.
  * @returns The buttons list.
  */
-export function generatePanelRows(): ActionRowBuilder<ButtonBuilder>[] {
+export function generatePanelRows(buttons: ButtonBuilder[]): ActionRowBuilder<ButtonBuilder>[] {
   const actionsRows: ActionRowBuilder<ButtonBuilder>[] = [];
-  for (let i: number = 0; i < panelButtons.length; i++) {
+  for (let i: number = 0; i < buttons.length; i++) {
     if (i % 5 === 0) actionsRows.push(new ActionRowBuilder());
-    actionsRows[actionsRows.length - 1].addComponents(panelButtons[i]);
+    actionsRows[actionsRows.length - 1].addComponents(buttons[i]);
   }
   for (let j: number = actionsRows[actionsRows.length - 1].components.length; j < 5; j++)
     actionsRows[actionsRows.length - 1].addComponents(emptyButton(String(j)));
@@ -155,6 +157,10 @@ export class Index {
    * The context of the admin panel.
    */
   public ctx: Context;
+  /**
+   * The blacklist panel instance.
+   */
+  public blacklist: Blacklist;
 
   /**
    * @param client The client.
@@ -170,7 +176,18 @@ export class Index {
    */
   public async handle(inter: ButtonInteraction): Promise<void> {
     const id: string = inter.customId as string;
-    const task: string = id.split('_')[id.split('_').length - 1];
+    const task: string = id.replace('autodefer_', '').split('_').slice(1).join('_');
+
+    if (task.startsWith('blacklist')) {
+      this.ctx.btn = inter;
+      this.blacklist = new Blacklist(this.client, this.ctx);
+      if (task.endsWith('create')) {
+        delete this.blacklist.ctx.btn.message;
+        await this.blacklist.generate();
+      } else {
+        await this.blacklist.handle(inter);
+      }
+    }
 
     switch (task) {
       case 'refresh':
@@ -195,7 +212,7 @@ export class Index {
 
     const payload: BaseMessageOptions = {
       embeds: [await mainEmbed(this.client)],
-      components: generatePanelRows(),
+      components: generatePanelRows(panelButtons),
     };
     if (!messages.first()) await this.ctx.send(payload);
     else await this.ctx.edit(payload, messages.first(), false);

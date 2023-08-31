@@ -127,6 +127,10 @@ export default class Context {
    */
   public interaction: ChatInputCommandInteraction | undefined;
   /**
+   * The interaction button, if there is one.
+   */
+  public btn: ButtonInteraction | undefined;
+  /**
    * The users implicated in the context/action.
    */
   public readonly users: User[] | [];

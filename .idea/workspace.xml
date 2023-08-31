@@ -10,18 +10,16 @@
   <component name="ChangeListManager">
     <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":art: Improved code docstring and removed useless code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Guild.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Guild.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/ClientConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/ClientConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/fruit/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/vegetable/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/CommandManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/CommandManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Core.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/CoreServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/CoreServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminpanel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/panels/blacklist.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminpanel/panels/blacklist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Core.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Core.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/GuildServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/GuildServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/PlayerServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/PlayerServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/SalespersonServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SalespersonServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/game/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/CoreServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/CoreServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/adminpanel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminpanel/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/adminpanel/panels/blacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminpanel/panels/blacklist.ts" afterDir="false" />
     </list>
     <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
@@ -86,7 +84,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="npm.build">
+  <component name="RunManager" selected="npm.prod">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -109,8 +107,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.prod" />
+        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -143,6 +141,12 @@
       <workItem from="1693061799847" duration="352000" />
       <workItem from="1693065203782" duration="3772000" />
       <workItem from="1693181042868" duration="92000" />
+      <workItem from="1693408508454" duration="108000" />
+      <workItem from="1693417228083" duration="68000" />
+      <workItem from="1693418978024" duration="203000" />
+      <workItem from="1693474024988" duration="13398000" />
+      <workItem from="1693502508118" duration="4388000" />
+      <workItem from="1693519168045" duration="5632000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -192,7 +196,23 @@
       <option name="project" value="LOCAL" />
       <updated>1693406375472</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary=":art: Improved code docstring and removed useless code.">
+      <option name="closed" value="true" />
+      <created>1693408557233</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1693408557233</updated>
+    </task>
+    <task id="LOCAL-00008" summary=":art: Improved code docstring and removed useless code.">
+      <option name="closed" value="true" />
+      <created>1693408575848</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1693408575848</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

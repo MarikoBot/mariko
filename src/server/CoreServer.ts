@@ -2,7 +2,7 @@ import * as models from '../models';
 import BaseServer from './BaseServer';
 import Client from '../root/Client';
 import ClientConfig from '../res/ClientConfig';
-import { CommandPrivileges } from '../models/Core';
+import { BlacklistData, CommandPrivileges } from '../models/Core';
 
 /**
  * The core server.
