@@ -8,19 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":art: Improved code docstring and removed useless code.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Core.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Context.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/CoreServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/CoreServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminpanel/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/panels/blacklist.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminpanel/panels/blacklist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Core.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Core.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/CoreServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/CoreServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/adminpanel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminpanel/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/adminpanel/panels/blacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminpanel/panels/blacklist.ts" afterDir="false" />
-    </list>
+    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":rocket: Finished browsing buttons on the admin panel." />
     <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
@@ -146,7 +134,7 @@
       <workItem from="1693418978024" duration="203000" />
       <workItem from="1693474024988" duration="13398000" />
       <workItem from="1693502508118" duration="4388000" />
-      <workItem from="1693519168045" duration="5632000" />
+      <workItem from="1693519168045" duration="5992000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -212,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693408575848</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary=":rocket: Finished browsing buttons on the admin panel.">
+      <option name="closed" value="true" />
+      <created>1693525207778</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1693525207778</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +217,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Two first buttons of the admin panel" />
     <MESSAGE value=":art: Improved code docstring and removed useless code." />
-    <option name="LAST_COMMIT_MESSAGE" value=":art: Improved code docstring and removed useless code." />
+    <MESSAGE value=":rocket: Finished browsing buttons on the admin panel." />
+    <option name="LAST_COMMIT_MESSAGE" value=":rocket: Finished browsing buttons on the admin panel." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
