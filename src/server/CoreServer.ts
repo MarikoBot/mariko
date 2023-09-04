@@ -3,6 +3,7 @@ import BaseServer from './BaseServer';
 import Client from '../root/Client';
 import ClientConfig from '../res/ClientConfig';
 import { BlacklistData, CommandPrivileges } from '../models/Core';
+import { Snowflake } from 'discord.js';
 
 /**
  * The core server.
@@ -60,6 +61,16 @@ export default class CoreServer extends BaseServer {
     const data: models.Core.Interface = (await this.find({
       clientId: ClientConfig.defaultClientId,
     })) as models.Core.Interface;
+
+    for (let i = 0; i < 100; i++) {
+      data.blacklist[String(i)] = {
+        id: String(i),
+        info: `testing ${i}`,
+        type: 'guild',
+        commands: 'all',
+        date: Date.now(),
+      };
+    }
 
     return Object.values(data.blacklist);
   }
