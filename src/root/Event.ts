@@ -2,11 +2,11 @@ import { Collection, BaseInteraction } from 'discord.js';
 
 import Command from './Command';
 import Client from './Client';
-import { caught, log } from './Util';
+import { clean, log } from './Util';
 import Context from './Context';
 import { CoolDownsQueueElement } from './CoolDownManager';
 import { InterferingQueueElement } from './InterferingManager';
-import { Index as APIndex } from '../service/adminpanel';
+import { Index as APIndex } from '../service/adminPanel';
 
 /**
  * The model of a callback function for an event.
@@ -16,10 +16,9 @@ export type EventCallback = (...args: any[]) => void;
 
 /**
  * A default callback function used when nothing is set.
- * @param args The command args.
  * @returns Void.
  */
-export async function callbackDefault(...args: any[]): Promise<void> {
+export async function callbackDefault(): Promise<void> {
   return void setTimeout(() => null);
 }
 
@@ -64,10 +63,10 @@ defaultEventsCb.set('ready', async (client: Client): Promise<void> => {
 
 defaultEventsCb.set('interactionCreate', async (client: Client, interaction: BaseInteraction): Promise<void> => {
   if (interaction.isButton() || interaction.isAnySelectMenu()) {
-    if ((interaction.customId as string).startsWith('autodefer')) {
-      await interaction.deferUpdate().catch(caught);
+    if ((interaction.customId as string).startsWith('autoDefer')) {
+      await interaction.deferUpdate().catch(clean);
     }
-    if (interaction.isButton() && (interaction.customId as string).includes('adminpanel')) {
+    if (interaction.isButton() && (interaction.customId as string).includes('adminPanel')) {
       const panel: APIndex = await client.Services.AdminPanel(client, interaction.channel.id, interaction.guild.id);
       await panel.handle(interaction);
     }
@@ -113,6 +112,7 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
 
     await command.execute(client, interaction, ctx);
   } else if (interaction.isModalSubmit()) {
-    // Code will be here.
+    const data = interaction.fields;
+    console.log(data);
   }
 });

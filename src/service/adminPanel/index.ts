@@ -16,7 +16,7 @@ import {
 import { ButtonStyle } from 'discord-api-types/v10';
 
 import Client from '../../root/Client';
-import { caught, Colors, discordDate, SFToCtxChannel } from '../../root/Util';
+import { clean, Colors, discordDate, SFToCtxChannel } from '../../root/Util';
 import Context from '../../root/Context';
 import { SubscriptionsData } from '../../server/UserServer';
 import { BlacklistData } from '../../models/Core';
@@ -33,7 +33,7 @@ export const mainEmbed = async (client: Client, color?: keyof typeof Colors): Pr
   if (color) colorValue = Colors[color];
 
   const guilds: Collection<string, Guild | OAuth2Guild> =
-    (await client.guilds.fetch().catch(caught)) || new Collection();
+    (await client.guilds.fetch().catch(clean)) || new Collection();
   const users: Collection<string, User> = client.users.cache || new Collection();
   const players: number = await client.Server.Player.collectionData.Model.countDocuments().exec();
   const premiums: SubscriptionsData = await client.Server.User.getSubsData();
@@ -43,6 +43,7 @@ export const mainEmbed = async (client: Client, color?: keyof typeof Colors): Pr
   const CC = require('currency-converter-lt');
   const converter: typeof CC = new CC();
 
+  // noinspection JSUnresolvedReference
   return new EmbedBuilder()
     .setColor(colorValue)
     .setDescription(`# <:admin:1138783481141395466> Admin Panel\n*Click the refresh button to refresh data.*`)
@@ -64,7 +65,7 @@ export const mainEmbed = async (client: Client, color?: keyof typeof Colors): Pr
       },
       {
         name: 'Premium incomes',
-        value: `**${incomes}$ (${incomes <= 0 ? 0 : await converter.convert(incomes, 'USD', 'EUR')}€)**/m`,
+        value: `**${incomes}$ (${incomes <= 0 ? 0 : await converter?.convert(incomes, 'USD', 'EUR')}€)**/m`,
         inline: true,
       },
       {
@@ -84,9 +85,9 @@ export const mainEmbed = async (client: Client, color?: keyof typeof Colors): Pr
  */
 export const emptyButton = (id: string): ButtonBuilder =>
   new ButtonBuilder()
-    .setStyle(ButtonStyle.Secondary)
+    .setStyle(ButtonStyle['Secondary'])
     .setDisabled(true)
-    .setCustomId(`autodefer_adminpanel_${id}`)
+    .setCustomId(`autoDefer_adminPanel_${id}`)
     .setEmoji('▪️');
 
 /**
@@ -95,28 +96,28 @@ export const emptyButton = (id: string): ButtonBuilder =>
 export const panelButtons: ButtonBuilder[] = [
   new ButtonBuilder()
     .setEmoji('<:refresh:1141781454511149196>')
-    .setCustomId('adminpanel_refresh')
-    .setStyle(ButtonStyle.Primary),
+    .setCustomId('adminPanel_refresh')
+    .setStyle(ButtonStyle['Primary']),
   new ButtonBuilder()
     .setEmoji('<:ping:1141781630709665962>')
-    .setCustomId('adminpanel_ping')
-    .setStyle(ButtonStyle.Primary),
+    .setCustomId('adminPanel_ping')
+    .setStyle(ButtonStyle['Primary']),
   new ButtonBuilder()
     .setEmoji('<:blacklist:1141782168910180362>')
-    .setCustomId('adminpanel_blacklist_create')
-    .setStyle(ButtonStyle.Danger),
+    .setCustomId('adminPanel_blacklist_create')
+    .setStyle(ButtonStyle['Danger']),
   new ButtonBuilder()
     .setEmoji('<:settings:1141782142339260416>')
-    .setCustomId('autodefer_adminpanel_settings')
-    .setStyle(ButtonStyle.Danger),
+    .setCustomId('autoDefer_adminPanel_settings')
+    .setStyle(ButtonStyle['Danger']),
   new ButtonBuilder()
     .setEmoji('<:flag:1141782136333017129>')
-    .setCustomId('autodefer_adminpanel_status')
-    .setStyle(ButtonStyle.Danger),
+    .setCustomId('autoDefer_adminPanel_status')
+    .setStyle(ButtonStyle['Danger']),
   new ButtonBuilder()
     .setEmoji('<:premium:1141782866578116700>')
-    .setCustomId('autodefer_adminpanel_premium')
-    .setStyle(ButtonStyle.Success),
+    .setCustomId('autoDefer_adminPanel_premium')
+    .setStyle(ButtonStyle['Success']),
 ];
 
 /**
@@ -176,7 +177,7 @@ export class Index {
    */
   public async handle(inter: ButtonInteraction): Promise<void> {
     const id: string = inter.customId as string;
-    const task: string = id.replace('autodefer_', '').split('_').slice(1).join('_');
+    const task: string = id.replace('autoDefer_', '').split('_').slice(1).join('_');
 
     if (task.startsWith('blacklist')) {
       this.ctx.btn = inter;
@@ -206,7 +207,7 @@ export class Index {
    * @returns Nothing.
    */
   public async refreshChannel(): Promise<void | Message> {
-    let messages: void | Collection<string, Message> = await this.ctx.channel.messages.fetch().catch(caught);
+    let messages: void | Collection<string, Message> = await this.ctx.channel.messages.fetch().catch(clean);
     if (!messages) return;
     messages = messages.filter((message: Message): boolean => message.author.id === this.client.user.id);
 
@@ -230,7 +231,7 @@ export class Index {
         content: `<t:${discordDate()}:T> | <:refreshc:1144631931271659592> | \`Refresh done.\``,
         ephemeral: true,
       })
-      .catch(caught);
+      .catch(clean);
   }
 
   /**
@@ -265,7 +266,7 @@ export class Index {
           `${stylizePing(latency, 'Latency: {ping} ms')}${stylizePing(apiLatency, 'API Latency: {ping} ms')}`,
         ephemeral: true,
       })
-      .catch(caught);
+      .catch(clean);
   }
 }
 
@@ -279,7 +280,7 @@ export class Index {
 export default async function index(client: Client, channel: Snowflake, guild: Snowflake): Promise<Index> {
   const indexInstance: Index = new Index(client);
   indexInstance.ctx = new Context(await SFToCtxChannel(client, guild, channel), null, null, client.user);
-  indexInstance.guild = (await client.guilds.fetch(guild).catch(caught)) || null;
+  indexInstance.guild = (await client.guilds.fetch(guild).catch(clean)) || null;
 
   return indexInstance;
 }

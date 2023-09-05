@@ -4,7 +4,7 @@ import * as models from '../models';
 import BaseServer from './BaseServer';
 import Client from '../root/Client';
 import { Language } from '../service/game/Typings';
-import { caught } from '../root/Util';
+import { clean } from '../root/Util';
 
 /**
  * Represents an interface for the subscriptions list.
@@ -79,7 +79,7 @@ export default class UserServer extends BaseServer {
 
     for (const user of data) {
       subData.subscribers[user.discordId] = {
-        user: (await this.client.users.fetch(user.discordId).catch(caught)) || { id: user.discordId as Snowflake },
+        user: (await this.client.users.fetch(user.discordId).catch(clean)) || { id: user.discordId as Snowflake },
         sub: user.subscription,
       };
     }

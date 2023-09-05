@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 /**
  * The id of the breathing style.
  */

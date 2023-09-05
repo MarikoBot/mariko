@@ -7,7 +7,6 @@ import {
   EmbedBuilder,
   BaseMessageOptions,
   ButtonInteraction,
-  MessageReplyOptions,
   ModalBuilder,
 } from 'discord.js';
 
@@ -15,7 +14,7 @@ import { ButtonStyle, TextInputStyle } from 'discord-api-types/v10';
 
 import Client from '../../../root/Client';
 import Context from '../../../root/Context';
-import { caught, Colors, discordDate } from '../../../root/Util';
+import { clean, Colors, discordDate } from '../../../root/Util';
 import { generatePanelRows } from '../index';
 import { BlacklistData } from '../../../models/Core';
 
@@ -35,22 +34,22 @@ export const panelButtons = (page: number, elements: number): ButtonBuilder[] =>
   return [
     new ButtonBuilder()
       .setEmoji('<:previous:1146808689534177413>')
-      .setCustomId(`blacklistpanel_previousPage`)
-      .setStyle(ButtonStyle.Primary)
+      .setCustomId(`blacklistPanel_previousPage`)
+      .setStyle(ButtonStyle['Primary'])
       .setDisabled(buttonsDisabled),
     new ButtonBuilder()
       .setEmoji('<:add:1146770731372400690>')
-      .setCustomId('adminpanel_blacklist_add')
-      .setStyle(ButtonStyle.Success),
+      .setCustomId('adminPanel_blacklist_add')
+      .setStyle(ButtonStyle['Success']),
     new ButtonBuilder()
       .setEmoji('<:remove:1146770742789287976>')
-      .setCustomId('adminpanel_blacklist_remove')
-      .setStyle(ButtonStyle.Danger)
+      .setCustomId('adminPanel_blacklist_remove')
+      .setStyle(ButtonStyle['Danger'])
       .setDisabled(!elements),
     new ButtonBuilder()
       .setEmoji('<:next:1146808693946581185>')
-      .setCustomId(`blacklistpanel_nextPage`)
-      .setStyle(ButtonStyle.Primary)
+      .setCustomId(`blacklistPanel_nextPage`)
+      .setStyle(ButtonStyle['Primary'])
       .setDisabled(buttonsDisabled),
   ];
 };
@@ -159,15 +158,15 @@ export default class {
     if (!this.ctx.btn || !this.ctx.btn.message) {
       let generatedMessage: void | InteractionResponse | Message = await this.ctx.btn
         .reply(await this.messageOptions(0))
-        .catch(caught);
+        .catch(clean);
       if (generatedMessage instanceof InteractionResponse)
-        generatedMessage = await generatedMessage.fetch().catch(caught);
+        generatedMessage = await generatedMessage.fetch().catch(clean);
       if (!generatedMessage) return;
 
       return generatedMessage;
     } else {
       const generatedOptions: InteractionReplyOptions = await this.messageOptions(page);
-      return await this.ctx.btn.reply(generatedOptions).catch(caught);
+      return await this.ctx.btn.reply(generatedOptions).catch(clean);
     }
   }
 
@@ -193,7 +192,7 @@ export default class {
     let pageOptions: BaseMessageOptions = (await this.messageOptions(0)) as BaseMessageOptions;
     let panel: void | InteractionResponse | Message = await inter.reply(pageOptions);
     if (!panel) return;
-    panel = (await panel.fetch().catch(caught)) as Message;
+    panel = (await panel.fetch().catch(clean)) as Message;
     if (!panel) return;
 
     const collectorOptions: object = {
@@ -205,7 +204,7 @@ export default class {
     let loop: boolean = true;
 
     while (loop) {
-      const collector = await panel.awaitMessageComponent(collectorOptions).catch(caught);
+      const collector = await panel.awaitMessageComponent(collectorOptions).catch(clean);
       if (!collector) {
         loop = false;
         break;
@@ -218,8 +217,8 @@ export default class {
 
       pageOptions = (await this.messageOptions(i)) as BaseMessageOptions;
       delete pageOptions['ephemeral'];
-      await panel.edit(pageOptions).catch(caught);
-      await collector.deferUpdate().catch(caught);
+      await panel.edit(pageOptions).catch(clean);
+      await collector.deferUpdate().catch(clean);
     }
   }
 
@@ -230,6 +229,7 @@ export default class {
    */
   public async displayAddModal(inter: ButtonInteraction): Promise<void> {
     const modal: ModalBuilder = this.ctx.transformModalData({
+      customId: 'blacklist_add',
       title: '➕ Add an element to the blacklist',
       fields: [
         {
@@ -237,7 +237,7 @@ export default class {
           minLength: 18,
           maxLength: 20,
           placeholder: 'Right click the element to copy the ID.',
-          style: TextInputStyle.Short,
+          style: TextInputStyle['Short'],
           id: 'id',
           required: true,
         },
@@ -246,7 +246,7 @@ export default class {
           minLength: 4,
           maxLength: 5,
           placeholder: 'user/guild',
-          style: TextInputStyle.Short,
+          style: TextInputStyle['Short'],
           id: 'type',
           required: true,
           value: 'user',
@@ -255,7 +255,7 @@ export default class {
           label: 'The reason/additional info',
           minLength: 10,
           placeholder: '"This user is a threat."/"This guild is not good."',
-          style: TextInputStyle.Paragraph,
+          style: TextInputStyle['Paragraph'],
           id: 'info',
           required: true,
         },
@@ -263,14 +263,14 @@ export default class {
           label: 'The commands to blacklist',
           minLength: 3,
           placeholder: '"all"/"command1, command2"',
-          style: TextInputStyle.Paragraph,
+          style: TextInputStyle['Paragraph'],
           id: 'commands',
           required: true,
           value: 'all',
         },
       ],
     });
-    await inter.showModal(modal).catch(caught);
+    await inter.showModal(modal).catch(clean);
   }
 
   /**
@@ -280,13 +280,14 @@ export default class {
    */
   public async displayRemoveModal(inter: ButtonInteraction): Promise<void> {
     const modal: ModalBuilder = this.ctx.transformModalData({
+      customId: 'blacklist_remove',
       title: '➖ Remove an element from the blacklist',
       fields: [
         {
           label: 'The index of the element to remove.',
           minLength: 1,
           placeholder: 'This index is found on the panel, in the [].',
-          style: TextInputStyle.Short,
+          style: TextInputStyle['Short'],
           id: 'id',
           required: true,
         },
@@ -294,12 +295,12 @@ export default class {
           label: 'The reason/additional info',
           minLength: 10,
           placeholder: 'Why this user/guild should be un-blacklisted.',
-          style: TextInputStyle.Paragraph,
+          style: TextInputStyle['Paragraph'],
           id: 'info',
           required: true,
         },
       ],
     });
-    await inter.showModal(modal).catch(caught);
+    await inter.showModal(modal).catch(clean);
   }
 }

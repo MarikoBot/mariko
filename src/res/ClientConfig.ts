@@ -40,7 +40,7 @@ const defaultData = {
     activities: [
       {
         name: '& Monitoring',
-        type: ActivityType.Watching,
+        type: ActivityType['Watching'],
       },
     ],
   } as PresenceData,

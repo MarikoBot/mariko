@@ -8,12 +8,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":safety_vest: Project files changes">
+    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":art: Improved the blacklist panel structure and made usable pagination.">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/panda.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/server/CoreServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/CoreServer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/panels/blacklist.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminpanel/panels/blacklist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/ClientConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/ClientConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/banana.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/fruit/banana.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/cherry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/fruit/cherry.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/fruit/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/carrot.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/vegetable/carrot.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/eggplant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/vegetable/eggplant.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/vegetable/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/CommandManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/CommandManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/CoreServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/CoreServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/adminpanel/panels/blacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminpanel/panels/blacklist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/GuildServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/GuildServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/PlayerServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/PlayerServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/SalespersonServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SalespersonServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/UserServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/UserServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/adminpanel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminPanel/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/adminpanel/panels/blacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminPanel/panels/blacklist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/Typings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Typings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/fr/BloodDemonArts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/fr/BloodDemonArts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/fr/Resources.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/fr/Resources.ts" afterDir="false" />
     </list>
     <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
@@ -47,6 +72,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: -1
@@ -60,11 +88,13 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "20.5.1",
     "javascript.nodejs.core.library.typings.version": "20.5.1",
+    "last_opened_file_path": "C:/Users/panda/OneDrive/Documents/Dicos/fr.dic",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -73,12 +103,12 @@
     "prettier.import.notification.dismissed": "true",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\panda\\OneDrive\\Documents\\Projects\\mariko\\node_modules\\prettier",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.spelling",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="npm.prod">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -101,12 +131,12 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.prod" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.prod" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="1" Folder0="C:\Users\panda\OneDrive\Documents\Dicos" CustomDictionaries="1" CustomDictionary0="C:\Users\panda\OneDrive\Documents\Dicos\fr.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="" />
@@ -147,7 +177,10 @@
       <workItem from="1693674647705" duration="221000" />
       <workItem from="1693729683879" duration="7906000" />
       <workItem from="1693836566944" duration="10330000" />
-      <workItem from="1693849544859" duration="1523000" />
+      <workItem from="1693849544859" duration="1695000" />
+      <workItem from="1693861995772" duration="335000" />
+      <workItem from="1693865663817" duration="638000" />
+      <workItem from="1693906704580" duration="6630000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -229,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693525477235</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary=":art: Improved the blacklist panel structure and made usable pagination.">
+      <option name="closed" value="true" />
+      <created>1693852002890</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1693852002890</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +281,8 @@
     <MESSAGE value=":art: Improved code docstring and removed useless code." />
     <MESSAGE value=":rocket: Finished browsing buttons on the admin panel." />
     <MESSAGE value=":safety_vest: Project files changes" />
-    <option name="LAST_COMMIT_MESSAGE" value=":safety_vest: Project files changes" />
+    <MESSAGE value=":art: Improved the blacklist panel structure and made usable pagination." />
+    <option name="LAST_COMMIT_MESSAGE" value=":art: Improved the blacklist panel structure and made usable pagination." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import { Client, Embed, Guild, GuildBasedChannel, GuildMember, Message, Snowflake, User } from 'discord.js';
 import { ContextChannel } from './Context';
 import * as chalk from 'chalk';
@@ -51,6 +49,18 @@ export function caught(...args: any[]): void {
     console.log(chalk.magenta('⟦MARIKO ERROR⟧'));
     console.log(chalk.magenta(arg.message || arg));
     if (arg.message) console.log(arg);
+  });
+}
+
+/**
+ * Logs a message to the console, with the "clean error" tag.
+ * @param args The message to log.
+ * @returns Void.
+ */
+export function clean(...args: any[]): void {
+  args.forEach((arg: any): any => {
+    console.log(chalk.green('⟦MARIKO ERROR⟧'));
+    console.log(chalk.green(arg.message || arg));
   });
 }
 

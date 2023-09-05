@@ -36,17 +36,17 @@ export default async function (client: Client): Promise<void> {
     'test vegetable carrot': { uniqueChannels: ['1139207781900099594', '1139214709061591201'] },
   };
 
-  const cmdPrivs: Record<string, CommandPrivileges> = currentData.commandPrivileges || {};
+  const cmdPrivileges: Record<string, CommandPrivileges> = currentData.commandPrivileges || {};
   for (const commandName of Object.keys(commandsPrivileges)) {
-    const currentCommandPrivileges: CommandPrivileges = cmdPrivs?.[commandName];
+    const currentCommandPrivileges: CommandPrivileges = cmdPrivileges?.[commandName];
     if (currentCommandPrivileges !== commandsPrivileges[commandName]) {
-      cmdPrivs[commandName] = commandsPrivileges[commandName];
+      cmdPrivileges[commandName] = commandsPrivileges[commandName];
     }
   }
 
   await client.Server.User.createUser('539842701592494111', 'en');
 
   delete currentData.__empty;
-  currentData.commandPrivileges = cmdPrivs;
+  currentData.commandPrivileges = cmdPrivileges;
   await client.Server.Core.updateCore(currentData);
 }

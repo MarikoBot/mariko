@@ -2,8 +2,7 @@ import * as models from '../models';
 import BaseServer from './BaseServer';
 import Client from '../root/Client';
 import ClientConfig from '../res/ClientConfig';
-import { BlacklistData, CommandPrivileges } from '../models/Core';
-import { Snowflake } from 'discord.js';
+import { CommandPrivileges } from '../models/Core';
 
 /**
  * The core server.
@@ -62,7 +61,7 @@ export default class CoreServer extends BaseServer {
       clientId: ClientConfig.defaultClientId,
     })) as models.Core.Interface;
 
-    for (let i = 0; i < 100; i++) {
+    /* for (let i = 0; i < 0; i++) {
       data.blacklist[String(i)] = {
         id: String(i),
         info: `testing ${i}`,
@@ -70,7 +69,7 @@ export default class CoreServer extends BaseServer {
         commands: 'all',
         date: Date.now(),
       };
-    }
+    }*/
 
     return Object.values(data.blacklist);
   }

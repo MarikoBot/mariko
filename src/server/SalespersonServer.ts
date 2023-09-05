@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import { Snowflake } from 'discord.js';
 
 import * as models from '../models';

@@ -96,7 +96,7 @@ export default class CommandManager {
     let optionsData: readonly CommandInteractionOption[] = interaction.options.data;
 
     const thereIsGroup: CommandInteractionOption[] = optionsData.filter(
-      (elt: CommandInteractionOption): boolean => elt.type === ApplicationCommandOptionType.SubcommandGroup,
+      (elt: CommandInteractionOption): boolean => elt.type === ApplicationCommandOptionType['SubcommandGroup'],
     );
 
     if (thereIsGroup.length > 0) {
@@ -108,7 +108,7 @@ export default class CommandManager {
       optionsData = thereIsGroup[0].options;
     }
     const thereIsSub: CommandInteractionOption[] = optionsData.filter(
-      (elt: CommandInteractionOption): boolean => elt.type === ApplicationCommandOptionType.Subcommand,
+      (elt: CommandInteractionOption): boolean => elt.type === ApplicationCommandOptionType['Subcommand'],
     );
     if (thereIsSub.length > 0) {
       const sub: ApplicationCommandOptionData = command.data.options.filter(

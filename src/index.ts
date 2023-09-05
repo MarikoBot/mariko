@@ -10,9 +10,9 @@ import Client from './root/Client';
 const client: Client = new Client();
 
 // Importing the database service and launch the client if the connection is successful.
-import dbservice from './database.service';
+import dbService from './database.service';
 import { caught, log } from './root/Util';
-dbservice(client)
+dbService(client)
   .then(() => log('Database connected'))
   .catch(caught);
 

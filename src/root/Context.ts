@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import {
   ActionRow,
   ActionRowBuilder,
@@ -14,6 +12,7 @@ import {
   InteractionResponse,
   Message,
   MessageActionRowComponent,
+  MessageEditOptions,
   ModalActionRowComponentBuilder,
   ModalBuilder,
   StringSelectMenuBuilder,
@@ -26,7 +25,7 @@ import {
 
 import { ButtonStyle, ComponentType, TextInputStyle } from 'discord-api-types/v10';
 
-import { caught, Colors, extractString, readEmbeds } from './Util';
+import { caught, clean, Colors, extractString, readEmbeds } from './Util';
 import Command from './Command';
 import { LanguageContent } from './LanguageManager';
 import { Language } from '../service/game/Typings';
@@ -63,6 +62,10 @@ export interface MenuOptions {
  * Represents the interface for options/data of a modal.
  */
 export interface ModalOptions {
+  /**
+   * The custom id of the modal.
+   */
+  customId: string;
   /**
    * The title.
    */
@@ -214,7 +217,7 @@ export default class Context {
    * @returns The transformed data.
    */
   public transformMenuData(menuData: MenuOptions): StringSelectMenuBuilder {
-    const menu: StringSelectMenuBuilder = new StringSelectMenuBuilder().setCustomId('autodefer_menu');
+    const menu: StringSelectMenuBuilder = new StringSelectMenuBuilder().setCustomId('autoDefer_menu');
 
     if ('placeholder' in menuData) menu.setPlaceholder(menuData.placeholder);
     if ('maxValues' in menuData) menu.setMaxValues(menuData.maxValues);
@@ -270,11 +273,17 @@ export default class Context {
   ): ButtonBuilder[] {
     const buttons: ButtonBuilder[] = [];
     if (buttonsToSet.includes('accept'))
-      buttons.push(new ButtonBuilder().setCustomId('autodefer_accept').setStyle(ButtonStyle.Secondary).setEmoji('✅'));
+      buttons.push(
+        new ButtonBuilder().setCustomId('autoDefer_accept').setStyle(ButtonStyle['Secondary']).setEmoji('✅'),
+      );
     if (buttonsToSet.includes('decline'))
-      buttons.push(new ButtonBuilder().setCustomId('autodefer_decline').setStyle(ButtonStyle.Secondary).setEmoji('❌'));
+      buttons.push(
+        new ButtonBuilder().setCustomId('autoDefer_decline').setStyle(ButtonStyle['Secondary']).setEmoji('❌'),
+      );
     if (buttonsToSet.includes('leave'))
-      buttons.push(new ButtonBuilder().setCustomId('autodefer_leave').setStyle(ButtonStyle.Secondary).setEmoji('🚪'));
+      buttons.push(
+        new ButtonBuilder().setCustomId('autoDefer_leave').setStyle(ButtonStyle['Secondary']).setEmoji('🚪'),
+      );
     return buttons;
   }
 
@@ -306,8 +315,7 @@ export default class Context {
     );
     if (!response) return [null, message || null];
 
-    // @ts-ignore
-    return [(response as ButtonInteraction).customId, message];
+    return [(response as ButtonInteraction).customId, message as Message | InteractionResponse];
   }
 
   /**
@@ -329,7 +337,7 @@ export default class Context {
     messageToEdit?: Message | InteractionResponse | null,
   ): Promise<[string, string, Message | InteractionResponse]> {
     const buttons: ButtonBuilder[] = [
-      new ButtonBuilder().setCustomId('modal').setStyle(ButtonStyle.Secondary).setEmoji('📝'),
+      new ButtonBuilder().setCustomId('modal').setStyle(ButtonStyle['Secondary']).setEmoji('📝'),
     ].concat(this.generateValidOrCancelButtons(['accept', 'leave']));
 
     const row: ActionRowBuilder = new ActionRowBuilder().addComponents(buttons);
@@ -344,7 +352,7 @@ export default class Context {
     let value: string = 'Rien';
 
     while (loop) {
-      message = message ? (await message.fetch().catch(caught)) || message : message || null;
+      message = message ? (await message.fetch().catch(clean)) || message : message || null;
       value = message ? extractString(contentToShow[1], readEmbeds(message as Message)) : 'Rien';
 
       const messageEmbedData: BaseMessageOptions = this.transformMessageData(
@@ -377,13 +385,13 @@ export default class Context {
       }
       if (response.customId.includes('leave')) loop = false;
       if (response.customId.includes('accept')) {
-        message = await this.chosenButton(['autodefer_accept'], message as Message);
+        message = await this.chosenButton(['autoDefer_accept'], message as Message);
         accept = 'accept';
         loop = false;
-        message = message ? (await message.fetch().catch(caught)) || message : message || null;
+        message = message ? (await message.fetch().catch(clean)) || message : message || null;
         value = message ? extractString(contentToShow[1], readEmbeds(message as Message)) : 'Rien';
       }
-      if (response.customId.includes('modal')) await (response as ButtonInteraction).showModal(modal).catch(caught);
+      if (response.customId.includes('modal')) await (response as ButtonInteraction).showModal(modal).catch(clean);
     }
 
     if (!response) return [null, null, message || null];
@@ -446,17 +454,17 @@ export default class Context {
         loop = false;
 
         switch (response.customId) {
-          case 'autodefer_accept':
+          case 'autoDefer_accept':
             message = await this.edit(Object.assign(messageData, { components: [buttonsRow] }), message);
-            message = await this.chosenButton(['autodefer_accept'], message);
+            message = await this.chosenButton(['autoDefer_accept'], message);
             accept = 'accept';
             break;
-          case 'autodefer_decline':
+          case 'autoDefer_decline':
             message = await this.edit(Object.assign(messageData, { components: [buttonsRow] }), message);
-            message = await this.chosenButton(['autodefer_decline'], message);
+            message = await this.chosenButton(['autoDefer_decline'], message);
             accept = 'decline';
             break;
-          case 'autodefer_leave':
+          case 'autoDefer_leave':
             accept = 'leave';
             break;
           default:
@@ -502,7 +510,7 @@ export default class Context {
     if (!message) return [null, message || null];
 
     const filter = (interaction: BaseInteraction): boolean => interaction.user.id === this.users[0].id;
-    const response = await message.awaitMessageComponent({ filter, time: timeout }).catch(caught);
+    const response = await message.awaitMessageComponent({ filter, time: timeout }).catch(clean);
     if (!response) return [null, message || null];
 
     return [response, message];
@@ -516,7 +524,7 @@ export default class Context {
   public async send(messageData: BaseMessageOptions | string): Promise<Message | null> {
     if (!this.channel.isTextBased()) return null;
 
-    const message: void | Message = await this.channel.send(this.transformMessageData(messageData)).catch(caught);
+    const message: void | Message = await this.channel.send(this.transformMessageData(messageData)).catch(clean);
     if (!message) return null;
 
     return message;
@@ -538,9 +546,9 @@ export default class Context {
     try {
       const transformed: BaseMessageOptions = this.transformMessageData(messageData);
       if (!interaction.deferred) {
-        message = await interaction.reply(transformed).catch(caught);
+        message = await interaction.reply(transformed).catch(clean);
       } else {
-        message = await interaction.followUp(transformed).catch(caught);
+        message = await interaction.followUp(transformed).catch(clean);
       }
       if (!message) return null;
     } catch (error) {
@@ -559,7 +567,7 @@ export default class Context {
    * @returns The message instance, or null if not sent.
    */
   public async edit(
-    messageData: BaseMessageOptions | string,
+    messageData: BaseMessageOptions | MessageEditOptions | string,
     message: Message,
     ignorePresentFields: boolean = false,
   ): Promise<Message | null> {
@@ -570,14 +578,14 @@ export default class Context {
       messageData.components = [];
     }
     if ('files' in messageData && messageData.files.length > 0 && !ignorePresentFields) {
-      await message.removeAttachments().catch(caught);
+      await message.removeAttachments().catch(clean);
     }
     if (!('content' in messageData) && !ignorePresentFields) {
       messageData.content = '';
     }
 
     if (!message) return null;
-    const editedMessage: void | Message = await message.edit(messageData).catch(caught);
+    const editedMessage: void | Message = await message.edit(messageData).catch(clean);
     if (!editedMessage) return null;
 
     return editedMessage;
@@ -621,8 +629,9 @@ export default class Context {
       const components: MessageActionRowComponent[] = row.components;
       if (components.length === 0) continue;
       if (components[0].type !== ComponentType.Button) {
-        // @ts-ignore
-        const rowUpdated: ActionRowBuilder = new ActionRowBuilder().setComponents(components);
+        const rowUpdated: ActionRowBuilder = new ActionRowBuilder().setComponents(
+          components as unknown as ButtonBuilder[],
+        );
         fullRows.push(rowUpdated);
         continue;
       }
@@ -641,12 +650,12 @@ export default class Context {
         if (button.emoji) buttonUpdated.setEmoji(button.emoji);
 
         if (buttonsId.includes(button.customId)) {
-          if (button.customId.includes('accept')) buttonUpdated.setStyle(ButtonStyle.Success);
+          if (button.customId.includes('accept')) buttonUpdated.setStyle(ButtonStyle['Success']);
           if (button.customId.includes('decline')) {
-            buttonUpdated.setStyle(ButtonStyle.Danger);
+            buttonUpdated.setStyle(ButtonStyle['Danger']);
             buttonUpdated.setEmoji('✖️');
           }
-          if (button.customId.includes('leave')) buttonUpdated.setStyle(ButtonStyle.Primary);
+          if (button.customId.includes('leave')) buttonUpdated.setStyle(ButtonStyle['Primary']);
         }
         newButtons.push(buttonUpdated);
       }
@@ -654,8 +663,7 @@ export default class Context {
       fullRows.push(new ActionRowBuilder().addComponents(newButtons));
     }
 
-    // @ts-ignore
-    return await this.edit({ components: fullRows }, message);
+    return await this.edit({ components: fullRows } as MessageEditOptions, message);
   }
 
   /**

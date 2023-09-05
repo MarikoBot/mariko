@@ -17,7 +17,7 @@ import EventManager from './EventManager';
 import * as Event from './Event';
 import LanguageManager from './LanguageManager';
 import GameService from '../service/game/';
-import AdminPanelService from '../service/adminpanel';
+import AdminPanelService from '../service/adminPanel';
 import PlayerServer from '../server/PlayerServer';
 import UserServer from '../server/UserServer';
 import GuildServer from '../server/GuildServer';
@@ -154,7 +154,7 @@ export default class SuperClient extends Client {
         .setNSFW(commandData.nsfw || false)
         .setDMPermission(commandData.dmPermission || false)
         .setDefaultMemberPermissions(
-          commandData.defaultMemberPermissions?.toString() || PermissionFlagsBits.ViewChannel,
+          commandData.defaultMemberPermissions?.toString() || PermissionFlagsBits['ViewChannel'],
         );
     }
 
