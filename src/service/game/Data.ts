@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { Skill, Way, Weapon } from './Typings';
 
 /**

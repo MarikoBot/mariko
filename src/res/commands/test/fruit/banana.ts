@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { ChatInputCommandInteraction } from 'discord.js';
 
 import Client from '../../../../root/Client';
