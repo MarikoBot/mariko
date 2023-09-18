@@ -1,4 +1,4 @@
-import { Collection, BaseInteraction, ModalSubmitFields } from 'discord.js';
+import { Collection, BaseInteraction, ModalSubmitFields, GuildMember } from 'discord.js';
 
 import Command from './Command';
 import Client from './Client';
@@ -61,9 +61,13 @@ defaultEventsCb.set('ready', async (client: Client): Promise<void> => {
   log(`Logged in as ${client.user.tag}.`);
 
   await (await client.Services.AdminPanel(client, '1139950254322626751', '1113177643710423060')).refreshChannel();
+  await client.supportGuild.refreshSupport();
+  client.blacklist = (await client.Server.Core.getCore()).blacklist;
 });
 
 defaultEventsCb.set('interactionCreate', async (client: Client, interaction: BaseInteraction): Promise<void> => {
+  if (interaction.user.id in client.blacklist) return;
+
   if (interaction.isButton() || interaction.isAnySelectMenu()) {
     if ((interaction.customId as string).startsWith('autoDefer')) await interaction.deferUpdate().catch(clean);
 
@@ -121,7 +125,7 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
       ).blacklist;
 
       if (interaction.customId === 'blacklist_add') {
-        const tested: TestedModalSubitFields = await blacklist.validAddModal(data);
+        const tested: TestedModalSubitFields = await blacklist.validAddModal(data, interaction.member.user.id);
         let finalMessage: string;
 
         if (tested.valid) {

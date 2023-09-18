@@ -23,6 +23,8 @@ import UserServer from '../server/UserServer';
 import GuildServer from '../server/GuildServer';
 import CoreServer from '../server/CoreServer';
 import SalespersonServer from '../server/SalespersonServer';
+import * as models from '../models';
+import SupportGuild from './SupportGuild';
 
 /**
  * The default structure of the game servers.
@@ -109,6 +111,14 @@ export default class SuperClient extends Client {
    * The language manager for accessing strings.
    */
   public readonly Languages: LanguageManager = new LanguageManager(this);
+  /**
+   * The cached blacklist to avoid spamming the database.
+   */
+  public blacklist: models.Core.Interface['blacklist'];
+  /**
+   * The support guild features class.
+   */
+  public supportGuild: SupportGuild = new SupportGuild(this);
 
   /**
    * The constructor of the client.

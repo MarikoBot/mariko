@@ -13,6 +13,8 @@ import {
   Collection,
   Guild,
   User,
+  GuildMember,
+  Snowflake,
 } from 'discord.js';
 
 import { ButtonStyle, TextInputStyle } from 'discord-api-types/v10';
@@ -315,9 +317,10 @@ export default class {
    * Validate if the modal values are ready to be set in the database.
    * This function is for adding something to the blacklist.
    * @param fields The submitted fields.
+   * @param authorId The author id of the modal.
    * @returns The formatted response for this function. If it's valid or not.
    */
-  public async validAddModal(fields: ModalSubmitFields): Promise<TestedModalSubitFields> {
+  public async validAddModal(fields: ModalSubmitFields, authorId: Snowflake): Promise<TestedModalSubitFields> {
     const tested: TestedModalSubitFields = {
       valid: true,
       errors: [],
@@ -357,9 +360,16 @@ export default class {
       );
     }
 
+    if (!(await this.client.supportGuild.takesPriority(authorId, idValue))) {
+      tested.valid = false;
+      tested.errors.push(
+        `${Emojis.coloredForbidden} You can't blacklist **${tested.name}** because they are equal or higher than you.`,
+      );
+    }
+
     const blacklist: BlacklistData[] = await this.client.Server.Core.getBlacklist();
 
-    if (!blacklist.map((e: BlacklistData) => e.id).includes(idValue)) {
+    if (blacklist.map((e: BlacklistData) => e.id).includes(idValue)) {
       tested.valid = false;
       tested.errors.push(
         `${Emojis.coloredForbidden} Object \`${tested.name}\` is already blacklisted. If you want to change informations, remove it before.`,

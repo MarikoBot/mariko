@@ -77,6 +77,27 @@ const defaultData = {
    * The list of the three owners of the bot.
    */
   owners: ['539842701592494111', '822895842964799499', '583697022545297408'],
+  /**
+   * The support guild id.
+   */
+  supportGuildId: '1113177643710423060',
+  /**
+   * The roles for the support.
+   */
+  supportRoles: {
+    /**
+     * The manager one.
+     */
+    manager: '1141396826084356096',
+    /**
+     * The moderator one.
+     */
+    mod: '1138785200541806592',
+    /**
+     * The helper one.
+     */
+    helper: '1138785004852367402',
+  },
 } as const;
 
 export default defaultData;

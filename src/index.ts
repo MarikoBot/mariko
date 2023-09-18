@@ -22,6 +22,11 @@ client.Events.bindEvent('interactionCreate');
 // Logging in the client
 void client.login(process.env.TOKEN);
 
+// Refreshes the blacklist cache.
+setInterval(async (): Promise<void> => {
+  client.blacklist = (await client.Server.Core.getCore()).blacklist;
+}, 30000);
+
 // Importing and managing the PM2 metrics.
 import showMetrics from './custom.metrics';
 setInterval(async (): Promise<void> => {
