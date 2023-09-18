@@ -22,6 +22,12 @@ client.Events.bindEvent('interactionCreate');
 // Logging in the client
 void client.login(process.env.TOKEN);
 
+// Importing and managing the PM2 metrics.
+import showMetrics from './custom.metrics';
+setInterval(async (): Promise<void> => {
+  if (client.isReady()) await showMetrics(client);
+}, 30000);
+
 process.on('unhandledRejection', (reason, p: Promise<any>): void => {
   console.log(chalk.bgYellow.black('⟦UNHANDLED REJECTION⟧'), chalk.bgBlack.yellow(reason));
   console.log(p);

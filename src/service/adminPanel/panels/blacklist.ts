@@ -8,15 +8,22 @@ import {
   BaseMessageOptions,
   ButtonInteraction,
   ModalBuilder,
+  ModalSubmitFields,
+  ModalActionRowComponent,
+  Collection,
+  Guild,
+  User,
 } from 'discord.js';
 
 import { ButtonStyle, TextInputStyle } from 'discord-api-types/v10';
 
 import Client from '../../../root/Client';
 import Context from '../../../root/Context';
-import { clean, Colors, discordDate } from '../../../root/Util';
+import { clean, Colors, discordDate, IdToGuild, IdToUser } from '../../../root/Util';
 import { generatePanelRows } from '../index';
 import { BlacklistData } from '../../../models/Core';
+import ClientConfig from '../../../res/ClientConfig';
+import Emojis from '../../../res/Emojis';
 
 /**
  * The number of elements in the blacklist page.
@@ -24,30 +31,51 @@ import { BlacklistData } from '../../../models/Core';
 const eltPerPage: number = 12 as const;
 
 /**
+ * The interface that represents the formatted data to a validation function.
+ */
+export interface TestedModalSubitFields {
+  /**
+   * If the form is valid.
+   */
+  valid: boolean;
+  /**
+   * The values of the field.
+   */
+  data: Collection<string, ModalActionRowComponent>;
+  /**
+   * The list of errors.
+   */
+  errors: string[];
+  /**
+   * Entry name. The user username or the guild name. Only if available.
+   */
+  name: string;
+}
+
+/**
  * The list of buttons for the panel.
- * @param page The page to display.
  * @param elements The number of elements in the blacklist.
  * @returns The list of buttons.
  */
-export const panelButtons = (page: number, elements: number): ButtonBuilder[] => {
+export const panelButtons = (elements: number): ButtonBuilder[] => {
   const buttonsDisabled: boolean = elements <= eltPerPage;
   return [
     new ButtonBuilder()
-      .setEmoji('<:previous:1146808689534177413>')
+      .setEmoji(Emojis.lightBack)
       .setCustomId(`blacklistPanel_previousPage`)
       .setStyle(ButtonStyle['Primary'])
       .setDisabled(buttonsDisabled),
     new ButtonBuilder()
-      .setEmoji('<:add:1146770731372400690>')
+      .setEmoji(Emojis.lightAdd)
       .setCustomId('adminPanel_blacklist_add')
       .setStyle(ButtonStyle['Success']),
     new ButtonBuilder()
-      .setEmoji('<:remove:1146770742789287976>')
+      .setEmoji(Emojis.lightCancel)
       .setCustomId('adminPanel_blacklist_remove')
       .setStyle(ButtonStyle['Danger'])
       .setDisabled(!elements),
     new ButtonBuilder()
-      .setEmoji('<:next:1146808693946581185>')
+      .setEmoji(Emojis.lightNext)
       .setCustomId(`blacklistPanel_nextPage`)
       .setStyle(ButtonStyle['Primary'])
       .setDisabled(buttonsDisabled),
@@ -136,7 +164,7 @@ export default class {
   public async messageOptions(page: number): Promise<InteractionReplyOptions> {
     return {
       embeds: [await mainEmbed(await this.blacklist, 'RED', page)],
-      components: generatePanelRows(panelButtons(page, (await this.client.Server.Core.getBlacklist()).length)),
+      components: generatePanelRows(panelButtons((await this.client.Server.Core.getBlacklist()).length)),
       ephemeral: true,
     };
   }
@@ -147,27 +175,6 @@ export default class {
    */
   public async generate(): Promise<any> {
     await this.handlePagination(this.ctx.btn);
-  }
-
-  /**
-   * Display another page of the blacklist.
-   * @param page The page to display.
-   * @returns Nothing.
-   */
-  public async displayPage(page: number): Promise<void | InteractionResponse | Message> {
-    if (!this.ctx.btn || !this.ctx.btn.message) {
-      let generatedMessage: void | InteractionResponse | Message = await this.ctx.btn
-        .reply(await this.messageOptions(0))
-        .catch(clean);
-      if (generatedMessage instanceof InteractionResponse)
-        generatedMessage = await generatedMessage.fetch().catch(clean);
-      if (!generatedMessage) return;
-
-      return generatedMessage;
-    } else {
-      const generatedOptions: InteractionReplyOptions = await this.messageOptions(page);
-      return await this.ctx.btn.reply(generatedOptions).catch(clean);
-    }
   }
 
   /**
@@ -302,5 +309,53 @@ export default class {
       ],
     });
     await inter.showModal(modal).catch(clean);
+  }
+
+  /**
+   * Validate if the modal values are ready to be set in the database.
+   * This function is for adding something to the blacklist.
+   * @param fields The fields submitted.
+   * @returns The formatted response for this function. If it's valid or not.
+   */
+  public async validAddModal(fields: ModalSubmitFields): Promise<TestedModalSubitFields> {
+    const tested: TestedModalSubitFields = {
+      valid: true,
+      errors: [],
+      data: fields.fields,
+      name: 'missing',
+    };
+
+    const idValue: string = fields.fields.get('id').value;
+    const typeValue: string = fields.fields.get('type').value;
+    const commandsValue: string = fields.fields.get('commands').value;
+
+    const fetchedThing: User | Guild | false =
+      (await IdToGuild(this.client, typeValue)) || (await IdToUser(this.client, typeValue)) || false;
+    const fetchedType: string = fetchedThing ? fetchedThing.constructor.name : null;
+
+    if (fetchedThing) tested.name = fetchedThing instanceof User ? fetchedThing.username : fetchedThing.name || idValue;
+    else tested.name = idValue;
+
+    if (fetchedType) {
+      if (fetchedType !== typeValue) {
+        tested.valid = false;
+        tested.errors.push(
+          `${Emojis.coloredForbidden} Type **${typeValue}** cannot be associated with **${fetchedType}** object for \`${idValue}\`.`,
+        );
+      }
+    } else
+      tested.errors.push(
+        `${Emojis.coloredWarning} No **${typeValue}** was found for \`${idValue}\`. Please be sure it exists, I can't check.`,
+      );
+
+    if (!ClientConfig.commandsListRegexp.test(commandsValue)) {
+      tested.valid = false;
+      tested.errors.push(
+        `${Emojis.coloredWarning} \`${commandsValue}\` string must follow the below rule:\`\`\`fix\n${ClientConfig.commandsListRegexp}\`\`\`` +
+          `Example:\`\`\`fix\ninfo, help, test fruits\`\`\`*(You can specify longer names to exclude only subcommands from the blacklisted entry.)*`,
+      );
+    }
+
+    return tested;
   }
 }

@@ -61,7 +61,7 @@ export default class CoreServer extends BaseServer {
       clientId: ClientConfig.defaultClientId,
     })) as models.Core.Interface;
 
-    /* for (let i = 0; i < 0; i++) {
+    /* for (let i = 0; i < 0; i-=-1) {
       data.blacklist[String(i)] = {
         id: String(i),
         info: `testing ${i}`,

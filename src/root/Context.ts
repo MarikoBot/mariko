@@ -242,7 +242,7 @@ export default class Context {
    * @returns The transformed data.
    */
   public transformModalData(modalData: ModalOptions): ModalBuilder {
-    const modal: ModalBuilder = new ModalBuilder().setCustomId('modal').setTitle(modalData.title);
+    const modal: ModalBuilder = new ModalBuilder().setCustomId(modalData.customId).setTitle(modalData.title);
 
     for (const field of modalData.fields) {
       const textInput: TextInputBuilder = new TextInputBuilder();

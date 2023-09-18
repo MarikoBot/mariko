@@ -8,64 +8,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="🚑 Fixed warnings and errors of the project.">
+    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":building_construction: Changes on the builder. Importing re-compiled JavaScript files.">
+      <change afterPath="$PROJECT_DIR$/src/custom.metrics.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/Emojis.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_08_2023_16_36_[DO_NOT_TOUCH]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_08_2023_16_36__DO_NOT_TOUCH_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/database.service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Guild.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Player.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Salesperson.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/User.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/ClientConfig.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/fruit/banana.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/fruit/cherry.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/fruit/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/vegetable/carrot.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/vegetable/eggplant.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/vegetable/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Client.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Command.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/CommandManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/CoolDownManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/EventManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/InterferingManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/LanguageManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/strings/En.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/strings/Fr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/BaseServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/CoreServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/GuildServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/PlayerServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/SalespersonServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/UserServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminpanel/panels/blacklist.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/Data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/Typings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/fr/BloodDemonArts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/fr/BreathingStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/fr/Resources.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/banana.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/fruit/banana.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/cherry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/fruit/cherry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/carrot.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/vegetable/carrot.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/eggplant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/commands/test/vegetable/eggplant.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/ClientConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/ClientConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/CoreServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/CoreServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminPanel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/panels/blacklist.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminPanel/panels/blacklist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/ClientConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/ClientConfig.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/GuildServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/GuildServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/PlayerServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/PlayerServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/SalespersonServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SalespersonServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/game/Data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/game/Typings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Typings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/game/fr/BloodDemonArts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/fr/BloodDemonArts.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/game/fr/Resources.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/fr/Resources.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/CoreServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/CoreServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/adminPanel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminPanel/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/adminPanel/panels/blacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminPanel/panels/blacklist.ts" afterDir="false" />
     </list>
     <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
@@ -99,42 +66,47 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/node_modules/discord.js/typings/index.d.ts" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: -1
+  &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2UJ6J6gTxjzrV25AAQl5cvIdcRM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "20.5.1",
-    "javascript.nodejs.core.library.typings.version": "20.5.1",
-    "last_opened_file_path": "C:/Users/panda/OneDrive/Documents/Dicos/fr.dic",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettier.import.notification.dismissed": "true",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\panda\\OneDrive\\Documents\\Projects\\mariko\\node_modules\\prettier",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.spelling",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.5.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.5.1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/OneDrive/Documents/Dicos/fr.dic&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettier.import.notification.dismissed&quot;: &quot;true&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\panda\\OneDrive\\Documents\\Projects\\mariko\\node_modules\\prettier&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -207,7 +179,21 @@
       <workItem from="1693849544859" duration="1695000" />
       <workItem from="1693861995772" duration="335000" />
       <workItem from="1693865663817" duration="638000" />
-      <workItem from="1693906704580" duration="7661000" />
+      <workItem from="1693906704580" duration="9834000" />
+      <workItem from="1693994406675" duration="1351000" />
+      <workItem from="1693998803880" duration="940000" />
+      <workItem from="1694078016898" duration="272000" />
+      <workItem from="1694368472477" duration="595000" />
+      <workItem from="1694424293825" duration="2229000" />
+      <workItem from="1694433370023" duration="3910000" />
+      <workItem from="1694693090227" duration="508000" />
+      <workItem from="1694693616182" duration="6643000" />
+      <workItem from="1694707626297" duration="7189000" />
+      <workItem from="1694724856779" duration="1218000" />
+      <workItem from="1694771777715" duration="13901000" />
+      <workItem from="1694853898215" duration="11708000" />
+      <workItem from="1695023231431" duration="471000" />
+      <workItem from="1695037427675" duration="338000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -305,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693915129270</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary=":building_construction: Changes on the builder. Importing re-compiled JavaScript files.">
+      <option name="closed" value="true" />
+      <created>1693916108617</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1693916108617</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +312,8 @@
     <MESSAGE value=":safety_vest: Project files changes" />
     <MESSAGE value=":art: Improved the blacklist panel structure and made usable pagination." />
     <MESSAGE value=" Fixed warnings and errors of the project." />
-    <option name="LAST_COMMIT_MESSAGE" value=" Fixed warnings and errors of the project." />
+    <MESSAGE value=":building_construction: Changes on the builder. Importing re-compiled JavaScript files." />
+    <option name="LAST_COMMIT_MESSAGE" value=":building_construction: Changes on the builder. Importing re-compiled JavaScript files." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

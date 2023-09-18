@@ -61,8 +61,7 @@ export function caught(...args: any[]): void {
  */
 export function clean(...args: any[]): void {
   args.forEach((arg: any): any => {
-    console.log(chalk.green('⟦MARIKO ERROR⟧'));
-    console.log(chalk.green(arg.message || arg));
+    console.log(chalk.grey('⟦MARIKO CLEAN⟧', arg.message || arg));
   });
 }
 
@@ -78,30 +77,12 @@ export async function timeout(fn: (...args: any[]) => any, ms: number): Promise<
 }
 
 /**
- * A function that gets the GuildMember instance with the given ID.
- * @param client The client instance.
- * @param guildID The guild ID.
- * @param member The member ID or username.
- * @returns The GuildMember instance.
- */
-export async function SFToMember(client: Client, guildID: Snowflake, member: string): Promise<GuildMember> {
-  if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
-
-  const guild: Guild = await client.guilds.fetch(guildID);
-  let memberInstance: GuildMember = guild.members.resolve(member);
-  if (!memberInstance) {
-    memberInstance = guild.members.cache.find((m: GuildMember): boolean => m.user.tag.startsWith(member));
-  }
-  return memberInstance;
-}
-
-/**
  * A function that gets the User instance with the given ID.
  * @param client The client instance.
  * @param user The user ID or username.
  * @returns The User instance.
  */
-export async function SFToUser(client: Client, user: string): Promise<User> {
+export async function IdToUser(client: Client, user: Snowflake): Promise<User> {
   if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
 
   let userInstance: User = client.users.resolve(user);
@@ -112,13 +93,29 @@ export async function SFToUser(client: Client, user: string): Promise<User> {
 }
 
 /**
+ * A function that gets the Guild instance with the given ID.
+ * @param client The client instance.
+ * @param guild The guild ID or username.
+ * @returns The User instance.
+ */
+export async function IdToGuild(client: Client, guild: Snowflake): Promise<Guild> {
+  if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
+
+  let guildInstance: Guild = client.guilds.resolve(guild);
+  if (!guildInstance) {
+    guildInstance = client.guilds.cache.find((g: Guild): boolean => g.name.startsWith(guild));
+  }
+  return guildInstance;
+}
+
+/**
  * A function that gets the Channel instance with the given ID.
  * @param client The client instance.
  * @param guildID The guild ID.
  * @param channel The channel ID or name.
  * @returns The Channel instance.
  */
-export async function SFToCtxChannel(client: Client, guildID: Snowflake, channel: Snowflake): Promise<ContextChannel> {
+export async function IdToCtxChannel(client: Client, guildID: Snowflake, channel: Snowflake): Promise<ContextChannel> {
   if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
 
   const guild: Guild = await client.guilds.fetch(guildID);

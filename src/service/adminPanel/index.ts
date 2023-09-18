@@ -16,11 +16,12 @@ import {
 import { ButtonStyle } from 'discord-api-types/v10';
 
 import Client from '../../root/Client';
-import { clean, Colors, discordDate, SFToCtxChannel } from '../../root/Util';
+import { clean, Colors, discordDate, IdToCtxChannel } from '../../root/Util';
 import Context from '../../root/Context';
 import { SubscriptionsData } from '../../server/UserServer';
 import { BlacklistData } from '../../models/Core';
 import Blacklist from './panels/blacklist';
+import Emojis from '../../res/Emojis';
 
 /**
  * Get the current panel embed.
@@ -46,7 +47,7 @@ export const mainEmbed = async (client: Client, color?: keyof typeof Colors): Pr
   // noinspection JSUnresolvedReference
   return new EmbedBuilder()
     .setColor(colorValue)
-    .setDescription(`# <:admin:1138783481141395466> Admin Panel\n*Click the refresh button to refresh data.*`)
+    .setDescription(`# ${Emojis.supportAdmin} Admin Panel\n*Click the refresh button to refresh data.*`)
     .setFields(
       {
         name: 'Guilds',
@@ -94,28 +95,22 @@ export const emptyButton = (id: string): ButtonBuilder =>
  * The list of buttons for the panel.
  */
 export const panelButtons: ButtonBuilder[] = [
+  new ButtonBuilder().setEmoji(Emojis.lightRefresh).setCustomId('adminPanel_refresh').setStyle(ButtonStyle['Primary']),
+  new ButtonBuilder().setEmoji(Emojis.lightPing).setCustomId('adminPanel_ping').setStyle(ButtonStyle['Primary']),
   new ButtonBuilder()
-    .setEmoji('<:refresh:1141781454511149196>')
-    .setCustomId('adminPanel_refresh')
-    .setStyle(ButtonStyle['Primary']),
-  new ButtonBuilder()
-    .setEmoji('<:ping:1141781630709665962>')
-    .setCustomId('adminPanel_ping')
-    .setStyle(ButtonStyle['Primary']),
-  new ButtonBuilder()
-    .setEmoji('<:blacklist:1141782168910180362>')
+    .setEmoji(Emojis.lightShield)
     .setCustomId('adminPanel_blacklist_create')
     .setStyle(ButtonStyle['Danger']),
   new ButtonBuilder()
-    .setEmoji('<:settings:1141782142339260416>')
+    .setEmoji(Emojis.lightSettings)
     .setCustomId('autoDefer_adminPanel_settings')
     .setStyle(ButtonStyle['Danger']),
   new ButtonBuilder()
-    .setEmoji('<:flag:1141782136333017129>')
+    .setEmoji(Emojis.lightFlag)
     .setCustomId('autoDefer_adminPanel_status')
     .setStyle(ButtonStyle['Danger']),
   new ButtonBuilder()
-    .setEmoji('<:premium:1141782866578116700>')
+    .setEmoji(Emojis.lightPremium)
     .setCustomId('autoDefer_adminPanel_premium')
     .setStyle(ButtonStyle['Success']),
 ];
@@ -168,6 +163,7 @@ export class Index {
    */
   constructor(client: Client) {
     this.client = client;
+    this.blacklist = new Blacklist(this.client, this.ctx);
   }
 
   /**
@@ -181,9 +177,8 @@ export class Index {
 
     if (task.startsWith('blacklist')) {
       this.ctx.btn = inter;
-      this.blacklist = new Blacklist(this.client, this.ctx);
+      this.blacklist.ctx = this.ctx;
       if (task.endsWith('create')) {
-        delete this.blacklist.ctx.btn.message;
         await this.blacklist.generate();
       } else {
         await this.blacklist.handle(inter);
@@ -228,7 +223,7 @@ export class Index {
     await this.refreshChannel();
     await inter
       .reply({
-        content: `<t:${discordDate()}:T> | <:refreshc:1144631931271659592> | \`Refresh done.\``,
+        content: `<t:${discordDate()}:T> | ${Emojis.coloredRefresh} | \`Refresh done.\``,
         ephemeral: true,
       })
       .catch(clean);
@@ -262,7 +257,7 @@ export class Index {
     await inter
       .reply({
         content:
-          `<t:${discordDate()}:T> | <:pingc:1144631924598526032> | \`Ping calculated.\`\n` +
+          `<t:${discordDate()}:T> | ${Emojis.coloredPing} | \`Ping calculated.\`\n` +
           `${stylizePing(latency, 'Latency: {ping} ms')}${stylizePing(apiLatency, 'API Latency: {ping} ms')}`,
         ephemeral: true,
       })
@@ -279,7 +274,7 @@ export class Index {
  */
 export default async function index(client: Client, channel: Snowflake, guild: Snowflake): Promise<Index> {
   const indexInstance: Index = new Index(client);
-  indexInstance.ctx = new Context(await SFToCtxChannel(client, guild, channel), null, null, client.user);
+  indexInstance.ctx = new Context(await IdToCtxChannel(client, guild, channel), null, null, client.user);
   indexInstance.guild = (await client.guilds.fetch(guild).catch(clean)) || null;
 
   return indexInstance;

@@ -36,11 +36,11 @@ const defaultData = {
    * Presence data to use upon login.
    */
   presence: {
-    status: 'dnd',
+    status: 'online',
     activities: [
       {
-        name: '& Monitoring',
-        type: ActivityType['Watching'],
+        name: `with version ${require('../../package.json').version}`,
+        type: ActivityType['Playing'],
       },
     ],
   } as PresenceData,
@@ -66,9 +66,13 @@ const defaultData = {
    */
   usernameRegexp: /^[a-zA-Z0-9éèàçùòñõâêîôû'."]+(?:\s[a-zA-Z0-9]+)*$/gs,
   /**
+   * Commands list regular expression.
+   */
+  commandsListRegexp: /^[a-z]+(?: [a-z]+)*(?:, [a-z]+(?: [a-z]+)*)*$/gm,
+  /**
    * The list of the three owners of the bot.
    */
   owners: ['539842701592494111', '822895842964799499', '583697022545297408'],
-};
+} as const;
 
 export default defaultData;

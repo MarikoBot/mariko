@@ -1,12 +1,14 @@
-import { Collection, BaseInteraction } from 'discord.js';
+import { Collection, BaseInteraction, ModalSubmitFields } from 'discord.js';
 
 import Command from './Command';
 import Client from './Client';
-import { clean, log } from './Util';
+import { clean, discordDate, log } from './Util';
 import Context from './Context';
 import { CoolDownsQueueElement } from './CoolDownManager';
 import { InterferingQueueElement } from './InterferingManager';
 import { Index as APIndex } from '../service/adminPanel';
+import Blacklist, { TestedModalSubitFields } from '../service/adminPanel/panels/blacklist';
+import Emojis from '../res/Emojis';
 
 /**
  * The model of a callback function for an event.
@@ -63,9 +65,8 @@ defaultEventsCb.set('ready', async (client: Client): Promise<void> => {
 
 defaultEventsCb.set('interactionCreate', async (client: Client, interaction: BaseInteraction): Promise<void> => {
   if (interaction.isButton() || interaction.isAnySelectMenu()) {
-    if ((interaction.customId as string).startsWith('autoDefer')) {
-      await interaction.deferUpdate().catch(clean);
-    }
+    if ((interaction.customId as string).startsWith('autoDefer')) await interaction.deferUpdate().catch(clean);
+
     if (interaction.isButton() && (interaction.customId as string).includes('adminPanel')) {
       const panel: APIndex = await client.Services.AdminPanel(client, interaction.channel.id, interaction.guild.id);
       await panel.handle(interaction);
@@ -112,7 +113,30 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
 
     await command.execute(client, interaction, ctx);
   } else if (interaction.isModalSubmit()) {
-    const data = interaction.fields;
-    console.log(data);
+    if (interaction.customId.startsWith('blacklist')) {
+      const data: ModalSubmitFields = interaction.fields;
+      const blacklist: Blacklist = (
+        await client.Services.AdminPanel(client, interaction.channel.id, interaction.guild.id)
+      ).blacklist;
+
+      if (interaction.customId === 'blacklist_add') {
+        const tested: TestedModalSubitFields = await blacklist.validAddModal(data);
+        let finalMessage: string;
+
+        if (tested.valid) {
+          finalMessage = `<t:${discordDate()}:T> | ${Emojis.coloredFlag}${Emojis.coloredCheck} | Object \`${
+            tested.name
+          }\` *successfully** added to the blacklist.`;
+          if (tested.errors.length > 0) finalMessage += `\n\`Warnings:\`\n>>> ${tested.errors.join('\n')}`;
+        } else {
+          finalMessage = `<t:${discordDate()}:T> | ${Emojis.coloredFlag}${Emojis.coloredCancel} | Object \`${
+            tested.name
+          }\` **cannot be** added to the blacklist.`;
+          if (tested.errors.length > 0) finalMessage += `\n\`Errors:\`\n>>> ${tested.errors.join('\n')}`;
+        }
+
+        await interaction.reply({ content: finalMessage, ephemeral: true }).catch(clean);
+      }
+    }
   }
 });
