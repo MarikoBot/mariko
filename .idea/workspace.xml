@@ -8,23 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":rocket: Merging a lot of stuff.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Core.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/ClientConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/ClientConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/CoreServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server/CoreServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/panels/blacklist.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminPanel/panels/blacklist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm2log/out.log" beforeDir="false" afterPath="$PROJECT_DIR$/pm2log/out.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Core.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Core.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/ClientConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/ClientConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/CoreServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/CoreServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/adminPanel/panels/blacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminPanel/panels/blacklist.ts" afterDir="false" />
-    </list>
+    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":rocket: Finished blacklist navigation for the admin panel." />
     <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
@@ -219,7 +203,7 @@
       <workItem from="1695023231431" duration="471000" />
       <workItem from="1695037427675" duration="4670000" />
       <workItem from="1695042732338" duration="32000" />
-      <workItem from="1695042775518" duration="1292000" />
+      <workItem from="1695042775518" duration="1604000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -333,7 +317,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695037819520</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary=":rocket: Finished blacklist navigation for the admin panel.">
+      <option name="closed" value="true" />
+      <created>1695044394213</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1695044394213</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +340,8 @@
     <MESSAGE value=" Fixed warnings and errors of the project." />
     <MESSAGE value=":building_construction: Changes on the builder. Importing re-compiled JavaScript files." />
     <MESSAGE value=":rocket: Merging a lot of stuff." />
-    <option name="LAST_COMMIT_MESSAGE" value=":rocket: Merging a lot of stuff." />
+    <MESSAGE value=":rocket: Finished blacklist navigation for the admin panel." />
+    <option name="LAST_COMMIT_MESSAGE" value=":rocket: Finished blacklist navigation for the admin panel." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
