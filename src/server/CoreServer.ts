@@ -4,7 +4,6 @@ import Client from '../root/Client';
 import ClientConfig from '../res/ClientConfig';
 import { BlacklistData, CommandPrivileges } from '../models/Core';
 import { TestedModalSubitFields } from '../service/adminPanel/panels/blacklist';
-import { black } from 'chalk';
 
 /**
  * The core server.

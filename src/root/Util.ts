@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { Client, Embed, Guild, GuildBasedChannel, GuildMember, Message, Snowflake, User } from 'discord.js';
+import { Client, Embed, Guild, GuildBasedChannel, Message, Snowflake, User } from 'discord.js';
 import { ContextChannel } from './Context';
 import * as chalk from 'chalk';
 
