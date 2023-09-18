@@ -70,6 +70,10 @@ const defaultData = {
    */
   commandsListRegexp: /^[a-z]+(?: [a-z]+)*(?:, [a-z]+(?: [a-z]+)*)*$/gm,
   /**
+   * Numbers regular expression.
+   */
+  numbersRegexp: /[0-9]+/gm,
+  /**
    * The list of the three owners of the bot.
    */
   owners: ['539842701592494111', '822895842964799499', '583697022545297408'],

@@ -85,7 +85,7 @@ export async function timeout(fn: (...args: any[]) => any, ms: number): Promise<
 export async function IdToUser(client: Client, user: Snowflake): Promise<User> {
   if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
 
-  let userInstance: User = client.users.resolve(user);
+  let userInstance: User | void = await client.users.fetch(user).catch(clean);
   if (!userInstance) {
     userInstance = client.users.cache.find((u: User): boolean => u.tag.startsWith(user));
   }
@@ -101,7 +101,7 @@ export async function IdToUser(client: Client, user: Snowflake): Promise<User> {
 export async function IdToGuild(client: Client, guild: Snowflake): Promise<Guild> {
   if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
 
-  let guildInstance: Guild = client.guilds.resolve(guild);
+  let guildInstance: Guild | void = await client.guilds.fetch(guild).catch(clean);
   if (!guildInstance) {
     guildInstance = client.guilds.cache.find((g: Guild): boolean => g.name.startsWith(guild));
   }
@@ -118,7 +118,9 @@ export async function IdToGuild(client: Client, guild: Snowflake): Promise<Guild
 export async function IdToCtxChannel(client: Client, guildID: Snowflake, channel: Snowflake): Promise<ContextChannel> {
   if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
 
-  const guild: Guild = await client.guilds.fetch(guildID);
+  const guild: Guild | void = await client.guilds.fetch(guildID).catch(clean);
+  if (!guild) return;
+
   let channelInstance: GuildBasedChannel = guild.channels.resolve(channel);
   if (!channelInstance)
     channelInstance = guild.channels.cache.find((c: GuildBasedChannel): boolean => c.name.startsWith(channel));

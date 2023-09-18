@@ -295,7 +295,7 @@ export default class {
           minLength: 1,
           placeholder: 'This index is found on the panel, in the [].',
           style: TextInputStyle['Short'],
-          id: 'id',
+          id: 'index',
           required: true,
         },
         {
@@ -314,7 +314,7 @@ export default class {
   /**
    * Validate if the modal values are ready to be set in the database.
    * This function is for adding something to the blacklist.
-   * @param fields The fields submitted.
+   * @param fields The submitted fields.
    * @returns The formatted response for this function. If it's valid or not.
    */
   public async validAddModal(fields: ModalSubmitFields): Promise<TestedModalSubitFields> {
@@ -330,8 +330,9 @@ export default class {
     const commandsValue: string = fields.fields.get('commands').value;
 
     const fetchedThing: User | Guild | false =
-      (await IdToGuild(this.client, typeValue)) || (await IdToUser(this.client, typeValue)) || false;
-    const fetchedType: string = fetchedThing ? fetchedThing.constructor.name : null;
+      (await IdToGuild(this.client, idValue)) || (await IdToUser(this.client, idValue)) || false;
+
+    const fetchedType: string = fetchedThing ? fetchedThing.constructor.name.toLowerCase() : null;
 
     if (fetchedThing) tested.name = fetchedThing instanceof User ? fetchedThing.username : fetchedThing.name || idValue;
     else tested.name = idValue;
@@ -345,16 +346,68 @@ export default class {
       }
     } else
       tested.errors.push(
-        `${Emojis.coloredWarning} No **${typeValue}** was found for \`${idValue}\`. Please be sure it exists, I can't check.`,
+        `${Emojis.coloredWarning} No **${typeValue}** was found for \`${idValue}\`. This warning can occur when the ${typeValue} is not available by the bot.`,
       );
 
     if (!ClientConfig.commandsListRegexp.test(commandsValue)) {
       tested.valid = false;
       tested.errors.push(
-        `${Emojis.coloredWarning} \`${commandsValue}\` string must follow the below rule:\`\`\`fix\n${ClientConfig.commandsListRegexp}\`\`\`` +
+        `${Emojis.coloredForbidden} \`${commandsValue}\` string must follow the below rule:\`\`\`fix\n${ClientConfig.commandsListRegexp}\`\`\`` +
           `Example:\`\`\`fix\ninfo, help, test fruits\`\`\`*(You can specify longer names to exclude only subcommands from the blacklisted entry.)*`,
       );
     }
+
+    const blacklist: BlacklistData[] = await this.client.Server.Core.getBlacklist();
+
+    if (!blacklist.map((e: BlacklistData) => e.id).includes(idValue)) {
+      tested.valid = false;
+      tested.errors.push(
+        `${Emojis.coloredForbidden} Object \`${tested.name}\` is already blacklisted. If you want to change informations, remove it before.`,
+      );
+    }
+
+    if (!['user', 'guild'].includes(typeValue)) {
+      tested.valid = false;
+      tested.errors.push(`${Emojis.coloredForbidden} Type **${typeValue}** must be type user or guild.`);
+    }
+
+    return tested;
+  }
+
+  /**
+   * Validate if the modal values are able to remove something in the database.
+   * This function is for adding something to the blacklist.
+   * @param fields The submitted fields.
+   * @returns The formatted response for this function. If it's valid or not.
+   */
+  public async validRemoveModal(fields: ModalSubmitFields): Promise<TestedModalSubitFields> {
+    const tested: TestedModalSubitFields = {
+      valid: true,
+      errors: [],
+      data: fields.fields,
+      name: 'missing',
+    };
+
+    const indexValue: string = fields.fields.get('index').value;
+    tested.name = indexValue;
+
+    if (!ClientConfig.numbersRegexp.test(indexValue)) {
+      tested.valid = false;
+      tested.errors.push(`${Emojis.coloredForbidden} \`${indexValue}\` value must be a number.`);
+    }
+
+    const blacklist: BlacklistData[] = await this.client.Server.Core.getBlacklist();
+    const blacklistLength: number = blacklist.length;
+
+    if (Number(indexValue) > blacklistLength) {
+      tested.valid = false;
+      tested.errors.push(
+        `${Emojis.coloredForbidden} There aren't as many elements in the blacklist. ` +
+          `\`${indexValue}\` is out of range \`${0}-${blacklistLength - 1}\`.`,
+      );
+    }
+
+    tested.name = blacklist[Number(indexValue)].id;
 
     return tested;
   }

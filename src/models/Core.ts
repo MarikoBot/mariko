@@ -85,6 +85,10 @@ export interface Interface {
    * The list of restrictions and privileges for specified commands.
    */
   commandPrivileges: Record<string, CommandPrivileges>;
+  /**
+   * The bot status.
+   */
+  status: 'online' | 'maintenance' | 'offline';
 }
 
 /**
@@ -95,6 +99,7 @@ export const schema = new Schema<Interface>({
   clientId: { type: String, required: true },
   blacklist: { type: Object, required: true },
   commandPrivileges: { type: Object, required: true },
+  status: { type: String, required: true },
 });
 
 /**
@@ -118,6 +123,7 @@ export const { id, ...defaultData }: Interface = {
     },
   },
   commandPrivileges: {},
+  status: 'online',
 };
 
 /**

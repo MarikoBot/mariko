@@ -2,7 +2,9 @@ import * as models from '../models';
 import BaseServer from './BaseServer';
 import Client from '../root/Client';
 import ClientConfig from '../res/ClientConfig';
-import { CommandPrivileges } from '../models/Core';
+import { BlacklistData, CommandPrivileges } from '../models/Core';
+import { TestedModalSubitFields } from '../service/adminPanel/panels/blacklist';
+import { black } from 'chalk';
 
 /**
  * The core server.
@@ -72,5 +74,57 @@ export default class CoreServer extends BaseServer {
     }*/
 
     return Object.values(data.blacklist);
+  }
+
+  /**
+   * Add an element to the blacklist.
+   * @param element The fields of the element to add.
+   * @returns Nothing.
+   */
+  public async blacklistElement(element: TestedModalSubitFields): Promise<void> {
+    const idValue: string = element.data.get('id').value;
+    const typeValue: string = element.data.get('type').value;
+    const infoValue: string = element.data.get('info').value;
+    const commandsValue: string = element.data.get('commands').value;
+
+    const blacklistData: BlacklistData = {
+      id: idValue,
+      type: typeValue as 'guild' | 'user',
+      info: infoValue,
+      commands: commandsValue === 'all' ? commandsValue : commandsValue.split(', '),
+      date: Date.now(),
+    };
+
+    const blacklist: models.Core.Interface['blacklist'] = (
+      (await this.find({
+        clientId: ClientConfig.defaultClientId,
+      })) as models.Core.Interface
+    ).blacklist;
+
+    blacklist[idValue] = blacklistData;
+
+    await this.updateCore({ blacklist });
+  }
+
+  /**
+   * Remove an element from the blacklist.
+   * @param elementPos The element position on the panel. Not the element ID.
+   * @returns Nothing.
+   */
+  public async unblacklistElement(elementPos: string): Promise<void> {
+    const blacklistArray: models.Core.BlacklistData[] = await this.getBlacklist();
+
+    const blacklistData: models.Core.Interface['blacklist'] = (
+      (await this.find({
+        clientId: ClientConfig.defaultClientId,
+      })) as models.Core.Interface
+    ).blacklist;
+
+    if (Number(elementPos) > blacklistArray.length) return;
+    const element: models.Core.BlacklistData = blacklistArray[Number(elementPos)];
+
+    delete blacklistData[element.id];
+
+    await this.updateCore({ blacklist: blacklistData });
   }
 }

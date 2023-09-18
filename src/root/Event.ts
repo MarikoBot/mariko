@@ -115,6 +115,7 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
   } else if (interaction.isModalSubmit()) {
     if (interaction.customId.startsWith('blacklist')) {
       const data: ModalSubmitFields = interaction.fields;
+
       const blacklist: Blacklist = (
         await client.Services.AdminPanel(client, interaction.channel.id, interaction.guild.id)
       ).blacklist;
@@ -126,12 +127,37 @@ defaultEventsCb.set('interactionCreate', async (client: Client, interaction: Bas
         if (tested.valid) {
           finalMessage = `<t:${discordDate()}:T> | ${Emojis.coloredFlag}${Emojis.coloredCheck} | Object \`${
             tested.name
-          }\` *successfully** added to the blacklist.`;
+          }\` **successfully** __added__ to the blacklist.`;
+
           if (tested.errors.length > 0) finalMessage += `\n\`Warnings:\`\n>>> ${tested.errors.join('\n')}`;
+
+          await client.Server.Core.blacklistElement(tested);
         } else {
           finalMessage = `<t:${discordDate()}:T> | ${Emojis.coloredFlag}${Emojis.coloredCancel} | Object \`${
             tested.name
-          }\` **cannot be** added to the blacklist.`;
+          }\` **cannot be** __added__ to the blacklist.`;
+
+          if (tested.errors.length > 0) finalMessage += `\n\`Errors:\`\n>>> ${tested.errors.join('\n')}`;
+        }
+
+        await interaction.reply({ content: finalMessage, ephemeral: true }).catch(clean);
+      } else if (interaction.customId === 'blacklist_remove') {
+        const tested: TestedModalSubitFields = await blacklist.validRemoveModal(data);
+        let finalMessage: string;
+
+        if (tested.valid) {
+          finalMessage = `<t:${discordDate()}:T> | ${Emojis.coloredFlag}${Emojis.coloredCheck} | Object \`${
+            tested.name
+          }\` **successfully** __removed__ from the blacklist.`;
+
+          if (tested.errors.length > 0) finalMessage += `\n\`Warnings:\`\n>>> ${tested.errors.join('\n')}`;
+
+          await client.Server.Core.unblacklistElement(tested.data.get('index').value);
+        } else {
+          finalMessage = `<t:${discordDate()}:T> | ${Emojis.coloredFlag}${Emojis.coloredCancel} | Object \`${
+            tested.name
+          }\` **cannot be** __removed__ from the blacklist.`;
+
           if (tested.errors.length > 0) finalMessage += `\n\`Errors:\`\n>>> ${tested.errors.join('\n')}`;
         }
 

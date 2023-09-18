@@ -10,7 +10,8 @@
     "build": "node builder.js && npm run clean && tsc",
     "prod": "npm run build && npm run start",
     "start": "node lib/index.js",
-    "process": "pm2 start lib/index.js --name mariko -o ./pm2log/out.log -e ./pm2log/err.log",
+    "process": "pm2 start lib/index.js --name mariko -o ./pm2log/out.log -e ./pm2log/err.log && pm2 monitor",
+    "resproc": "pm2 restart mariko -o ./pm2log/out.log -e ./pm2log/err.log && pm2 monitor",
     "stopproc": "pm2 stop mariko"
   },
   "keywords": [
