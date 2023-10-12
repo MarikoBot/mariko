@@ -8,103 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":zap: Added priority to blacklisting.">
-      <change afterPath="$PROJECT_DIR$/src/post.exec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/Images.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/commands/system/blacklist/add.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/commands/system/blacklist/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/commands/system/blacklist/list.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/commands/system/blacklist/remove.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/commands/system/cmdpriv/forbid.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/commands/system/cmdpriv/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/commands/system/cmdpriv/restrict.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/commands/system/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/root/strings/Shortcuts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/adminPanel/CommandsPrivilegesSetting.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/adminPanel/Monitoring.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/custom.metrics.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/custom.metrics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/database.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/database.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Core.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/ClientConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/ClientConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/Emojis.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/Emojis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/fruit/banana.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/fruit/cherry.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/fruit/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/vegetable/carrot.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/vegetable/eggplant.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/vegetable/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Client.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Command.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Command.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/CommandManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/CommandManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Context.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/CoolDownManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/CoolDownManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/EventManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/EventManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/InterferingManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/InterferingManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/LanguageManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/LanguageManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/SupportGuild.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/SupportGuild.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/strings/En.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/strings/En.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/strings/Fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/strings/Fr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/BaseServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/CoreServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/GuildServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/PlayerServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/SalespersonServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server/UserServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminPanel/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/panels/blacklist.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm2log/out.log" beforeDir="false" afterPath="$PROJECT_DIR$/pm2log/out.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/custom.metrics.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.metrics.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Core.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Core.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Guild.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Guild.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Player.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Salesperson.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Salesperson.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/ClientConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/ClientConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/Emojis.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Emojis.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/banana.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/cherry.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/carrot.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/eggplant.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Command.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/CommandManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/CommandManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/CoolDownManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/CoolDownManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/EventManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/EventManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/InterferingManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/InterferingManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/LanguageManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/LanguageManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/SupportGuild.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/SupportGuild.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/strings/En.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/strings/En.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/strings/Fr.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/strings/Fr.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/BaseServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/BaseServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/CoreServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/CoreServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/GuildServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/GuildServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/PlayerServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/PlayerServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/SalespersonServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/SalespersonServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/UserServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/UserServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/adminPanel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminPanel/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/adminPanel/panels/blacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminPanel/Blacklisting.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/game/Typings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Typings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/game/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/tslint.json" afterDir="false" />
-    </list>
+    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="Noice" />
     <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
@@ -191,7 +95,7 @@
       <recent name="C:\Users\panda\OneDrive\Documents\Projects\mariko\src\service\adminPanel" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.stopproc">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -244,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.stopproc" />
         <item itemvalue="npm.resproc" />
         <item itemvalue="npm.prod" />
         <item itemvalue="npm.process" />
-        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -362,7 +266,7 @@
       <workItem from="1697137190680" duration="1841000" />
       <workItem from="1697139148102" duration="25000" />
       <workItem from="1697139183712" duration="123000" />
-      <workItem from="1697147645187" duration="1833000" />
+      <workItem from="1697147645187" duration="2161000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -508,7 +412,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695069689470</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Noice">
+      <option name="closed" value="true" />
+      <created>1697149821723</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1697149821723</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +449,8 @@
     <MESSAGE value=":rocket: Finished blacklist navigation for the admin panel." />
     <MESSAGE value=":art: Performed code inspection." />
     <MESSAGE value=":zap: Added priority to blacklisting." />
-    <option name="LAST_COMMIT_MESSAGE" value=":zap: Added priority to blacklisting." />
+    <MESSAGE value="Noice" />
+    <option name="LAST_COMMIT_MESSAGE" value="Noice" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
