@@ -8,19 +8,102 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":art: Performed code inspection.">
-      <change afterPath="$PROJECT_DIR$/src/root/SupportGuild.ts" afterDir="false" />
+    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment=":zap: Added priority to blacklisting.">
+      <change afterPath="$PROJECT_DIR$/src/post.exec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/Images.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/commands/system/blacklist/add.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/commands/system/blacklist/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/commands/system/blacklist/list.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/commands/system/blacklist/remove.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/commands/system/cmdpriv/forbid.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/commands/system/cmdpriv/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/commands/system/cmdpriv/restrict.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/commands/system/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/root/strings/Shortcuts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/adminPanel/CommandsPrivilegesSetting.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/adminPanel/Monitoring.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/builder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/custom.metrics.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/custom.metrics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/database.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/database.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Core.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Core.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/res/ClientConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/ClientConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/Emojis.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/Emojis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/fruit/banana.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/fruit/cherry.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/fruit/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/vegetable/carrot.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/vegetable/eggplant.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/commands/test/vegetable/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/root/Client.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Command.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Command.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/CommandManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/CommandManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/CoolDownManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/CoolDownManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/panels/blacklist.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminPanel/panels/blacklist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/EventManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/EventManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/InterferingManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/InterferingManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/LanguageManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/LanguageManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/SupportGuild.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/SupportGuild.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/Util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/strings/En.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/strings/En.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/strings/Fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/strings/Fr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/BaseServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/CoreServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/GuildServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/PlayerServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/SalespersonServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/UserServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/adminPanel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/panels/blacklist.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/service/game/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/game/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm2log/out.log" beforeDir="false" afterPath="$PROJECT_DIR$/pm2log/out.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom.metrics.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom.metrics.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/database.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Core.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Core.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Guild.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Guild.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Player.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Salesperson.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Salesperson.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/res/ClientConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/ClientConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/Emojis.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Emojis.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/banana.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/cherry.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/fruit/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/carrot.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/eggplant.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/commands/test/vegetable/index.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Command.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/CommandManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/CommandManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/CoolDownManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/CoolDownManager.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/adminPanel/panels/blacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminPanel/panels/blacklist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/EventManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/EventManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/InterferingManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/InterferingManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/LanguageManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/LanguageManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/SupportGuild.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/SupportGuild.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/Util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/strings/En.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/strings/En.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/strings/Fr.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/strings/Fr.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/BaseServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/BaseServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/CoreServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/CoreServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/GuildServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/GuildServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/PlayerServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/PlayerServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/SalespersonServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/SalespersonServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/UserServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/servers/UserServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/adminPanel/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminPanel/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/adminPanel/panels/blacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/adminPanel/Blacklisting.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/Typings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/Typings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/game/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/game/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/tslint.json" afterDir="false" />
     </list>
     <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
@@ -33,6 +116,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -61,7 +145,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2UJ6J6gTxjzrV25AAQl5cvIdcRM" />
   <component name="ProjectViewState">
@@ -74,11 +158,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.5.1&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.5.1&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/OneDrive/Documents/Dicos/fr.dic&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/OneDrive/Documents/Customers/vbot_multifunction&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -90,12 +177,21 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="npm.build">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\panda\OneDrive\Documents\Projects\mariko\src\res\temp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\panda\OneDrive\Documents\Projects\mariko\src\service\adminPanel" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.stopproc">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -148,11 +244,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build" />
-        <item itemvalue="npm.prod" />
         <item itemvalue="npm.stopproc" />
         <item itemvalue="npm.resproc" />
+        <item itemvalue="npm.prod" />
         <item itemvalue="npm.process" />
+        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +313,56 @@
       <workItem from="1695037427675" duration="4670000" />
       <workItem from="1695042732338" duration="32000" />
       <workItem from="1695042775518" duration="5284000" />
-      <workItem from="1695064071463" duration="5429000" />
+      <workItem from="1695064071463" duration="5700000" />
+      <workItem from="1695388101456" duration="88000" />
+      <workItem from="1695479369854" duration="826000" />
+      <workItem from="1695481034847" duration="9841000" />
+      <workItem from="1695505277333" duration="2827000" />
+      <workItem from="1695546611831" duration="12370000" />
+      <workItem from="1695581477793" duration="1897000" />
+      <workItem from="1695593527494" duration="639000" />
+      <workItem from="1695755131578" duration="48000" />
+      <workItem from="1695893748186" duration="3034000" />
+      <workItem from="1696012699424" duration="1210000" />
+      <workItem from="1696275103787" duration="3000" />
+      <workItem from="1696282276882" duration="8000" />
+      <workItem from="1696400209874" duration="892000" />
+      <workItem from="1696409799767" duration="966000" />
+      <workItem from="1696420434260" duration="4071000" />
+      <workItem from="1696587991662" duration="641000" />
+      <workItem from="1696601636085" duration="12829000" />
+      <workItem from="1696840113911" duration="17000" />
+      <workItem from="1696841267936" duration="939000" />
+      <workItem from="1696850894179" duration="2418000" />
+      <workItem from="1696853904258" duration="1592000" />
+      <workItem from="1696920475920" duration="374000" />
+      <workItem from="1696921522716" duration="2625000" />
+      <workItem from="1696925358508" duration="297000" />
+      <workItem from="1696928626041" duration="1391000" />
+      <workItem from="1696930471050" duration="996000" />
+      <workItem from="1696931653126" duration="269000" />
+      <workItem from="1696931934666" duration="226000" />
+      <workItem from="1696936309898" duration="220000" />
+      <workItem from="1696936539096" duration="322000" />
+      <workItem from="1696936873759" duration="1589000" />
+      <workItem from="1696939706693" duration="1877000" />
+      <workItem from="1697003687561" duration="503000" />
+      <workItem from="1697007492717" duration="3662000" />
+      <workItem from="1697011575041" duration="40000" />
+      <workItem from="1697013142361" duration="4912000" />
+      <workItem from="1697022691275" duration="1826000" />
+      <workItem from="1697031401377" duration="658000" />
+      <workItem from="1697095261649" duration="6066000" />
+      <workItem from="1697103112718" duration="3388000" />
+      <workItem from="1697113112190" duration="30000" />
+      <workItem from="1697113270208" duration="81000" />
+      <workItem from="1697113920227" duration="594000" />
+      <workItem from="1697114804891" duration="154000" />
+      <workItem from="1697134727646" duration="2406000" />
+      <workItem from="1697137190680" duration="1841000" />
+      <workItem from="1697139148102" duration="25000" />
+      <workItem from="1697139183712" duration="123000" />
+      <workItem from="1697147645187" duration="1833000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -355,11 +500,30 @@
       <option name="project" value="LOCAL" />
       <updated>1695044767607</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary=":zap: Added priority to blacklisting.">
+      <option name="closed" value="true" />
+      <created>1695069689470</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1695069689470</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Two first buttons of the admin panel" />
@@ -372,7 +536,8 @@
     <MESSAGE value=":rocket: Merging a lot of stuff." />
     <MESSAGE value=":rocket: Finished blacklist navigation for the admin panel." />
     <MESSAGE value=":art: Performed code inspection." />
-    <option name="LAST_COMMIT_MESSAGE" value=":art: Performed code inspection." />
+    <MESSAGE value=":zap: Added priority to blacklisting." />
+    <option name="LAST_COMMIT_MESSAGE" value=":zap: Added priority to blacklisting." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

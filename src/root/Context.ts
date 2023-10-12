@@ -17,12 +17,12 @@ import {
   MessageEditOptions,
   ModalActionRowComponentBuilder,
   ModalBuilder,
+  PrivateThreadChannel,
   StringSelectMenuBuilder,
   StringSelectMenuOptionBuilder,
-  TextBasedChannel,
   TextInputBuilder,
+  ThreadChannel,
   User,
-  VoiceBasedChannel,
 } from 'discord.js';
 
 import { ButtonStyle, ComponentType, TextInputStyle } from 'discord-api-types/v10';
@@ -36,7 +36,7 @@ import ClientConfig from '../res/ClientConfig';
 /**
  * Represents the type for a context possible channel type among Discord package.
  */
-export type ContextChannel = TextBasedChannel | VoiceBasedChannel | BaseGuildTextChannel | BaseGuildVoiceChannel;
+export type ContextChannel = BaseGuildTextChannel | BaseGuildVoiceChannel | ThreadChannel;
 
 /**
  * Represents the interface for options/data of a menu.
@@ -116,7 +116,7 @@ export interface ModalOptions {
  */
 export default class Context {
   /**
-   * The language ID of the main user.
+   * The language id of the main user.
    */
   public languageId: Language = 'fr';
   /**
@@ -141,6 +141,8 @@ export default class Context {
   public readonly users: User[] | [];
 
   /**
+   * The constructor of the context.
+   *
    * @param channel The channel where the action occurs.
    * @param command The command associated with the context.
    * @param interaction The interaction, if there is one.
@@ -162,6 +164,7 @@ export default class Context {
 
   /**
    * Transform a string or a BaseMessageOptions into a BaseMessageOptions with the specified color.
+   *
    * @param data The data to transform.
    * @returns The transformed data.
    */
@@ -190,21 +193,26 @@ export default class Context {
 
   /**
    * Extract data from a string. Extract especially tags to apply properties.
+   *
    * @param str The string to extract from.
+   * @param brackets The brackets to remove the content from.
    * @returns An object with the data extracted and the string without the tags.
    */
-  public static extractDataFromStr(str: string): [{ [index: string]: string }, string] {
+  public static extractDataFromStr(
+    str: string,
+    brackets: [string, string] = [ClientConfig.extBracketsOpen, ClientConfig.extBracketsClose],
+  ): [{ [index: string]: string }, string] {
     const data: { [index: string]: string } = {};
     let finalStr: string = str;
 
-    for (let i: number = 0; i < str.split(ClientConfig.extBracketsOpen).length - 1; i++) {
-      const KV: string = finalStr.split(ClientConfig.extBracketsOpen)[1].split(ClientConfig.extBracketsClose)[0];
-      const key: string = KV.split(':')[0];
-      const value: string = KV.split(':')[1];
+    for (let i: number = 0; i < str.split(brackets[0]).length - 1; i++) {
+      if (finalStr.split(brackets[0]).length <= 1) break;
+      const KV: string = finalStr.split(brackets[0])[1].split(brackets[1])[0];
+      const key: string = KV.split('::')[0];
+      const value: string = KV.split('::')[1];
 
-      finalStr = finalStr.includes(ClientConfig.extBracketsOpen)
-        ? finalStr.split(ClientConfig.extBracketsOpen)[0] +
-          (finalStr.includes(ClientConfig.extBracketsClose) ? finalStr.split('}}')[1] : '')
+      finalStr = finalStr.includes(brackets[0])
+        ? finalStr.split(brackets[0])[0] + (finalStr.includes(brackets[1]) ? finalStr.split(brackets[1])[1] : '')
         : finalStr;
 
       data[key] = value;
@@ -215,6 +223,7 @@ export default class Context {
 
   /**
    * Transform a MenuOptions into a full built StringSelectMenuBuilder.
+   *
    * @param menuData The data to transform.
    * @returns The transformed data.
    */
@@ -238,6 +247,7 @@ export default class Context {
 
   /**
    * Transform a ModalOptions into a full built ActionRowBuilder.
+   *
    * @param modalData The data to transform.
    * @returns The transformed data.
    */
@@ -267,6 +277,7 @@ export default class Context {
 
   /**
    * Generate two buttons for a choice between accept or cancel.
+   *
    * @param buttonsToSet The buttons to set.
    * @returns The generated buttons.
    */
@@ -291,6 +302,7 @@ export default class Context {
 
   /**
    * Create a choice between accept or cancel.
+   *
    * @param messageData The message data to send (Discord.<BaseMessageOptions>).
    * @param buttonsToSet The buttons to set.
    * @param timeout The time before the choice expires.
@@ -322,6 +334,7 @@ export default class Context {
 
   /**
    * Create a modal dialog based on an interaction.
+   *
    * @param contentToShow The content where will appear the current value.
    * @param modalData The data to show in the modal.
    * @param timeout The time before the choice expires.
@@ -404,6 +417,7 @@ export default class Context {
   /**
    * Create a super panel with a select menu to switch pages, and a valid or cancel button.
    * Returns the last page selected, the button clicked and the message.
+   *
    * @param messageData The message data to send (Discord.<BaseMessageOptions>).
    * @param menuData The choices to select from and other data like min and max.
    * @param pageData The pages to switch between.
@@ -483,6 +497,7 @@ export default class Context {
 
   /**
    * Send/reply to a message and wait for a response.
+   *
    * @param messageData The message data to send (Discord.<BaseMessageOptions>).
    * @param rows The rows to add to the message.
    * @param timeout The time before the choice expires.
@@ -520,6 +535,7 @@ export default class Context {
 
   /**
    * Send a message in a text-based channel (text, thread, announcements...).
+   *
    * @param messageData The message data to send (Discord.<BaseMessageOptions>).
    * @returns The message instance, or null if not sent.
    */
@@ -534,6 +550,7 @@ export default class Context {
 
   /**
    * Reply to an interaction.
+   *
    * @param messageData The message data to send (Discord.<BaseMessageOptions>).
    * @param interaction The interaction to reply to.
    * @returns The message instance, or null if not sent.
@@ -563,6 +580,7 @@ export default class Context {
 
   /**
    * Edit a message in a text-based channel (text, thread, announcements...).
+   *
    * @param messageData The message data to send (Discord.<BaseMessageOptions>).
    * @param message The message to edit.
    * @param ignorePresentFields A boolean that indicates if the components/files need to be removed if the object is not passed.
@@ -595,11 +613,12 @@ export default class Context {
 
   /**
    * Add some content to a message with a single embed OR a content.
+   *
    * @param contentToAdd The content to add to the content already written.
    * @param message The message to edit.
    * @param contentOrEmbed Specify which place edit if there are both.
    * @param ignorePresentFields A boolean that indicates if the components/files need to be removed if the object is not passed.
-   * @returns The edit message.
+   * @returns The edited message.
    */
   public async addContent(
     contentToAdd: string,
@@ -619,6 +638,7 @@ export default class Context {
 
   /**
    * Edit the specified buttons from a message and applies a cool animation.
+   *
    * @param buttonsId The chosen buttons.
    * @param message The message to edit the buttons from.
    * @returns The message instance, or null if not sent.
@@ -670,14 +690,16 @@ export default class Context {
 
   /**
    * Set the language of the context.
-   * @returns Returns nothing.
+   *
+   * @returns Nothing.
    */
   public async loadLanguage(): Promise<void> {
-    if (this.users.length > 0) this.languageId = await this.command.client.Server.User.getLanguage(this.users[0].id);
+    if (this.users.length > 0) this.languageId = await this.command.client.Servers.User.getLanguage(this.users[0].id);
   }
 
   /**
    * Use a string from a translation with some variables on it.
+   *
    * @param key The string to get the translation from.
    * @param vars The variables to replace on.
    * @returns The translated string.

@@ -1,6 +1,7 @@
 import { Schema, model, Types } from 'mongoose';
-import { Language } from '../service/game/Typings';
 import { Snowflake } from 'discord.js';
+
+import { Language } from '../service/game/Typings';
 
 /**
  * The type for a subscription.
@@ -11,7 +12,7 @@ export interface Subscription {
    */
   price: number;
   /**
-   * The discord ID of the subscription.
+   * The discord id of the subscription.
    */
   discordId: Snowflake;
   /**
@@ -41,7 +42,7 @@ export interface Subscription {
  */
 export interface Interface {
   /**
-   * The user mongoose ID.
+   * The user mongoose id.
    */
   id: Types.ObjectId;
   /**
@@ -49,7 +50,7 @@ export interface Interface {
    */
   language: Language;
   /**
-   * The Discord ID of the user.
+   * The Discord id of the user.
    */
   discordId: string;
   /**

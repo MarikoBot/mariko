@@ -5,7 +5,7 @@ import { Schema, model, Types } from 'mongoose';
  */
 export interface MoneyContract {
   /**
-   * The ID of the contract.
+   * The id of the contract.
    */
   id: string;
   /**
@@ -39,15 +39,15 @@ export interface MoneyContract {
  */
 export interface Interface {
   /**
-   * The player mongoose ID.
+   * The player mongoose id.
    */
   id: Types.ObjectId;
   /**
-   * The Discord ID of the user.
+   * The Discord id of the user.
    */
   discordId: string;
   /**
-   * The Discord ID of the guild.
+   * The Discord id of the guild.
    */
   guildId: string;
   /**

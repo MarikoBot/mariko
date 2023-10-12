@@ -3,7 +3,7 @@
  */
 const Emojis = {
   /**
-   * Origin: Mariko's Hat
+   * Origin: Mariko's Hat.
    */
   supportAdmin: '<:admin:1138783481141395466>',
   supportBooster: '<:booster:1138783428460941312>',
@@ -17,7 +17,7 @@ const Emojis = {
   supportOwner: '<:owner:1138783471511289907>',
   supportPremium: '<:premium:1138783493187452978>',
   /**
-   * Origin: Mariko's Shoes
+   * Origin: Mariko's Shoes.
    */
   boldAdd: '<:boldAdd:1152254474996424735>',
   boldBack: '<:boldBack:1152254478213459988>',
@@ -26,6 +26,7 @@ const Emojis = {
   boldFlag: '<:boldFlag:1152254486472040538>',
   boldForbidden: '<:boldForbidden:1152254491303891024>',
   boldNext: '<:boldNext:1152254495552704544>',
+  boldPencil: '<:boldPencil:1155183996792230038>',
   boldPing: '<:boldPing:1152254499738628226>',
   boldPremium: '<:boldPremium:1152254501575725086>',
   boldRefresh: '<:boldRefresh:1152254505489010749>',
@@ -39,6 +40,7 @@ const Emojis = {
   coloredFlag: '<:coloredFlag:1152254531267211426>',
   coloredForbidden: '<:coloredForbidden:1152254533905428550>',
   coloredNext: '<:coloredNext:1152254536950501498>',
+  coloredPencil: '<:coloredPencil:1155183997983412305>',
   coloredPing: '<:coloredPing:1152254541350326463>',
   coloredPremium: '<:coloredPremium:1152254545225859112>',
   coloredRefresh: '<:coloredRefresh:1152254547935379549>',
@@ -52,12 +54,14 @@ const Emojis = {
   lightFlag: '<:lightFlag:1152254576607645716>',
   lightForbidden: '<:lightForbidden:1152254580579635330>',
   lightNext: '<:lightNext:1152254584010592439>',
+  lightPencil: '<:lightPencil:1155184000332214293>',
   lightPing: '<:lightPing:1152254587139526686>',
   lightPremium: '<:lightPremium:1152254590130081804>',
   lightRefresh: '<:lightRefresh:1152254594097881178>',
   lightSettings: '<:lightSettings:1152254596379574383>',
   lightShield: '<:lightShield:1152254600674558173>',
   lightWarning: '<:lightWarning:1152254605548343306>',
+  invisibleSquare: '<:invisibleSquare:1161589485142822933>',
 } as const;
 
 export default Emojis;

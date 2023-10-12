@@ -34,6 +34,8 @@ export default class CoolDownManager {
   public readonly queue: Collection<Snowflake, CoolDownsQueueElement[]> = new Collection();
 
   /**
+   * The constructor of the cool down manager.
+   *
    * @param client The client instance.
    */
   constructor(client: Client) {
@@ -42,34 +44,36 @@ export default class CoolDownManager {
 
   /**
    * Register a cool down when a command is triggered.
-   * @param userID The user ID of the command's author.
+   *
+   * @param userId The user id of the command's author.
    * @param commandName The name of the command.
    * @param coolDown The cool down amount (waiting time before executing it again).
-   * @returns Void.
+   * @returns Nothing.
    */
-  public registerCoolDown(userID: Snowflake, commandName: string, coolDown: number): void {
+  public registerCoolDown(userId: Snowflake, commandName: string, coolDown: number): void {
     const endTime: number = Date.now() + coolDown * 1000;
-    const currentCoolDowns: CoolDownsQueueElement[] = this.coolDowns(userID);
+    const currentCoolDowns: CoolDownsQueueElement[] = this.coolDowns(userId);
 
     currentCoolDowns.push([commandName, endTime, coolDown]);
 
-    this.queue.set(userID, currentCoolDowns);
+    this.queue.set(userId, currentCoolDowns);
   }
 
   /**
    * Returns all the cool downs for a specified user.
-   * @param userID The user ID to search for.
+   *
+   * @param userId The user id to search for.
    * @param commandName The name of the command to filter by.
    * @returns The full list of the user's cool downs.
    */
-  public coolDowns(userID: Snowflake, commandName?: string): CoolDownsQueueElement[] {
-    let currentCoolDowns: CoolDownsQueueElement[] | [] = this.queue.get(userID) || [];
+  public coolDowns(userId: Snowflake, commandName?: string): CoolDownsQueueElement[] {
+    let currentCoolDowns: CoolDownsQueueElement[] | [] = this.queue.get(userId) || [];
 
     const currentTime: number = Date.now();
     currentCoolDowns = currentCoolDowns.filter((queueElement: CoolDownsQueueElement): boolean => {
       return currentTime < queueElement[1];
     });
-    this.queue.set(userID, currentCoolDowns);
+    this.queue.set(userId, currentCoolDowns);
 
     if (commandName) {
       return currentCoolDowns.filter((queueElement: CoolDownsQueueElement): boolean => {

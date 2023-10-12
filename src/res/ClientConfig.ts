@@ -1,41 +1,63 @@
-import { ActivityType, PresenceData } from 'discord.js';
+import { ActivityType, Presence, PresenceData } from 'discord.js';
 
 /*
   The default data for the client.
  */
-const defaultData = {
+namespace ClientConfig {
+  /**
+   * The opening brackets for variables in strings.
+   */
+  export const varBracketsOpen: string = '[[';
+
+  /**
+   * The closing brackets for variables in strings.
+   */
+  export const varBracketsClose: string = ']]';
+
   /**
    * The brackets for variables in strings.
    */
-  varBracketsOpen: '[[',
+  export const varBrackets: string = varBracketsOpen + varBracketsClose;
+
   /**
-   * The brackets for variables in strings.
+   * The opening brackets for extracted data.
    */
-  varBracketsClose: ']]',
+  export const extBracketsOpen: string = '{{';
+
+  /**
+   * The closing brackets for extracted data.
+   */
+  export const extBracketsClose: string = '}}';
+
   /**
    * The brackets for extracted data.
    */
-  extBracketsOpen: '{{',
+  export const extBrackets: string = extBracketsOpen + extBracketsClose;
+
   /**
-   * The brackets for extracted data.
+   * The splitter for extracted data.
    */
-  extBracketsClose: '}}',
+  export const extSplitter: string = '::';
+
   /**
    * The default client id.
    */
-  defaultClientId: '1146155436496670820',
+  export const defaultClientId: string = '1146155436496670820';
+
   /**
    * Intents to enable for this connection.
    */
-  intents: 3276799,
+  export const intents: number = 3276799;
+
   /**
    * The default value for MessageReplyOptions#failIfNotExists.
    */
-  failIfNotExists: false,
+  export const failIfNotExists: boolean = false;
+
   /**
    * Presence data to use upon login.
    */
-  presence: {
+  export const presence: PresenceData = {
     status: 'online',
     activities: [
       {
@@ -43,48 +65,63 @@ const defaultData = {
         type: ActivityType['Playing'],
       },
     ],
-  } as PresenceData,
+  } as PresenceData;
+
   /**
    * The directory to load the commands from.
    */
-  commandsDir: 'Res/Commands',
+  export const commandsDir: string = 'Res/Commands';
+
   /**
    * Whether the client should load commands or not. Load commands means sending commands to the API.
    * Don't activate this permanently, it's only on change.
    */
-  loadCommands: true,
+  export const loadCommands: boolean = true;
+
   /**
    * Represents the default timeout for any message component interaction.
    */
-  defaultComponentTimeout: 120000,
+  export const defaultComponentTimeout: number = 120000;
+
   /**
    * Represents the default timeout for modal component interaction.
    */
-  defaultModalTimeout: 300000,
+  export const defaultModalTimeout: number = 300000;
+
   /**
    * The regular expression for username input.
    */
-  usernameRegexp: /^[a-zA-Z0-9éèàçùòñõâêîôû'."]+(?:\s[a-zA-Z0-9]+)*$/gs,
+  export const usernameRegexp: RegExp = /^[a-zA-Z0-9éèàçùòñõâêîôû'."]+(?:\s[a-zA-Z0-9]+)*$/gs;
+
   /**
    * Commands list regular expression.
    */
-  commandsListRegexp: /^[a-z]+(?: [a-z]+)*(?:, [a-z]+(?: [a-z]+)*)*$/gm,
+  export const commandsListRegexp: RegExp = /^[a-z]+(?: [a-z]+)*(?:, [a-z]+(?: [a-z]+)*)*$/gm;
+
   /**
    * Numbers regular expression.
    */
-  numbersRegexp: /[0-9]+/gm,
+  export const numbersRegexp: RegExp = /[0-9]+/gm;
+
   /**
-   * The list of the three owners of the bot.
+   * The list of Ids regular expression.
    */
-  owners: ['539842701592494111', '822895842964799499', '583697022545297408'],
+  export const idsListRegexp: RegExp = /^[0-9]{18,21}(?: [0-9]{18,21})*(?:, [0-9]{18,21}(?: [0-9]{18,21})*)*$/gm;
+
+  /**
+   * The list of the owners of the bot.
+   */
+  export const owners: string[] = ['539842701592494111', '1146145475683164273'];
+
   /**
    * The support guild id.
    */
-  supportGuildId: '1113177643710423060',
+  export const supportGuildId: string = '1113177643710423060';
+
   /**
    * The roles for the support.
    */
-  supportRoles: {
+  export const supportRoles: { [p: string]: string } = {
     /**
      * The manager one.
      */
@@ -97,7 +134,7 @@ const defaultData = {
      * The helper one.
      */
     helper: '1138785004852367402',
-  },
-} as const;
+  };
+}
 
-export default defaultData;
+export default ClientConfig;

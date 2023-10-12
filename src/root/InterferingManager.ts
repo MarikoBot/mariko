@@ -31,6 +31,8 @@ export default class InterferingManager {
   public readonly queue: Collection<Snowflake, InterferingQueueElement[]> = new Collection();
 
   /**
+   * The constructor of the interfering manager.
+   *
    * @param client The client instance.
    */
   constructor(client: Client) {
@@ -39,27 +41,29 @@ export default class InterferingManager {
 
   /**
    * Register an interfering command when this command is triggered.
-   * @param userID The user ID of the command's author.
+   *
+   * @param userId The user id of the command's author.
    * @param commandName The name of the command.
    * @param interaction The interaction id.
-   * @returns Void.
+   * @returns Nothing.
    */
-  public registerInterfering(userID: Snowflake, commandName: string, interaction: ChatInputCommandInteraction): void {
-    const currentCoolDowns: InterferingQueueElement[] = this.interfering(userID);
+  public registerInterfering(userId: Snowflake, commandName: string, interaction: ChatInputCommandInteraction): void {
+    const currentCoolDowns: InterferingQueueElement[] = this.interfering(userId);
 
     currentCoolDowns.push([commandName, interaction]);
 
-    this.queue.set(userID, currentCoolDowns);
+    this.queue.set(userId, currentCoolDowns);
   }
 
   /**
    * Returns all the interfering commands for a specified user.
-   * @param userID The user ID to search for.
+   *
+   * @param userId The user id to search for.
    * @param commands The names of the commands to filter by.
    * @returns The full list of the user's cool downs.
    */
-  public interfering(userID: Snowflake, ...commands: string[]): InterferingQueueElement[] {
-    const currentInterfering: InterferingQueueElement[] | [] = this.queue.get(userID) || [];
+  public interfering(userId: Snowflake, ...commands: string[]): InterferingQueueElement[] {
+    const currentInterfering: InterferingQueueElement[] | [] = this.queue.get(userId) || [];
 
     if (commands.length > 0) {
       return currentInterfering.filter((queueElement: InterferingQueueElement): boolean => {
@@ -71,16 +75,17 @@ export default class InterferingManager {
 
   /**
    * Removes an interfering commands. If a name is passed, remove all the commands with that name.
-   * If an ID is passed, remove the command with the same interaction ID.
-   * @param userID The user ID to search for.
-   * @param key The value to search for; either the name of the command or the interaction ID.
-   * @returns Void.
+   * If an id is passed, remove the command with the same interaction id.
+   *
+   * @param userId The user id to search for.
+   * @param key The value to search for; either the name of the command or the interaction id.
+   * @returns Nothing.
    */
-  public removeInterfering(userID: Snowflake, key: string | Snowflake): void {
-    const currentInterfering: InterferingQueueElement[] = this.interfering(userID);
+  public removeInterfering(userId: Snowflake, key: string | Snowflake): void {
+    const currentInterfering: InterferingQueueElement[] = this.interfering(userId);
 
     this.queue.set(
-      userID,
+      userId,
       currentInterfering.filter((queueElement: InterferingQueueElement): boolean => {
         return queueElement[1].id !== key;
       }),

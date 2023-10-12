@@ -7,6 +7,9 @@ import {
   SlashCommandSubcommandBuilder,
   SlashCommandSubcommandGroupBuilder,
   PermissionFlagsBits,
+  ChatInputCommandInteraction,
+  EmbedBuilder,
+  ModalSubmitInteraction,
 } from 'discord.js';
 import * as fs from 'fs';
 
@@ -18,18 +21,22 @@ import * as Event from './Event';
 import LanguageManager from './LanguageManager';
 import GameService from '../service/game/';
 import AdminPanelService from '../service/adminPanel';
-import PlayerServer from '../server/PlayerServer';
-import UserServer from '../server/UserServer';
-import GuildServer from '../server/GuildServer';
-import CoreServer from '../server/CoreServer';
-import SalespersonServer from '../server/SalespersonServer';
+import PlayerServer from '../servers/PlayerServer';
+import UserServer from '../servers/UserServer';
+import GuildServer from '../servers/GuildServer';
+import CoreServer from '../servers/CoreServer';
+import SalespersonServer from '../servers/SalespersonServer';
 import * as models from '../models';
 import SupportGuild from './SupportGuild';
+import { TestedModalSubitFields } from '../service/adminPanel/Monitoring';
+import { clean, Colors, discordDate } from './Util';
+import Emojis from '../res/Emojis';
+import Images from '../res/Images';
 
 /**
- * The default structure of the game servers.
+ * The default structure of the servers.
  */
-interface ServerInterface {
+interface ServersInterface {
   /**
    * The player collection on mongo db.
    */
@@ -93,7 +100,7 @@ export default class SuperClient extends Client {
   /**
    * The database collections interface.
    */
-  public readonly Server: ServerInterface = {
+  public readonly Servers: ServersInterface = {
     Player: new PlayerServer(this),
     Guild: new GuildServer(this),
     User: new UserServer(this),
@@ -133,6 +140,7 @@ export default class SuperClient extends Client {
 
   /**
    * Generates a slash command builder instance from a CommandType typed object.
+   *
    * @param commandData The command data.
    * @param builderType Specify if the builder to return concerns a command, sub command or sub command group.
    * @returns The builder instance.
@@ -173,6 +181,7 @@ export default class SuperClient extends Client {
 
   /**
    * The function to load the commands.
+   *
    * @returns Nothing.
    */
   public async loadCommands(): Promise<void> {
@@ -249,11 +258,14 @@ export default class SuperClient extends Client {
       this.Commands.add(command as unknown as CommandType);
     }
     if (defaultData.loadCommands) await this.application.commands.set(commandsList);
+
+    this.Commands.generateFullList();
   }
 
   /**
    * Launch the client after bounding events and sending commands to the API, if necessary.
    * Returns a simple string.
+   *
    * @param token The client token, if not specified before.
    * @returns A string constant "Logged in."
    */
@@ -271,5 +283,46 @@ export default class SuperClient extends Client {
     await this.loadCommands();
 
     return logged;
+  }
+
+  /**
+   * Function that send a reply based on a tested content.
+   *
+   * @param tested The tested fields of the modal.
+   * @param messages The associated messages.
+   * @param interaction The associated interaction.
+   * @returns Nothing.
+   */
+  public async printBack(
+    tested: TestedModalSubitFields,
+    messages: Record<'valid' | 'invalid', string>,
+    interaction: ChatInputCommandInteraction | ModalSubmitInteraction,
+  ): Promise<void> {
+    const finalEmbed: EmbedBuilder = new EmbedBuilder()
+      .setColor(tested.valid ? Colors.GREEN : Colors.RED)
+      .setImage(tested.valid ? Images.coloredCheck : Images.coloredCancel);
+
+    if (tested.valid) {
+      finalEmbed.setDescription(`<t:${discordDate()}:T>・${messages['valid']}`);
+
+      if (tested.errors.length > 0) {
+        finalEmbed.setImage(Images.coloredWarning);
+        finalEmbed.addFields({
+          name: `${Emojis.coloredWarning} Warnings:`,
+          value: `>>> ${tested.errors.join('\n')}`,
+        });
+      }
+    } else {
+      finalEmbed.setDescription(`<t:${discordDate()}:T>・${messages['invalid']}`);
+
+      if (tested.errors.length > 0) {
+        finalEmbed.addFields({
+          name: `${Emojis.coloredCancel} Errors:`,
+          value: `>>> ${tested.errors.join('\n')}`,
+        });
+      }
+    }
+
+    await interaction.reply({ embeds: [finalEmbed], ephemeral: true }).catch(clean);
   }
 }

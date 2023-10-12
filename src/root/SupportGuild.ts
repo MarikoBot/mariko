@@ -1,6 +1,7 @@
+import { Guild, GuildMember, Role, Snowflake } from 'discord.js';
+
 import Client from './Client';
 import ClientConfig from '../res/ClientConfig';
-import { Guild, GuildMember, Role, Snowflake } from 'discord.js';
 import { IdToGuild } from './Util';
 
 /**
@@ -21,6 +22,8 @@ export default class SupportGuild {
   public guild: Guild;
 
   /**
+   * The constructor of the support guild features.
+   *
    * @param client The client instance.
    */
   constructor(client: Client) {
@@ -29,6 +32,8 @@ export default class SupportGuild {
 
   /**
    * Refreshes the linked guild data.
+   *
+   * @returns Nothing.
    */
   public async refreshSupport(): Promise<void> {
     this.guild = await IdToGuild(this.client, this.guildId);
@@ -36,7 +41,8 @@ export default class SupportGuild {
 
   /**
    * Get the list of members for each role.
-   * @returns Nothing.
+   *
+   * @returns All members for each role.
    */
   public get membersByRole(): Record<Snowflake, GuildMember[]> {
     const record: Record<Snowflake, GuildMember[]> = {};
@@ -52,6 +58,7 @@ export default class SupportGuild {
   /**
    * Compares two persons by their id and returns a boolean that designate if
    * the first one is stronger than the second one.
+   *
    * @param sourceId The first member id.
    * @param targetId The second member id.
    * @returns The boolean that designate if the first member take the priority on the second one.
@@ -67,8 +74,8 @@ export default class SupportGuild {
     for (let k = 0; k < Object.keys(membersByRole).length; k++) {
       const roleContent: GuildMember[] = Object.entries(membersByRole)[k][1];
 
-      if (source.id in roleContent) i = k;
-      if (target.id in roleContent) j = k;
+      if (source?.id && source.id in roleContent) i = k;
+      if (target?.id && target.id in roleContent) j = k;
     }
 
     return i > j;

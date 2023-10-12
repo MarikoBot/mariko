@@ -6,6 +6,7 @@ export class Index {}
 
 /**
  * Returns an instance of this service.
+ *
  * @returns Service instance.
  */
 export default function index(): Index {

@@ -1,4 +1,5 @@
 import { Schema, model, Types } from 'mongoose';
+
 import { BloodDemonArt, BreathingStyle, Food, Race, Tool, Way, Weapon } from '../service/game/Typings';
 import { weaponNames } from '../service/game/fr/Resources';
 
@@ -7,7 +8,7 @@ import { weaponNames } from '../service/game/fr/Resources';
  */
 export interface Interface {
   /**
-   * The player mongoose ID.
+   * The player mongoose id.
    */
   id: Types.ObjectId;
   /**
@@ -15,7 +16,7 @@ export interface Interface {
    */
   date: number;
   /**
-   * The Discord ID of the user.
+   * The Discord id of the user.
    */
   discordId: string;
   /**
@@ -39,11 +40,11 @@ export interface Interface {
    */
   way: Way;
   /**
-   * The wallet of the user
+   * The wallet of the user.
    */
   wallet: number;
   /**
-   * Level of each technique category
+   * Level of each technique category.
    */
   techniqueCategoryLevels: {
     /**
@@ -96,7 +97,7 @@ export interface Interface {
    */
   weapon: {
     /**
-     * The weapon ID. If the weapon is customised, the ID written is the one associated with the added values
+     * The weapon id. If the weapon is customised, the id written is the one associated with the added values
      * of the weapon.
      */
     id: Weapon;

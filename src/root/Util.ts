@@ -1,13 +1,15 @@
 // noinspection JSUnusedGlobalSymbols
 
 import { Client, Embed, Guild, GuildBasedChannel, Message, Snowflake, User } from 'discord.js';
-import { ContextChannel } from './Context';
 import * as chalk from 'chalk';
+
+import { ContextChannel } from './Context';
 
 /**
  * Logs a message to the console.
+ *
  * @param args The message to log.
- * @returns Void.
+ * @returns Nothing.
  */
 export function log(...args: any[]): void {
   args.forEach((arg: any): any => {
@@ -18,8 +20,9 @@ export function log(...args: any[]): void {
 
 /**
  * Logs a message to the console, with the "test" tag.
+ *
  * @param args The message to log.
- * @returns Void.
+ * @returns Nothing.
  */
 export function test(...args: any[]): void {
   args.forEach((arg: any): any => {
@@ -31,8 +34,9 @@ export function test(...args: any[]): void {
 
 /**
  * Logs a message to the console, with the "error" tag.
+ *
  * @param args The message to log.
- * @returns Void.
+ * @returns Nothing.
  */
 export function err(...args: any[]): void {
   args.forEach((arg: any): any => {
@@ -43,8 +47,9 @@ export function err(...args: any[]): void {
 
 /**
  * Logs a message to the console, with the "caught error" tag.
+ *
  * @param args The message to log.
- * @returns Void.
+ * @returns Nothing.
  */
 export function caught(...args: any[]): void {
   args.forEach((arg: any): any => {
@@ -56,8 +61,9 @@ export function caught(...args: any[]): void {
 
 /**
  * Logs a message to the console, with the "clean error" tag.
+ *
  * @param args The message to log.
- * @returns Void.
+ * @returns Nothing.
  */
 export function clean(...args: any[]): void {
   args.forEach((arg: any): any => {
@@ -67,9 +73,10 @@ export function clean(...args: any[]): void {
 
 /**
  * The equivalent of setTimeout, but asynchronous.
+ *
  * @param fn The function to call.
  * @param ms The time to wait before calling the function.
- * @returns Void.
+ * @returns Nothing.
  */
 export async function timeout(fn: (...args: any[]) => any, ms: number): Promise<any> {
   await new Promise((resolve) => setTimeout(resolve, ms));
@@ -77,9 +84,10 @@ export async function timeout(fn: (...args: any[]) => any, ms: number): Promise<
 }
 
 /**
- * A function that gets the User instance with the given ID.
+ * A function that gets the User instance with the given id.
+ *
  * @param client The client instance.
- * @param user The user ID or username.
+ * @param user The user id or username.
  * @returns The User instance.
  */
 export async function IdToUser(client: Client, user: Snowflake): Promise<User> {
@@ -93,9 +101,10 @@ export async function IdToUser(client: Client, user: Snowflake): Promise<User> {
 }
 
 /**
- * A function that gets the Guild instance with the given ID.
+ * A function that gets the Guild instance with the given id.
+ *
  * @param client The client instance.
- * @param guild The guild ID or username.
+ * @param guild The guild id or username.
  * @returns The User instance.
  */
 export async function IdToGuild(client: Client, guild: Snowflake): Promise<Guild> {
@@ -109,27 +118,33 @@ export async function IdToGuild(client: Client, guild: Snowflake): Promise<Guild
 }
 
 /**
- * A function that gets the Channel instance with the given ID.
+ * A function that gets the Channel instance with the given id.
+ *
  * @param client The client instance.
- * @param guildID The guild ID.
- * @param channel The channel ID or name.
+ * @param guildId The guild id.
+ * @param channelId The channel id or name.
  * @returns The Channel instance.
  */
-export async function IdToCtxChannel(client: Client, guildID: Snowflake, channel: Snowflake): Promise<ContextChannel> {
+export async function IdToCtxChannel(
+  client: Client,
+  guildId: Snowflake,
+  channelId: Snowflake,
+): Promise<ContextChannel> {
   if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
 
-  const guild: Guild | void = await client.guilds.fetch(guildID).catch(clean);
+  const guild: Guild | void = await client.guilds.fetch(guildId).catch(clean);
   if (!guild) return;
 
-  let channelInstance: GuildBasedChannel = guild.channels.resolve(channel);
+  let channelInstance: GuildBasedChannel = guild.channels.resolve(channelId);
   if (!channelInstance)
-    channelInstance = guild.channels.cache.find((c: GuildBasedChannel): boolean => c.name.startsWith(channel));
+    channelInstance = guild.channels.cache.find((c: GuildBasedChannel): boolean => c.name.startsWith(channelId));
 
   return channelInstance as ContextChannel;
 }
 
 /**
  * Get a message embed content.
+ *
  * @param message The message to read.
  * @returns The message content.
  */
@@ -146,6 +161,7 @@ export const Vowels = ['a', 'e', 'i', 'o', 'u', 'y'] as const;
 
 /**
  * Extract the data from a string, applying a regular expression to match the data.
+ *
  * @param regexp The RegExp to match on.
  * @param str The string to test on.
  * @returns The matching value.
@@ -174,6 +190,7 @@ export const Colors = {
 
 /**
  * Capitalize the first letter of a string.
+ *
  * @param str The string to capitalize.
  * @returns The capitalized string.
  */
@@ -183,6 +200,7 @@ export function cap(str: string): string {
 
 /**
  * Returns the current date for a Discord timestamp.
+ *
  * @param date The date number.
  * @returns The string.
  */

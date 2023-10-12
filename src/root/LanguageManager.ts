@@ -26,6 +26,8 @@ export default class LanguageManager {
   public readonly client: Client;
 
   /**
+   * The constructor of the language manager.
+   *
    * @param client The client instance.
    */
   constructor(client: Client) {
@@ -34,6 +36,7 @@ export default class LanguageManager {
 
   /**
    * Get a string from the root.
+   *
    * @param key The string to get the translation from.
    * @param languageId The language to get the translation from.
    * @returns The translated string.

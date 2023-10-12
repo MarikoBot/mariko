@@ -4,9 +4,10 @@ import {
   Collection,
   CommandInteractionOption,
 } from 'discord.js';
+
 import { ApplicationCommandOptionType } from 'discord-api-types/v10';
 
-import * as Command from './Command';
+import Command from './Command';
 import CoolDownManager from './CoolDownManager';
 import InterferingManager from './InterferingManager';
 import Client from './Client';
@@ -31,9 +32,15 @@ export default class CommandManager {
   /**
    * The collection of the commands.
    */
-  public readonly commandsList: Collection<string, Command.default> = new Collection();
+  public readonly commandsList: Collection<string, Command> = new Collection();
+  /**
+   * The list including all the fullNames of each command.
+   */
+  public fullNameCommandsList: Command['data']['fullName'][] = [];
 
   /**
+   * The constructor of the command manager.
+   *
    * @param client The client instance.
    */
   constructor(client: Client) {
@@ -44,16 +51,17 @@ export default class CommandManager {
 
   /**
    * Create a command based on the name and/or some options, and returns it.
+   *
    * @param data The name and/or the options.
    * @returns The command instance.
    */
-  public create(data: string | Command.CommandType): Command.default {
+  public create(data: string | CommandType): Command {
     if (typeof data === 'string') {
       data = {
         name: data,
         description: 'No description provided.',
         execute: async (): Promise<void> => {
-          void setTimeout(() => null);
+          void setTimeout((): null => null);
         },
       };
     }
@@ -64,32 +72,62 @@ export default class CommandManager {
       data.description = 'No description provided.';
     }
 
-    return new Command.default(this.client, data);
+    return new Command(this.client, data);
   }
 
   /**
    * Add a command to the client (the bot) using the name, options or the command itself.
    * If no command is passed, the function creates one based on the data passed.
+   *
    * @param commandData The options passed (name, command options, command instance).
    * @returns The command manager instance (this).
    */
-  public add(commandData: string | Command.CommandType | Command.default): CommandManager {
-    if (commandData instanceof Command.default) {
+  public add(commandData: string | CommandType | Command): CommandManager {
+    if (commandData instanceof Command) {
       this.commandsList.set(commandData.data.name, commandData);
       return this;
     }
-    const command: Command.default = this.create(commandData);
+    const command: Command = this.create(commandData);
     this.commandsList.set(command.data.name, command);
     return this;
   }
 
   /**
+   * Generates the fullName list.
+   *
+   * @returns The list.
+   */
+  public generateFullList(): CommandManager['fullNameCommandsList'] {
+    let commandNames: string[] = [];
+    for (const command of this.commandsList.map((e: Command) => e)) {
+      commandNames.push(command.data.name);
+
+      for (const opt of command.data.options) {
+        if (opt.type === ApplicationCommandOptionType['Subcommand'])
+          commandNames.push(`${command.data.name} ${opt.name}`);
+        if (opt.type === ApplicationCommandOptionType['SubcommandGroup']) {
+          const groupNames: string[] = [];
+
+          for (const sub of opt.options) {
+            groupNames.push(`${command.data.name} ${opt.name} ${sub.name}`);
+          }
+          commandNames = commandNames.concat(groupNames);
+        }
+      }
+    }
+
+    this.fullNameCommandsList = commandNames;
+    return this.fullNameCommandsList;
+  }
+
+  /**
    * Get a command from the cache with the name.
+   *
    * @param interaction The interaction.
    * @returns The found command instance, or undefined.
    */
-  public getCommand(interaction: ChatInputCommandInteraction): Command.default | undefined {
-    let command: Command.default = this.commandsList.get(interaction.commandName);
+  public getCommand(interaction: ChatInputCommandInteraction): Command | undefined {
+    let command: Command = this.commandsList.get(interaction.commandName);
     const commandName: string = command.data.name;
     let subName: string = '';
     let groupName: string = '';

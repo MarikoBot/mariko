@@ -6,7 +6,7 @@ import { Snowflake } from 'discord.js';
  */
 export interface BlacklistData {
   /**
-   * The ID of the guild or the user.
+   * The id of the guild or the user.
    */
   id: Snowflake;
   /**
@@ -66,15 +66,29 @@ export interface CommandPrivileges {
 }
 
 /**
+ * The list of commands privileges keys.
+ */
+export const commandPrivilegesKeys: (keyof CommandPrivileges)[] = [
+  'forbiddenChannels',
+  'forbiddenGuilds',
+  'forbiddenRoles',
+  'forbiddenUsers',
+  'uniqueChannels',
+  'uniqueGuilds',
+  'uniqueRoles',
+  'uniqueUsers',
+];
+
+/**
  * The interface of a document.
  */
 export interface Interface {
   /**
-   * The mongoose ID.
+   * The mongoose id.
    */
   id: Types.ObjectId;
   /**
-   * The Discord Client ID.
+   * The Discord Client id.
    */
   clientId: Snowflake;
   /**
@@ -117,6 +131,13 @@ export const { id, ...defaultData }: Interface = {
     '751206188791627877': {
       id: '751206188791627877',
       info: 'blacklist zen permanent',
+      type: 'user',
+      commands: 'all',
+      date: Date.now(),
+    },
+    '192237963936006144': {
+      id: '192237963936006144',
+      info: 'blacklist koyamie permanent pour pédophilie',
       type: 'user',
       commands: 'all',
       date: Date.now(),

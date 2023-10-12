@@ -101,7 +101,7 @@ export type Art = {
 };
 
 /**
- * The ID of a weapon.
+ * The id of a weapon.
  */
 export type Weapon =
   | 'katana'
@@ -114,21 +114,21 @@ export type Weapon =
   | 'fleshyShotgun';
 
 /**
- * The ID of food.
+ * The id of food.
  */
 export type Food = 'onigiri';
 
 /**
- * The ID of an item.
+ * The id of an item.
  */
 export type Item = 'egg';
 
 /**
- * The ID of a tool.
+ * The id of a tool.
  */
 export type Tool = 'pickaxe';
 
 /**
- * The ID of a language.
+ * The id of a language.
  */
 export type Language = 'fr' | 'en';

@@ -54,6 +54,9 @@ export default class Command {
 
   /**
    * The constructor of the command.
+   *
+   * @param client The client instance.
+   * @param data The command type.
    */
   constructor(client: Client, data: CommandType) {
     this.client = client;
@@ -63,7 +66,8 @@ export default class Command {
 
   /**
    * End the command. Call it when you want the command to be considered as finished and remove it from the interfering queue.
-   * @returns Void.
+   *
+   * @returns Nothing.
    */
   public end(): void {
     if (!this.ctx) return;
@@ -74,11 +78,12 @@ export default class Command {
 
   /**
    * Returns if the user is authorized to execute the command.
+   *
    * @param interaction The interaction of the command.
    * @returns If the user can execute the command.
    */
   public async isAuthorized(interaction: ChatInputCommandInteraction): Promise<boolean> {
-    this.external = await this.client.Server.Core.getExternalPrivileges(this.data.fullName);
+    this.external = await this.client.Servers.Core.getExternalPrivileges(this.data.fullName);
     const missing: string[] = [];
     let privileges: string = '0b0';
     const bitsRecord: Record<keyof CommandPrivileges, string> = {

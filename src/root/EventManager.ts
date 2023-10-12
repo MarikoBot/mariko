@@ -17,6 +17,8 @@ export default class EventManager {
   public readonly events: Collection<string, Event.default> = new Collection();
 
   /**
+   * The constructor of the event manager.
+   *
    * @param client The client instance.
    */
   constructor(client: Client) {
@@ -25,6 +27,7 @@ export default class EventManager {
 
   /**
    * Add an event to the bot. Will be listened when the bot will be launched.
+   *
    * @param name The event name.
    * @param callback The function to be called back when the event is triggered.
    * @returns The bound event instance.

@@ -24,7 +24,7 @@ void client.login(process.env.TOKEN);
 
 // Refreshes the blacklist cache.
 setInterval(async (): Promise<void> => {
-  client.blacklist = (await client.Server.Core.getCore()).blacklist;
+  client.blacklist = (await client.Servers.Core.getCore()).blacklist;
 }, 30000);
 
 // Importing and managing the PM2 metrics.

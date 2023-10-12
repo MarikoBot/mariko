@@ -15,19 +15,20 @@ interface TransformedData extends models.Core.Interface {
 
 /**
  * Connects to the database.
+ *
  * @param client The Client instance.
- * @returns Void.
+ * @returns Nothing.
  */
 export default async function (client: Client): Promise<void> {
   await connect(process.env.DB_CONN_STRING as string, { dbName: 'main' });
 
   let currentData: TransformedData | { __empty: boolean } =
-    (await client.Server.Core.getCore()) as models.Core.Interface;
+    (await client.Servers.Core.getCore()) as models.Core.Interface;
   if (!currentData) currentData = { __empty: true };
   else currentData.__empty = false;
 
-  if (currentData.__empty) await client.Server.Core.createCore();
-  currentData = (await client.Server.Core.getCore()) as models.Core.Interface;
+  if (currentData.__empty) await client.Servers.Core.createCore();
+  currentData = (await client.Servers.Core.getCore()) as models.Core.Interface;
 
   const commandsPrivileges: Record<string, CommandPrivileges> = {
     'test fruit banana': { uniqueChannels: ['1139207781900099594', '1139214709061591201'] },
@@ -44,9 +45,9 @@ export default async function (client: Client): Promise<void> {
     }
   }
 
-  await client.Server.User.createUser('539842701592494111', 'en');
+  await client.Servers.User.createUser('539842701592494111', 'en');
 
   delete currentData.__empty;
   currentData.commandPrivileges = cmdPrivileges;
-  await client.Server.Core.updateCore(currentData);
+  await client.Servers.Core.updateCore(currentData);
 }

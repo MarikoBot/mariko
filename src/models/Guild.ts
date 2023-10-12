@@ -5,11 +5,11 @@ import { Schema, model, Types } from 'mongoose';
  */
 export interface Interface {
   /**
-   * The guild mongoose ID.
+   * The guild mongoose id.
    */
   id: Types.ObjectId;
   /**
-   * The Discord ID of the guild.
+   * The Discord id of the guild.
    */
   discordId: string;
   /**
