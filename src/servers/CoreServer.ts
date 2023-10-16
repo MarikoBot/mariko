@@ -1,9 +1,9 @@
 import * as models from '../models';
 import BaseServer from './BaseServer';
-import Client from '../root/Client';
+import SuperClient from '../root/SuperClient';
 import ClientConfig from '../res/ClientConfig';
 import { BlacklistData, CommandPrivileges } from '../models/Core';
-import { TestedModalSubitFields } from '../service/adminPanel/Monitoring';
+import { TestedModalSubitFields } from '../service/adminPanel/';
 
 /**
  * The core server.
@@ -14,7 +14,7 @@ export default class CoreServer extends BaseServer {
    *
    * @param client The client instance.
    */
-  constructor(client: Client) {
+  constructor(client: SuperClient) {
     super(client, models.Core as any);
   }
 

@@ -17,7 +17,6 @@ import {
   MessageEditOptions,
   ModalActionRowComponentBuilder,
   ModalBuilder,
-  PrivateThreadChannel,
   StringSelectMenuBuilder,
   StringSelectMenuOptionBuilder,
   TextInputBuilder,

@@ -1,6 +1,6 @@
 import { HydratedDocument } from 'mongoose';
 
-import Client from '../root/Client';
+import SuperClient from '../root/SuperClient';
 import { MongooseCollectionData } from '../models';
 import * as models from '../models';
 
@@ -11,7 +11,7 @@ export default class BaseServer {
   /**
    * The client instance.
    */
-  public readonly client: Client;
+  public readonly client: SuperClient;
   /**
    * The file for the collection data.
    */
@@ -27,7 +27,7 @@ export default class BaseServer {
    * @param client The client instance.
    * @param fileData The file name for the data.
    */
-  constructor(client: Client, fileData: MongooseCollectionData) {
+  constructor(client: SuperClient, fileData: MongooseCollectionData) {
     this.client = client;
     this.collectionData = fileData;
   }

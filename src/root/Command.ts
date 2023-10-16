@@ -1,6 +1,6 @@
 import { ChatInputApplicationCommandData, ChatInputCommandInteraction, GuildMemberRoleManager } from 'discord.js';
 
-import Client from './Client';
+import SuperClient from './SuperClient';
 import Context from './Context';
 import { CommandPrivileges } from '../models/Core';
 
@@ -15,7 +15,7 @@ export type CommandType = ChatInputApplicationCommandData & {
   /**
    * The function that will be executed when the command is called.
    */
-  execute: (client: Client, interaction: ChatInputCommandInteraction, ctx: Context) => Promise<void>;
+  execute: (client: SuperClient, interaction: ChatInputCommandInteraction, ctx: Context) => Promise<void>;
   /**
    * The commands that must be executed before this one.
    * If one of the interfering commands is currently running, this command will be ignored.
@@ -34,7 +34,7 @@ export default class Command {
   /**
    * The client instance.
    */
-  public readonly client: Client;
+  public readonly client: SuperClient;
   /**
    * The data of the command.
    */
@@ -58,7 +58,7 @@ export default class Command {
    * @param client The client instance.
    * @param data The command type.
    */
-  constructor(client: Client, data: CommandType) {
+  constructor(client: SuperClient, data: CommandType) {
     this.client = client;
     this.data = data;
     this.execute = data.execute;

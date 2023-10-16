@@ -2,7 +2,7 @@
 
 import { ChatInputCommandInteraction } from 'discord.js';
 
-import Client from '../../../../root/Client';
+import SuperClient from '../../../../root/SuperClient';
 import Context from '../../../../root/Context';
 import { clean } from '../../../../root/Util';
 import { CommandType } from '../../../../root/Command';
@@ -18,7 +18,7 @@ const data: CommandType = {
   },
   interferingCommands: ['cmdpriv'],
   coolDown: 10,
-  execute: async (client: Client, interaction: ChatInputCommandInteraction, ctx: Context): Promise<void> => {
+  execute: async (client: SuperClient, interaction: ChatInputCommandInteraction, ctx: Context): Promise<void> => {
     await ctx.reply('cmdpriv forbid {{ephemeral::true}}{{color::DARK}}').catch(clean);
 
     return ctx.command.end();

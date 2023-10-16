@@ -1,5 +1,4 @@
 import {
-  BaseInteraction,
   InteractionReplyOptions,
   ButtonBuilder,
   InteractionResponse,
@@ -17,13 +16,13 @@ import {
 
 import { ButtonStyle, TextInputStyle } from 'discord-api-types/v10';
 
-import Client from '../../root/Client';
+import SuperClient from '../../root/SuperClient';
 import Context from '../../root/Context';
 import { clean, Colors, discordDate, IdToGuild, IdToUser } from '../../root/Util';
-import { generatePanelRows, TestedModalSubitFields } from './Monitoring';
 import { BlacklistData } from '../../models/Core';
 import ClientConfig from '../../res/ClientConfig';
 import Emojis from '../../res/Emojis';
+import { generatePanelRows, TestedModalSubitFields } from './index';
 
 /**
  * The number of elements in the blacklist page.
@@ -41,12 +40,12 @@ export const panelButtons = (elements: number): ButtonBuilder[] => {
   return [
     new ButtonBuilder()
       .setEmoji(Emojis.lightBack)
-      .setCustomId(`blacklistPanel_previousPage`)
+      .setCustomId(`blacklist_previous`)
       .setStyle(ButtonStyle['Primary'])
       .setDisabled(buttonsDisabled),
     new ButtonBuilder()
       .setEmoji(Emojis.lightNext)
-      .setCustomId(`blacklistPanel_nextPage`)
+      .setCustomId(`blacklist_next`)
       .setStyle(ButtonStyle['Primary'])
       .setDisabled(buttonsDisabled),
   ];
@@ -82,7 +81,7 @@ export const mainEmbed = async (
 
       const blElement: BlacklistData = blacklist[i];
       embed.addFields({
-        name: Emojis.invisibleSquare,
+        name: `${Emojis.invisibleSquare}\`${i}\``,
         value:
           `\`\`\`diff\n- ${blElement.type}: ${blElement.id}\n\`\`\`` +
           `**・Infos:** ${blElement.info}\n` +
@@ -105,7 +104,7 @@ export default class Blacklisting {
   /**
    * The client instance.
    */
-  public client: Client;
+  public client: SuperClient;
   /**
    * The context instance.
    */
@@ -117,7 +116,7 @@ export default class Blacklisting {
    * @param client The client instance.
    * @param ctx The context of the panel.
    */
-  constructor(client: Client, ctx: Context) {
+  constructor(client: SuperClient, ctx: Context) {
     this.client = client;
     this.ctx = ctx;
   }
@@ -198,7 +197,7 @@ export default class Blacklisting {
           label: 'The id of the guild/server',
           minLength: 18,
           maxLength: 20,
-          placeholder: 'Right click the element to copy theid.',
+          placeholder: 'Right click the element to copy the id.',
           style: TextInputStyle['Short'],
           id: 'id',
           required: true,
@@ -241,7 +240,7 @@ export default class Blacklisting {
    * @param inter The associated interaction.
    * @returns Nothing.
    */
-  public async displayRemoveModal(inter: ButtonInteraction): Promise<void> {
+  public async displayRemoveModal(inter: ChatInputCommandInteraction): Promise<void> {
     const modal: ModalBuilder = this.ctx.transformModalData({
       customId: 'blacklist_remove',
       title: '➖ Remove an element from the blacklist',
@@ -299,27 +298,25 @@ export default class Blacklisting {
       if (fetchedType !== typeValue) {
         tested.valid = false;
         tested.errors.push(
-          `${Emojis.coloredForbidden} Type **${typeValue}** cannot be associated with **${fetchedType}** object for \`${idValue}\`.`,
+          `Type **${typeValue}** cannot be associated with **${fetchedType}** object for \`${idValue}\`.`,
         );
       }
     } else
       tested.errors.push(
-        `${Emojis.coloredWarning} No **${typeValue}** was found for \`${idValue}\`. This warning can occur when the ${typeValue} is not available by the bot.`,
+        `No **${typeValue}** was found for \`${idValue}\`. This warning can occur when the ${typeValue} is not available by the bot.`,
       );
 
     if (!ClientConfig.commandsListRegexp.test(commandsValue)) {
       tested.valid = false;
       tested.errors.push(
-        `${Emojis.coloredForbidden} \`${commandsValue}\` string must follow the below rule:\`\`\`fix\n${ClientConfig.commandsListRegexp}\`\`\`` +
+        `\`${commandsValue}\` string must follow the below rule:\`\`\`fix\n${ClientConfig.commandsListRegexp}\`\`\`` +
           `Example:\`\`\`fix\ninfo, help, test fruits\`\`\`*(You can specify longer names to exclude only subcommands from the blacklisted entry.)*`,
       );
     }
 
     if (!(await this.client.supportGuild.takesPriority(authorId, idValue))) {
       tested.valid = false;
-      tested.errors.push(
-        `${Emojis.coloredForbidden} You can't blacklist **${tested.name}** because they are equal or higher than you.`,
-      );
+      tested.errors.push(`You can't blacklist **${tested.name}** because they are equal or higher than you.`);
     }
 
     const blacklist: BlacklistData[] = await this.client.Servers.Core.getBlacklist();
@@ -327,13 +324,13 @@ export default class Blacklisting {
     if (blacklist.map((e: BlacklistData) => e.id).includes(idValue)) {
       tested.valid = false;
       tested.errors.push(
-        `${Emojis.coloredForbidden} Object \`${tested.name}\` is already blacklisted. If you want to change informations, remove it before.`,
+        `Object \`${tested.name}\` is already blacklisted. If you want to change informations, remove it before.`,
       );
     }
 
     if (!['user', 'guild'].includes(typeValue)) {
       tested.valid = false;
-      tested.errors.push(`${Emojis.coloredForbidden} Type **${typeValue}** must be type user or guild.`);
+      tested.errors.push(`Type **${typeValue}** must be type user or guild.`);
     }
 
     return tested;
@@ -359,7 +356,7 @@ export default class Blacklisting {
 
     if (!ClientConfig.numbersRegexp.test(indexValue)) {
       tested.valid = false;
-      tested.errors.push(`${Emojis.coloredForbidden} \`${indexValue}\` value must be a number.`);
+      tested.errors.push(`\`${indexValue}\` value must be a number.`);
     }
 
     const blacklist: BlacklistData[] = await this.client.Servers.Core.getBlacklist();
@@ -368,8 +365,9 @@ export default class Blacklisting {
     if (Number(indexValue) > blacklistLength) {
       tested.valid = false;
       tested.errors.push(
-        `${Emojis.coloredForbidden} There aren't as many elements in the blacklist. ` +
-          `\`${indexValue}\` is out of range \`${0}-${blacklistLength - 1}\`.`,
+        `There aren't as many elements in the blacklist. \`${indexValue}\` is out of range \`${0}-${
+          blacklistLength - 1
+        }\`.`,
       );
     }
 

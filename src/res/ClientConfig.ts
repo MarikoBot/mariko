@@ -1,4 +1,4 @@
-import { ActivityType, Presence, PresenceData } from 'discord.js';
+import { ActivityType, PresenceData } from 'discord.js';
 
 /*
   The default data for the client.

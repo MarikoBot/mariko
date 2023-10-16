@@ -1,7 +1,7 @@
 import { EmbedBuilder, Snowflake, TextChannel, Webhook, WebhookMessageCreateOptions } from 'discord.js';
 
 import { clean, IdToCtxChannel } from './root/Util';
-import Client from './root/Client';
+import SuperClient from './root/SuperClient';
 import { ContextChannel } from './root/Context';
 import { Colors } from './root/Util';
 
@@ -125,7 +125,7 @@ export function renderWebhooksEmbeds(content: string): EmbedBuilder[] {
  * @returns Nothing.
  */
 export async function webhookSend(
-  client: Client,
+  client: SuperClient,
   avatar: string,
   title: string,
   channelId: Snowflake,
@@ -148,7 +148,7 @@ export async function webhookSend(
  * @param client The client instance.
  * @returns Nothing.
  */
-export default async function (client: Client): Promise<void> {
+export default async function (client: SuperClient): Promise<void> {
   const embeds: EmbedBuilder[] = renderWebhooksEmbeds('dojo_rules');
   /* await webhookSend(
     client,

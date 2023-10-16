@@ -135,13 +135,6 @@ export const { id, ...defaultData }: Interface = {
       commands: 'all',
       date: Date.now(),
     },
-    '192237963936006144': {
-      id: '192237963936006144',
-      info: 'blacklist koyamie permanent pour pédophilie',
-      type: 'user',
-      commands: 'all',
-      date: Date.now(),
-    },
   },
   commandPrivileges: {},
   status: 'online',

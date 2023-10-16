@@ -4,7 +4,7 @@ import { Snowflake } from 'discord.js';
 
 import * as models from '../models';
 import BaseServer from './BaseServer';
-import Client from '../root/Client';
+import SuperClient from '../root/SuperClient';
 
 /**
  * The guild server.
@@ -15,7 +15,7 @@ export default class GuildServer extends BaseServer {
    *
    * @param client The client instance.
    */
-  constructor(client: Client) {
+  constructor(client: SuperClient) {
     super(client, models.Guild as any);
   }
 

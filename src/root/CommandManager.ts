@@ -10,7 +10,7 @@ import { ApplicationCommandOptionType } from 'discord-api-types/v10';
 import Command from './Command';
 import CoolDownManager from './CoolDownManager';
 import InterferingManager from './InterferingManager';
-import Client from './Client';
+import SuperClient from './SuperClient';
 import { CommandType } from './Command';
 
 /**
@@ -20,7 +20,7 @@ export default class CommandManager {
   /**
    * The client instance.
    */
-  public readonly client: Client;
+  public readonly client: SuperClient;
   /**
    * The cool down manager instance, to have access to the different delays of the current commands.
    */
@@ -43,7 +43,7 @@ export default class CommandManager {
    *
    * @param client The client instance.
    */
-  constructor(client: Client) {
+  constructor(client: SuperClient) {
     this.client = client;
     this.CoolDowns = new CoolDownManager(this.client);
     this.Interfering = new InterferingManager(this.client);

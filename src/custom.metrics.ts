@@ -1,6 +1,6 @@
 import * as io from '@pm2/io';
 import Gauge from '@pm2/io/build/main/utils/metrics/gauge';
-import Client from './root/Client';
+import SuperClient from './root/SuperClient';
 import { Collection, Guild, OAuth2Guild, User } from 'discord.js';
 import { clean } from './root/Util';
 
@@ -39,7 +39,7 @@ export function customMetrics(players: number, guilds: number, users: number): v
  * @param client The client.
  * @returns Nothing.
  */
-export default async function showMetrics(client: Client): Promise<void> {
+export default async function showMetrics(client: SuperClient): Promise<void> {
   const guilds: Collection<string, Guild | OAuth2Guild> =
     (await client.guilds.fetch().catch(clean)) || new Collection();
   const users: Collection<string, User> = client.users.cache || new Collection();

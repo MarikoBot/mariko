@@ -1,5 +1,4 @@
 import {
-  ActionRowBuilder,
   BaseMessageOptions,
   ButtonBuilder,
   ButtonInteraction,
@@ -8,41 +7,19 @@ import {
   Guild,
   InteractionResponse,
   Message,
-  ModalActionRowComponent,
   OAuth2Guild,
   User,
 } from 'discord.js';
 
 import { ButtonStyle } from 'discord-api-types/v10';
 
-import Client from '../../root/Client';
+import SuperClient from '../../root/SuperClient';
 import { clean, Colors, discordDate } from '../../root/Util';
 import Context from '../../root/Context';
 import { SubscriptionsData } from '../../servers/UserServer';
 import { BlacklistData } from '../../models/Core';
 import Emojis from '../../res/Emojis';
-
-/**
- * The interface that represents the formatted data to a validation function.
- */
-export interface TestedModalSubitFields {
-  /**
-   * If the form is valid.
-   */
-  valid: boolean;
-  /**
-   * The values of the field.
-   */
-  data: Collection<string, ModalActionRowComponent>;
-  /**
-   * The list of errors.
-   */
-  errors: string[];
-  /**
-   * Entry name. The user username or the guild name. Only if available.
-   */
-  name: string;
-}
+import { generatePanelRows } from './index';
 
 /**
  * Get the current panel embed.
@@ -51,7 +28,7 @@ export interface TestedModalSubitFields {
  * @param color The color name for the embed.
  * @returns The built embed.
  */
-export const mainEmbed = async (client: Client, color?: keyof typeof Colors): Promise<EmbedBuilder> => {
+export const mainEmbed = async (client: SuperClient, color?: keyof typeof Colors): Promise<EmbedBuilder> => {
   let colorValue: (typeof Colors)[keyof typeof Colors] = Colors.DARK;
   if (color) colorValue = Colors[color];
 
@@ -100,43 +77,12 @@ export const mainEmbed = async (client: Client, color?: keyof typeof Colors): Pr
 };
 
 /**
- * An empty button for the panel.
- *
- * @param id The id of the empty button to avoid duplicate custom id issues.
- * @returns A empty button.
- */
-export const emptyButton = (id: string): ButtonBuilder =>
-  new ButtonBuilder()
-    .setStyle(ButtonStyle['Secondary'])
-    .setDisabled(true)
-    .setCustomId(`autoDefer_adminPanel_${id}`)
-    .setEmoji('▪️');
-
-/**
  * The list of buttons for the panel.
  */
 export const panelButtons: ButtonBuilder[] = [
-  new ButtonBuilder().setEmoji(Emojis.lightRefresh).setCustomId('adminPanel_refresh').setStyle(ButtonStyle['Primary']),
-  new ButtonBuilder().setEmoji(Emojis.lightPing).setCustomId('adminPanel_ping').setStyle(ButtonStyle['Primary']),
+  new ButtonBuilder().setEmoji(Emojis.lightRefresh).setCustomId('monitoring_refresh').setStyle(ButtonStyle['Primary']),
+  new ButtonBuilder().setEmoji(Emojis.lightPing).setCustomId('monitoring_ping').setStyle(ButtonStyle['Primary']),
 ];
-
-/**
- * Generate the rows from the panel buttons list.
- *
- * @param buttons The buttons to display.
- * @returns The buttons list.
- */
-export function generatePanelRows(buttons: ButtonBuilder[]): ActionRowBuilder<ButtonBuilder>[] {
-  const actionsRows: ActionRowBuilder<ButtonBuilder>[] = [];
-  for (let i: number = 0; i < buttons.length; i++) {
-    if (i % 5 === 0) actionsRows.push(new ActionRowBuilder());
-    actionsRows[actionsRows.length - 1].addComponents(buttons[i]);
-  }
-  for (let j: number = actionsRows[actionsRows.length - 1].components.length; j < 5; j++)
-    actionsRows[actionsRows.length - 1].addComponents(emptyButton(String(j)));
-
-  return actionsRows;
-}
 
 /**
  * The default class of the file.
@@ -146,7 +92,7 @@ export class Monitoring {
   /**
    * The client of the service.
    */
-  public client: Client;
+  public client: SuperClient;
   /**
    * The message where the admin panel is sent.
    */
@@ -162,7 +108,7 @@ export class Monitoring {
    * @param client The client instance.
    * @param ctx The context of the panel.
    */
-  constructor(client: Client, ctx: Context) {
+  constructor(client: SuperClient, ctx: Context) {
     this.client = client;
     this.ctx = ctx;
   }

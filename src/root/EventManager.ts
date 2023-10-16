@@ -1,7 +1,7 @@
 import { Collection } from 'discord.js';
 
 import * as Event from './Event';
-import Client from './Client';
+import SuperClient from './SuperClient';
 
 /**
  * Represents the event manager for the client service.
@@ -10,7 +10,7 @@ export default class EventManager {
   /**
    * The client instance.
    */
-  public readonly client: Client;
+  public readonly client: SuperClient;
   /**
    * The collection of the events.
    */
@@ -21,7 +21,7 @@ export default class EventManager {
    *
    * @param client The client instance.
    */
-  constructor(client: Client) {
+  constructor(client: SuperClient) {
     this.client = client;
   }
 

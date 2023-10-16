@@ -1,6 +1,6 @@
-import { Guild, GuildMember, Role, Snowflake } from 'discord.js';
+import { Guild, GuildMember, Snowflake } from 'discord.js';
 
-import Client from './Client';
+import SuperClient from './SuperClient';
 import ClientConfig from '../res/ClientConfig';
 import { IdToGuild } from './Util';
 
@@ -11,7 +11,7 @@ export default class SupportGuild {
   /**
    * The client instance.
    */
-  public readonly client: Client;
+  public readonly client: SuperClient;
   /**
    * The linked support guild id.
    */
@@ -26,7 +26,7 @@ export default class SupportGuild {
    *
    * @param client The client instance.
    */
-  constructor(client: Client) {
+  constructor(client: SuperClient) {
     this.client = client;
   }
 
@@ -74,8 +74,10 @@ export default class SupportGuild {
     for (let k = 0; k < Object.keys(membersByRole).length; k++) {
       const roleContent: GuildMember[] = Object.entries(membersByRole)[k][1];
 
-      if (source?.id && source.id in roleContent) i = k;
-      if (target?.id && target.id in roleContent) j = k;
+      if (source?.id && roleContent.map((guildMember: GuildMember): Snowflake => guildMember.id).includes(source.id))
+        i = k;
+      if (target?.id && roleContent.map((guildMember: GuildMember): Snowflake => guildMember.id).includes(target.id))
+        j = k;
     }
 
     return i > j;

@@ -2,7 +2,7 @@ import { Snowflake, User } from 'discord.js';
 
 import * as models from '../models';
 import BaseServer from './BaseServer';
-import Client from '../root/Client';
+import SuperClient from '../root/SuperClient';
 import { Language } from '../service/game/Typings';
 import { clean } from '../root/Util';
 
@@ -33,7 +33,7 @@ export default class UserServer extends BaseServer {
    *
    * @param client The client instance.
    */
-  constructor(client: Client) {
+  constructor(client: SuperClient) {
     super(client, models.User as any);
   }
 

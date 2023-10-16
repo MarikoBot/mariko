@@ -1,4 +1,4 @@
-import Client from './Client';
+import SuperClient from './SuperClient';
 import fr from './strings/Fr';
 import en from './strings/En';
 import { Language } from '../service/game/Typings';
@@ -23,14 +23,14 @@ export default class LanguageManager {
   /**
    * The client instance.
    */
-  public readonly client: Client;
+  public readonly client: SuperClient;
 
   /**
    * The constructor of the language manager.
    *
    * @param client The client instance.
    */
-  constructor(client: Client) {
+  constructor(client: SuperClient) {
     this.client = client;
   }
 

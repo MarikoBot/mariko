@@ -1,9 +1,10 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { Client, Embed, Guild, GuildBasedChannel, Message, Snowflake, User } from 'discord.js';
+import { Embed, Guild, GuildBasedChannel, Message, Snowflake, User } from 'discord.js';
 import * as chalk from 'chalk';
 
 import { ContextChannel } from './Context';
+import SuperClient from './SuperClient';
 
 /**
  * Logs a message to the console.
@@ -90,8 +91,8 @@ export async function timeout(fn: (...args: any[]) => any, ms: number): Promise<
  * @param user The user id or username.
  * @returns The User instance.
  */
-export async function IdToUser(client: Client, user: Snowflake): Promise<User> {
-  if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
+export async function IdToUser(client: SuperClient, user: Snowflake): Promise<User> {
+  if (!client || !(client instanceof SuperClient)) throw new Error('Invalid client provided.');
 
   let userInstance: User | void = await client.users.fetch(user).catch(clean);
   if (!userInstance) {
@@ -107,8 +108,8 @@ export async function IdToUser(client: Client, user: Snowflake): Promise<User> {
  * @param guild The guild id or username.
  * @returns The User instance.
  */
-export async function IdToGuild(client: Client, guild: Snowflake): Promise<Guild> {
-  if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
+export async function IdToGuild(client: SuperClient, guild: Snowflake): Promise<Guild> {
+  if (!client || !(client instanceof SuperClient)) throw new Error('Invalid client provided.');
 
   let guildInstance: Guild | void = await client.guilds.fetch(guild).catch(clean);
   if (!guildInstance) {
@@ -126,11 +127,11 @@ export async function IdToGuild(client: Client, guild: Snowflake): Promise<Guild
  * @returns The Channel instance.
  */
 export async function IdToCtxChannel(
-  client: Client,
+  client: SuperClient,
   guildId: Snowflake,
   channelId: Snowflake,
 ): Promise<ContextChannel> {
-  if (!client || !(client instanceof Client)) throw new Error('Invalid client provided.');
+  if (!client || !(client instanceof SuperClient)) throw new Error('Invalid client provided.');
 
   const guild: Guild | void = await client.guilds.fetch(guildId).catch(clean);
   if (!guild) return;

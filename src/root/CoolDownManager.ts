@@ -1,6 +1,6 @@
 import { Collection, Snowflake } from 'discord.js';
 
-import Client from './Client';
+import SuperClient from './SuperClient';
 
 /**
  * Represents an element in the cool downs queue.
@@ -27,7 +27,7 @@ export default class CoolDownManager {
   /**
    * The client instance.
    */
-  public readonly client: Client;
+  public readonly client: SuperClient;
   /**
    * The collection of the current cool downs.
    */
@@ -38,7 +38,7 @@ export default class CoolDownManager {
    *
    * @param client The client instance.
    */
-  constructor(client: Client) {
+  constructor(client: SuperClient) {
     this.client = client;
   }
 

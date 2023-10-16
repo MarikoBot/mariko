@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction, Collection, Snowflake } from 'discord.js';
 
-import Client from './Client';
+import SuperClient from './SuperClient';
 
 /**
  * Represents an element in the interfering commands queue.
@@ -24,7 +24,7 @@ export default class InterferingManager {
   /**
    * The client instance.
    */
-  public readonly client: Client;
+  public readonly client: SuperClient;
   /**
    * The collection of the current cool downs.
    */
@@ -35,7 +35,7 @@ export default class InterferingManager {
    *
    * @param client The client instance.
    */
-  constructor(client: Client) {
+  constructor(client: SuperClient) {
     this.client = client;
   }
 

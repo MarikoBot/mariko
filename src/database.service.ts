@@ -1,5 +1,5 @@
 import { connect } from 'mongoose';
-import Client from './root/Client';
+import SuperClient from './root/SuperClient';
 import * as models from './models/index';
 import { CommandPrivileges } from './models/Core';
 
@@ -19,7 +19,7 @@ interface TransformedData extends models.Core.Interface {
  * @param client The Client instance.
  * @returns Nothing.
  */
-export default async function (client: Client): Promise<void> {
+export default async function (client: SuperClient): Promise<void> {
   await connect(process.env.DB_CONN_STRING as string, { dbName: 'main' });
 
   let currentData: TransformedData | { __empty: boolean } =

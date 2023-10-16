@@ -4,10 +4,10 @@ import * as chalk from 'chalk';
 dotenv.config();
 
 // Importing the client
-import Client from './root/Client';
+import SuperClient from './root/SuperClient';
 
 // Creating a new instance of the client
-const client: Client = new Client();
+const client: SuperClient = new SuperClient();
 
 // Importing the database service and launch the client if the connection is successful.
 import dbService from './database.service';
