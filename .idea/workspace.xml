@@ -9,64 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="Really ? Waw">
-      <change beforePath="$PROJECT_DIR$/.idea/icon.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/custom.metrics.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/database.service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/events/interactionCreate/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/events/interactionCreate/interactions/AnySelectMenuInteraction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/events/interactionCreate/interactions/ButtonInteraction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/events/interactionCreate/interactions/ChatInputCommandInteraction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/events/interactionCreate/interactions/ModalSubmitInteraction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/events/ready/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Guild.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Player.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Salesperson.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/User.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/post.exec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/ClientConfig.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/Emojis.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/Images.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/system/blacklist/add.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/system/blacklist/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/system/blacklist/list.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/system/blacklist/remove.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/system/cmdpriv/forbid.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/system/cmdpriv/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/system/cmdpriv/restrict.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/commands/system/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Command.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/CommandManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Context.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/CoolDownManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Event.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/EventManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/InterferingManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/LanguageManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/SuperClient.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/SupportGuild.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/Util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/strings/En.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/strings/Fr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/strings/Shortcuts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/servers/BaseServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/servers/CoreServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/servers/GuildServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/servers/PlayerServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/servers/SalespersonServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/servers/UserServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/Blacklisting.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/Monitoring.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/adminPanel/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/Data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/Typings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/fr/BloodDemonArts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/fr/BreathingStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/fr/Resources.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/game/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/CommandManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/CommandManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/root/SuperClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/SuperClient.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/CommandManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/CommandManager.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/SuperClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/SuperClient.ts" afterDir="false" />
@@ -351,7 +296,8 @@
       <workItem from="1697899357787" duration="8000" />
       <workItem from="1697984953311" duration="1286000" />
       <workItem from="1698046841436" duration="15000" />
-      <workItem from="1698048603859" duration="1117000" />
+      <workItem from="1698048603859" duration="1828000" />
+      <workItem from="1698073626093" duration="593000" />
     </task>
     <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
       <option name="closed" value="true" />
@@ -521,7 +467,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697445853914</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Really ? Waw">
+      <option name="closed" value="true" />
+      <created>1698049815084</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1698049815084</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

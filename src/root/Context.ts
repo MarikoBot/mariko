@@ -15,6 +15,7 @@ import {
   Message,
   MessageActionRowComponent,
   MessageEditOptions,
+  MessageReplyOptions,
   ModalActionRowComponentBuilder,
   ModalBuilder,
   StringSelectMenuBuilder,
@@ -555,7 +556,7 @@ export default class Context {
    * @returns The message instance, or null if not sent.
    */
   public async reply(
-    messageData: BaseMessageOptions | string,
+    messageData: MessageReplyOptions | string,
     interaction: Context['interaction'] = this.interaction,
   ): Promise<Message | InteractionResponse | null> {
     if (!this.channel.isTextBased()) return null;

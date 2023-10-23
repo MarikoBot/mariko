@@ -164,16 +164,11 @@ export default class SuperClient extends Client {
         Object.assign({ 'en-US': commandData.description }, commandData.descriptionLocalizations || {}),
       );
 
-    if (builderType === 'slash') {
-      commandData = commandData as ChatInputApplicationCommandData;
-      builder = builder as SlashCommandBuilder;
-      builder
-        .setNSFW(commandData.nsfw || false)
-        .setDMPermission(commandData.dmPermission || false)
-        .setDefaultMemberPermissions(
-          commandData.defaultMemberPermissions?.toString() || PermissionFlagsBits['ViewChannel'],
-        );
-    }
+    if (builderType === 'slash')
+      builder = CommandManager.buildSlashCommand(
+        commandData as ChatInputApplicationCommandData,
+        builder as SlashCommandBuilder,
+      );
 
     return builder;
   }

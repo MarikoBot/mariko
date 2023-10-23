@@ -1,8 +1,20 @@
 import {
   ApplicationCommandOptionData,
+  ChatInputApplicationCommandData,
   ChatInputCommandInteraction,
   Collection,
   CommandInteractionOption,
+  PermissionFlagsBits,
+  SlashCommandAttachmentOption,
+  SlashCommandBooleanOption,
+  SlashCommandBuilder,
+  SlashCommandChannelOption,
+  SlashCommandIntegerOption,
+  SlashCommandMentionableOption,
+  SlashCommandNumberOption,
+  SlashCommandRoleOption,
+  SlashCommandStringOption,
+  SlashCommandUserOption,
 } from 'discord.js';
 
 import { ApplicationCommandOptionType } from 'discord-api-types/v10';
@@ -158,5 +170,61 @@ export default class CommandManager {
 
     command.data.fullName = `${commandName} ${groupName} ${subName}`;
     return command;
+  }
+
+  /**
+   * Build a slash command with options on it.
+   * @param commandData The data of the command
+   * @param builder The already built organ.
+   * @returns The built slash command.
+   */
+  public static buildSlashCommand(
+    commandData: ChatInputApplicationCommandData,
+    builder: SlashCommandBuilder,
+  ): SlashCommandBuilder {
+    builder
+      .setNSFW(commandData.nsfw || false)
+      .setDMPermission(commandData.dmPermission || false)
+      .setDefaultMemberPermissions(
+        commandData.defaultMemberPermissions?.toString() || PermissionFlagsBits['ViewChannel'],
+      );
+
+    if (!commandData.options) return builder;
+
+    for (const opt of commandData.options) {
+      switch (opt.type) {
+        case ApplicationCommandOptionType['Attachment']:
+          builder.addAttachmentOption(opt as SlashCommandAttachmentOption);
+          break;
+        case ApplicationCommandOptionType['Boolean']:
+          builder.addBooleanOption(opt as SlashCommandBooleanOption);
+          break;
+        case ApplicationCommandOptionType['Channel']:
+          builder.addChannelOption(opt as SlashCommandChannelOption);
+          break;
+        case ApplicationCommandOptionType['Integer']:
+          builder.addIntegerOption(opt as SlashCommandIntegerOption);
+          break;
+        case ApplicationCommandOptionType['Mentionable']:
+          builder.addMentionableOption(opt as SlashCommandMentionableOption);
+          break;
+        case ApplicationCommandOptionType['Number']:
+          builder.addNumberOption(opt as SlashCommandNumberOption);
+          break;
+        case ApplicationCommandOptionType['Role']:
+          builder.addRoleOption(opt as SlashCommandRoleOption);
+          break;
+        case ApplicationCommandOptionType['String']:
+          builder.addStringOption(opt as SlashCommandStringOption);
+          break;
+        case ApplicationCommandOptionType['User']:
+          builder.addUserOption(opt as SlashCommandUserOption);
+          break;
+        default:
+          break;
+      }
+    }
+
+    return builder;
   }
 }
