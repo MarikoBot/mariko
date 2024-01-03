@@ -2,5 +2,6 @@
 .idea
 pm2log
 node_modules
+
 .env
 package-lock.json
