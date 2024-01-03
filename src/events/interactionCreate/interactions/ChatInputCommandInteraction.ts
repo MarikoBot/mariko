@@ -16,6 +16,7 @@ export default async function chatInputCommandInteraction(
   client: SuperClient,
   interaction: ChatInputCommandInteraction,
 ): Promise<void> {
+  console.log(interaction.options);
   const command: Command | undefined = client.Commands.getCommand(interaction);
   if (!command) return;
   const ctx: Context = new Context(interaction.channel, command, interaction, interaction.user);

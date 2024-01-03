@@ -1,64 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="ANALYZE_INJECTED_CODE" value="false" />
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="Really ? Waw">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/CommandManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/CommandManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/root/SuperClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/root/SuperClient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/CommandManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/CommandManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/Context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/SuperClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/SuperClient.ts" afterDir="false" />
-    </list>
-    <list id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="">
+    <list default="true" id="ab3e5e01-2fa8-4779-aa8d-d7ffcabb0280" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/panda.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/events/interactionCreate/interactions/ChatInputCommandInteraction.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/events/interactionCreate/interactions/ChatInputCommandInteraction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/interactionCreate/interactions/ChatInputCommandInteraction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/interactionCreate/interactions/ChatInputCommandInteraction.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-        <option value="TypeScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;elouannh&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="f14269eb-7f39-428b-b311-4a6b57c97374" />
-        <option name="url" value="https://github.com/MarikoBot/mariko.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/node_modules/discord.js/typings/index.d.ts" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2UJ6J6gTxjzrV25AAQl5cvIdcRM" />
+  <component name="ProjectId" id="2YU6mzrBoEUhsaz9XT332zbkelm" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -67,62 +40,29 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.5.1&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.5.1&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/OneDrive/Documents/Projects/mariko&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/panda/OneDrive/Documents/customers/techtavernbot/techtavernbot&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettier.import.notification.dismissed&quot;: &quot;true&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\panda\\OneDrive\\Documents\\Projects\\mariko\\node_modules\\prettier&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\panda\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
+    ]
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\panda\OneDrive\Documents\Projects\mariko\src\res\temp" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\panda\OneDrive\Documents\Projects\mariko\src\service\adminPanel" />
-    </key>
-  </component>
-  <component name="RunManager" selected="npm.build">
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="process" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="process" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.start">
     <configuration name="prod" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -133,21 +73,11 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="resproc" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="resproc" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="stopproc" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="stopproc" />
+        <script value="start" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -155,361 +85,40 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.prod" />
-        <item itemvalue="npm.stopproc" />
-        <item itemvalue="npm.resproc" />
-        <item itemvalue="npm.process" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="1" Folder0="C:\Users\panda\OneDrive\Documents\Dicos" CustomDictionaries="1" CustomDictionary0="C:\Users\panda\OneDrive\Documents\Dicos\fr.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8fc9366d-b72b-4228-b556-04a1df9a356a" name="Changes" comment="" />
-      <changelist id="e596dc53-cb31-442e-8eec-90daf1c322e8" name="DO NOT TOUCH" comment="" />
-      <created>1692645261169</created>
+      <changelist id="ab3e5e01-2fa8-4779-aa8d-d7ffcabb0280" name="Changes" comment="" />
+      <created>1700567974432</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1692645261169</updated>
-      <workItem from="1692645262795" duration="684000" />
-      <workItem from="1692697514422" duration="693000" />
-      <workItem from="1692705186147" duration="890000" />
-      <workItem from="1692706369115" duration="36000" />
-      <workItem from="1692706566483" duration="183000" />
-      <workItem from="1692706760053" duration="805000" />
-      <workItem from="1692722310239" duration="883000" />
-      <workItem from="1692782871059" duration="6637000" />
-      <workItem from="1692797054634" duration="2654000" />
-      <workItem from="1692871308827" duration="4119000" />
-      <workItem from="1692883707681" duration="3382000" />
-      <workItem from="1692889121002" duration="3833000" />
-      <workItem from="1692895656870" duration="8047000" />
-      <workItem from="1692948849525" duration="4089000" />
-      <workItem from="1692970513910" duration="1641000" />
-      <workItem from="1692984747396" duration="517000" />
-      <workItem from="1692988685228" duration="593000" />
-      <workItem from="1693061799847" duration="352000" />
-      <workItem from="1693065203782" duration="3772000" />
-      <workItem from="1693181042868" duration="92000" />
-      <workItem from="1693408508454" duration="108000" />
-      <workItem from="1693417228083" duration="68000" />
-      <workItem from="1693418978024" duration="203000" />
-      <workItem from="1693474024988" duration="13398000" />
-      <workItem from="1693502508118" duration="4388000" />
-      <workItem from="1693519168045" duration="6247000" />
-      <workItem from="1693557517182" duration="1112000" />
-      <workItem from="1693674013473" duration="243000" />
-      <workItem from="1693674271662" duration="68000" />
-      <workItem from="1693674647705" duration="221000" />
-      <workItem from="1693729683879" duration="7906000" />
-      <workItem from="1693836566944" duration="10330000" />
-      <workItem from="1693849544859" duration="1695000" />
-      <workItem from="1693861995772" duration="335000" />
-      <workItem from="1693865663817" duration="638000" />
-      <workItem from="1693906704580" duration="9834000" />
-      <workItem from="1693994406675" duration="1351000" />
-      <workItem from="1693998803880" duration="940000" />
-      <workItem from="1694078016898" duration="272000" />
-      <workItem from="1694368472477" duration="595000" />
-      <workItem from="1694424293825" duration="2229000" />
-      <workItem from="1694433370023" duration="3910000" />
-      <workItem from="1694693090227" duration="508000" />
-      <workItem from="1694693616182" duration="6643000" />
-      <workItem from="1694707626297" duration="7189000" />
-      <workItem from="1694724856779" duration="1218000" />
-      <workItem from="1694771777715" duration="13901000" />
-      <workItem from="1694853898215" duration="11708000" />
-      <workItem from="1695023231431" duration="471000" />
-      <workItem from="1695037427675" duration="4670000" />
-      <workItem from="1695042732338" duration="32000" />
-      <workItem from="1695042775518" duration="5284000" />
-      <workItem from="1695064071463" duration="5700000" />
-      <workItem from="1695388101456" duration="88000" />
-      <workItem from="1695479369854" duration="826000" />
-      <workItem from="1695481034847" duration="9841000" />
-      <workItem from="1695505277333" duration="2827000" />
-      <workItem from="1695546611831" duration="12370000" />
-      <workItem from="1695581477793" duration="1897000" />
-      <workItem from="1695593527494" duration="639000" />
-      <workItem from="1695755131578" duration="48000" />
-      <workItem from="1695893748186" duration="3034000" />
-      <workItem from="1696012699424" duration="1210000" />
-      <workItem from="1696275103787" duration="3000" />
-      <workItem from="1696282276882" duration="8000" />
-      <workItem from="1696400209874" duration="892000" />
-      <workItem from="1696409799767" duration="966000" />
-      <workItem from="1696420434260" duration="4071000" />
-      <workItem from="1696587991662" duration="641000" />
-      <workItem from="1696601636085" duration="12829000" />
-      <workItem from="1696840113911" duration="17000" />
-      <workItem from="1696841267936" duration="939000" />
-      <workItem from="1696850894179" duration="2418000" />
-      <workItem from="1696853904258" duration="1592000" />
-      <workItem from="1696920475920" duration="374000" />
-      <workItem from="1696921522716" duration="2625000" />
-      <workItem from="1696925358508" duration="297000" />
-      <workItem from="1696928626041" duration="1391000" />
-      <workItem from="1696930471050" duration="996000" />
-      <workItem from="1696931653126" duration="269000" />
-      <workItem from="1696931934666" duration="226000" />
-      <workItem from="1696936309898" duration="220000" />
-      <workItem from="1696936539096" duration="322000" />
-      <workItem from="1696936873759" duration="1589000" />
-      <workItem from="1696939706693" duration="1877000" />
-      <workItem from="1697003687561" duration="503000" />
-      <workItem from="1697007492717" duration="3662000" />
-      <workItem from="1697011575041" duration="40000" />
-      <workItem from="1697013142361" duration="4912000" />
-      <workItem from="1697022691275" duration="1826000" />
-      <workItem from="1697031401377" duration="658000" />
-      <workItem from="1697095261649" duration="6066000" />
-      <workItem from="1697103112718" duration="3388000" />
-      <workItem from="1697113112190" duration="30000" />
-      <workItem from="1697113270208" duration="81000" />
-      <workItem from="1697113920227" duration="594000" />
-      <workItem from="1697114804891" duration="154000" />
-      <workItem from="1697134727646" duration="2406000" />
-      <workItem from="1697137190680" duration="1841000" />
-      <workItem from="1697139148102" duration="25000" />
-      <workItem from="1697139183712" duration="123000" />
-      <workItem from="1697147645187" duration="2213000" />
-      <workItem from="1697181212985" duration="711000" />
-      <workItem from="1697182433612" duration="37000" />
-      <workItem from="1697183030688" duration="2815000" />
-      <workItem from="1697190742576" duration="370000" />
-      <workItem from="1697198188833" duration="600000" />
-      <workItem from="1697202759844" duration="742000" />
-      <workItem from="1697230009827" duration="670000" />
-      <workItem from="1697272609744" duration="12279000" />
-      <workItem from="1697294492811" duration="594000" />
-      <workItem from="1697358444061" duration="1253000" />
-      <workItem from="1697368760129" duration="4095000" />
-      <workItem from="1697391648424" duration="1116000" />
-      <workItem from="1697439285288" duration="6297000" />
-      <workItem from="1697462521647" duration="1338000" />
-      <workItem from="1697706261852" duration="3158000" />
-      <workItem from="1697818984770" duration="40000" />
-      <workItem from="1697821553481" duration="192000" />
-      <workItem from="1697821921400" duration="223000" />
-      <workItem from="1697896089149" duration="161000" />
-      <workItem from="1697899357787" duration="8000" />
-      <workItem from="1697984953311" duration="1286000" />
-      <workItem from="1698046841436" duration="15000" />
-      <workItem from="1698048603859" duration="1828000" />
-      <workItem from="1698073626093" duration="593000" />
+      <updated>1700567974432</updated>
+      <workItem from="1700567975636" duration="390000" />
+      <workItem from="1701263656485" duration="1432000" />
+      <workItem from="1701536525188" duration="593000" />
+      <workItem from="1701538690967" duration="1198000" />
+      <workItem from="1701608374097" duration="2460000" />
+      <workItem from="1702416088134" duration="1172000" />
+      <workItem from="1702456830033" duration="10000" />
+      <workItem from="1703103803456" duration="87000" />
+      <workItem from="1703154003541" duration="122000" />
+      <workItem from="1703414786726" duration="2208000" />
+      <workItem from="1703950495040" duration="611000" />
+      <workItem from="1703953974263" duration="3315000" />
+      <workItem from="1703966920669" duration="605000" />
+      <workItem from="1704114088363" duration="392000" />
+      <workItem from="1704114497774" duration="655000" />
+      <workItem from="1704117020655" duration="101000" />
+      <workItem from="1704131994347" duration="23000" />
     </task>
-    <task id="LOCAL-00001" summary="Two first buttons of the admin panel">
-      <option name="closed" value="true" />
-      <created>1692905729107</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1692905729107</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Two first buttons of the admin panel">
-      <option name="closed" value="true" />
-      <created>1692905822006</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1692905822006</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Two first buttons of the admin panel">
-      <option name="closed" value="true" />
-      <created>1692906510714</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1692906510714</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Two first buttons of the admin panel">
-      <option name="closed" value="true" />
-      <created>1692956231743</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1692956231743</updated>
-    </task>
-    <task id="LOCAL-00005" summary=":art: Improved code docstring and removed useless code.">
-      <option name="closed" value="true" />
-      <created>1693406225358</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1693406225358</updated>
-    </task>
-    <task id="LOCAL-00006" summary=":art: Improved code docstring and removed useless code.">
-      <option name="closed" value="true" />
-      <created>1693406375472</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1693406375472</updated>
-    </task>
-    <task id="LOCAL-00007" summary=":art: Improved code docstring and removed useless code.">
-      <option name="closed" value="true" />
-      <created>1693408557233</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1693408557233</updated>
-    </task>
-    <task id="LOCAL-00008" summary=":art: Improved code docstring and removed useless code.">
-      <option name="closed" value="true" />
-      <created>1693408575848</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1693408575848</updated>
-    </task>
-    <task id="LOCAL-00009" summary=":rocket: Finished browsing buttons on the admin panel.">
-      <option name="closed" value="true" />
-      <created>1693525207778</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1693525207778</updated>
-    </task>
-    <task id="LOCAL-00010" summary=":safety_vest: Project files changes">
-      <option name="closed" value="true" />
-      <created>1693525477235</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1693525477235</updated>
-    </task>
-    <task id="LOCAL-00011" summary=":art: Improved the blacklist panel structure and made usable pagination.">
-      <option name="closed" value="true" />
-      <created>1693852002890</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1693852002890</updated>
-    </task>
-    <task id="LOCAL-00012" summary="🚑 Fixed warnings and errors of the project.">
-      <option name="closed" value="true" />
-      <created>1693915129270</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1693915129270</updated>
-    </task>
-    <task id="LOCAL-00013" summary=":building_construction: Changes on the builder. Importing re-compiled JavaScript files.">
-      <option name="closed" value="true" />
-      <created>1693916108617</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1693916108617</updated>
-    </task>
-    <task id="LOCAL-00014" summary=":rocket: Merging a lot of stuff.">
-      <option name="closed" value="true" />
-      <created>1695037819520</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1695037819520</updated>
-    </task>
-    <task id="LOCAL-00015" summary=":rocket: Finished blacklist navigation for the admin panel.">
-      <option name="closed" value="true" />
-      <created>1695044394213</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1695044394213</updated>
-    </task>
-    <task id="LOCAL-00016" summary=":rocket: Finished blacklist navigation for the admin panel.">
-      <option name="closed" value="true" />
-      <created>1695044441379</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1695044441379</updated>
-    </task>
-    <task id="LOCAL-00017" summary=":art: Performed code inspection.">
-      <option name="closed" value="true" />
-      <created>1695044767607</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1695044767607</updated>
-    </task>
-    <task id="LOCAL-00018" summary=":zap: Added priority to blacklisting.">
-      <option name="closed" value="true" />
-      <created>1695069689470</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1695069689470</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Noice">
-      <option name="closed" value="true" />
-      <created>1697149821723</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1697149821723</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Noice">
-      <option name="closed" value="true" />
-      <created>1697149870319</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1697149870319</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Really ? Waw">
-      <option name="closed" value="true" />
-      <created>1697445853914</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1697445853914</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Really ? Waw">
-      <option name="closed" value="true" />
-      <created>1698049815084</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1698049815084</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Two first buttons of the admin panel" />
-    <MESSAGE value=":art: Improved code docstring and removed useless code." />
-    <MESSAGE value=":rocket: Finished browsing buttons on the admin panel." />
-    <MESSAGE value=":safety_vest: Project files changes" />
-    <MESSAGE value=":art: Improved the blacklist panel structure and made usable pagination." />
-    <MESSAGE value=" Fixed warnings and errors of the project." />
-    <MESSAGE value=":building_construction: Changes on the builder. Importing re-compiled JavaScript files." />
-    <MESSAGE value=":rocket: Merging a lot of stuff." />
-    <MESSAGE value=":rocket: Finished blacklist navigation for the admin panel." />
-    <MESSAGE value=":art: Performed code inspection." />
-    <MESSAGE value=":zap: Added priority to blacklisting." />
-    <MESSAGE value="Noice" />
-    <MESSAGE value="Really ? Waw" />
-    <option name="LAST_COMMIT_MESSAGE" value="Really ? Waw" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
